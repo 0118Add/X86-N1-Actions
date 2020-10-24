@@ -43,6 +43,3 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lea
 #git clone https://github.com/8688Add/https-dns-proxy.git package/applications/luci-app-https-dns-proxy-whisky
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 #git clone https://github.com/riverscn/openwrt-iptvhelper.git package/luci-app-iptvhelper
-
-./scripts/feeds update -a
-./scripts/feeds install -a
