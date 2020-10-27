@@ -12,20 +12,21 @@ name: OpenWrt-N1
 
 on:
   repository_dispatch:
+    types: [N1,sshN1]
   workflow_dispatch:
     inputs:
       ssh:
-        description: 'SSH connection to Actions'
+        description: 'N1'
         required: false
         default: 'false'
-#  schedule:
-#    - cron: 0 8 * * 5
+  schedule:
+    - cron: 00 17 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config
+  CONFIG_FILE: N1.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   Update_Ver_SH: autoVersion.sh
