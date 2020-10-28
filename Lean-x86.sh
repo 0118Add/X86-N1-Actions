@@ -1,6 +1,6 @@
-# °æ±¾ºÅÀïÏÔÊ¾Ò»¸ö×Ô¼ºµÄÃû×Ö£¨BGG build $(TZ=UTC-8 date "+%Y.%m.%d") @ ÕâĞ©¶¼ÊÇºóÔö¼ÓµÄ£©
+# ç‰ˆæœ¬å·é‡Œæ˜¾ç¤ºä¸€ä¸ªè‡ªå·±çš„åå­—ï¼ˆBGG build $(TZ=UTC-8 date "+%Y.%m.%d") @ è¿™äº›éƒ½æ˜¯åå¢åŠ çš„ï¼‰
 #sed -i "s/OpenWrt /BGG build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
-#Ê¹ÓÃÔ´Âë×Ô´øShadowSocksR Plus+³ö¹úÈí¼ş
+#ä½¿ç”¨æºç è‡ªå¸¦ShadowSocksR Plus+å‡ºå›½è½¯ä»¶
 sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=4.19/g' target/linux/x86/Makefile
 sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=4.19/g' target/linux/x86/Makefile
@@ -26,34 +26,37 @@ git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-a
 #git clone https://github.com/siropboy/mypackages.git package/luci-app-koolddns
 
 
-# ĞŞ¸ÄopenwrtµÇÂ½µØÖ·,°ÑÏÂÃæµÄ192.168.2.2ĞŞ¸Ä³ÉÄãÏëÒªµÄ¾Í¿ÉÒÔÁË
+# ä¿®æ”¹openwrtç™»é™†åœ°å€,æŠŠä¸‹é¢çš„192.168.2.2ä¿®æ”¹æˆä½ æƒ³è¦çš„å°±å¯ä»¥äº†
 #sed -i 's/192.168.1.1/192.168.2.2/g' package/base-files/files/bin/config_generate
 
-# ĞŞ¸ÄÖ÷»úÃû×Ö£¬°ÑOpenWrt-123ĞŞ¸ÄÄãÏ²»¶µÄ¾ÍĞĞ£¨²»ÄÜ´¿Êı×Ö»òÕßÊ¹ÓÃÖĞÎÄ£©
+# ä¿®æ”¹ä¸»æœºåå­—ï¼ŒæŠŠOpenWrt-123ä¿®æ”¹ä½ å–œæ¬¢çš„å°±è¡Œï¼ˆä¸èƒ½çº¯æ•°å­—æˆ–è€…ä½¿ç”¨ä¸­æ–‡ï¼‰
 #sed -i '/uci commit system/i\uci set system.@system[0].hostname='OpenWrt-123'' package/lean/default-settings/files/zzz-default-settings
 
-# °æ±¾ºÅÀïÏÔÊ¾Ò»¸ö×Ô¼ºµÄÃû×Ö£¨281677160 build $(TZ=UTC-8 date "+%Y.%m.%d") @ ÕâĞ©¶¼ÊÇºóÔö¼ÓµÄ£©
+# ç‰ˆæœ¬å·é‡Œæ˜¾ç¤ºä¸€ä¸ªè‡ªå·±çš„åå­—ï¼ˆ281677160 build $(TZ=UTC-8 date "+%Y.%m.%d") @ è¿™äº›éƒ½æ˜¯åå¢åŠ çš„ï¼‰
 #sed -i "s/OpenWrt /281677160 build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
-# ĞŞ¸Ä argon ÎªÄ¬ÈÏÖ÷Ìâ,¿É¸ù¾İÄãÏ²»¶µÄĞŞ¸Ä³ÉÆäËûµÄ£¨²»Ñ¡ÔñÄÇĞ©»á×Ô¶¯¸Ä±äÎªÄ¬ÈÏÖ÷ÌâµÄÖ÷Ìâ²ÅÓĞĞ§¹û£©
+# ä¿®æ”¹ argon ä¸ºé»˜è®¤ä¸»é¢˜,å¯æ ¹æ®ä½ å–œæ¬¢çš„ä¿®æ”¹æˆå…¶ä»–çš„ï¼ˆä¸é€‰æ‹©é‚£äº›ä¼šè‡ªåŠ¨æ”¹å˜ä¸ºé»˜è®¤ä¸»é¢˜çš„ä¸»é¢˜æ‰æœ‰æ•ˆæœï¼‰
 #sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
-# ÉèÖÃÃÜÂëÎª¿Õ£¨°²×°¹Ì¼şÊ±ÎŞĞèÃÜÂëµÇÂ½£¬È»ºó×Ô¼ºĞŞ¸ÄÏëÒªµÄÃÜÂë£©
+# è®¾ç½®å¯†ç ä¸ºç©ºï¼ˆå®‰è£…å›ºä»¶æ—¶æ— éœ€å¯†ç ç™»é™†ï¼Œç„¶åè‡ªå·±ä¿®æ”¹æƒ³è¦çš„å¯†ç ï¼‰
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
-# ĞŞ¸Ä²å¼şÃû×Ö£¨ĞŞ¸ÄÃû×Öºó²»ÖªµÀ»á²»»á¶Ô²å¼ş¹¦ÄÜÓĞÓ°Ïì£¬×Ô¼º¶à²âÊÔ£©
-#sed -i 's/"BaiduPCS Web"/"°Ù¶ÈÍøÅÌ"/g' package/lean/luci-app-baidupcs-web/luasrc/controller/baidupcs-web.lua
-#sed -i 's/cbi("qbittorrent"),_("qBittorrent")/cbi("qbittorrent"),_("BTÏÂÔØ")/g' package/lean/luci-app-qbittorrent/luasrc/controller/qbittorrent.lua
-#sed -i 's/"aMuleÉèÖÃ"/"µçÂ¿ÏÂÔØ"/g' package/lean/luci-app-amule/po/zh-cn/amule.po
-#sed -i 's/"ÍøÂç´æ´¢"/"´æ´¢"/g' package/lean/luci-app-amule/po/zh-cn/amule.po
-#sed -i 's/"ÍøÂç´æ´¢"/"´æ´¢"/g' package/lean/luci-app-vsftpd/po/zh-cn/vsftpd.po
-#sed -i 's/"Turbo ACC ÍøÂç¼ÓËÙ"/"ÍøÂç¼ÓËÙ"/g' package/lean/luci-app-flowoffload/po/zh-cn/flowoffload.po
-#sed -i 's/"Turbo ACC ÍøÂç¼ÓËÙ"/"ÍøÂç¼ÓËÙ"/g' package/lean/luci-app-sfe/po/zh-cn/sfe.po
-#sed -i 's/"ÊµÊ±Á÷Á¿¼à²â"/"Á÷Á¿"/g' package/lean/luci-app-wrtbwmon/po/zh-cn/wrtbwmon.po
-#sed -i 's/"KMS ·şÎñÆ÷"/"KMS¼¤»î"/g' package/lean/luci-app-vlmcsd/po/zh-cn/vlmcsd.zh-cn.po
-#sed -i 's/"TTYD ÖÕ¶Ë"/"ÃüÁî´°"/g' package/lean/luci-app-ttyd/po/zh-cn/terminal.po
-#sed -i 's/"USB ´òÓ¡·şÎñÆ÷"/"´òÓ¡·şÎñ"/g' package/lean/luci-app-usb-printer/po/zh-cn/usb-printer.po
-#sed -i 's/"ÍøÂç´æ´¢"/"´æ´¢"/g' package/lean/luci-app-usb-printer/po/zh-cn/usb-printer.po
-#sed -i 's/"Web ¹ÜÀí"/"Web"/g' package/lean/luci-app-webadmin/po/zh-cn/webadmin.po
-#sed -i 's/"¹ÜÀíÈ¨"/"¸ÄÃÜÂë"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
-#sed -i 's/"´ø¿í¼à¿Ø"/"¼àÊÓ"/g' feeds/luci/applications/luci-app-nlbwmon/po/zh-cn/nlbwmon.po
+# ä¿®æ”¹æ’ä»¶åå­—ï¼ˆä¿®æ”¹åå­—åä¸çŸ¥é“ä¼šä¸ä¼šå¯¹æ’ä»¶åŠŸèƒ½æœ‰å½±å“ï¼Œè‡ªå·±å¤šæµ‹è¯•ï¼‰
+#sed -i 's/"BaiduPCS Web"/"ç™¾åº¦ç½‘ç›˜"/g' package/lean/luci-app-baidupcs-web/luasrc/controller/baidupcs-web.lua
+#sed -i 's/cbi("qbittorrent"),_("qBittorrent")/cbi("qbittorrent"),_("BTä¸‹è½½")/g' package/lean/luci-app-qbittorrent/luasrc/controller/qbittorrent.lua
+#sed -i 's/"aMuleè®¾ç½®"/"ç”µé©´ä¸‹è½½"/g' package/lean/luci-app-amule/po/zh-cn/amule.po
+#sed -i 's/"ç½‘ç»œå­˜å‚¨"/"å­˜å‚¨"/g' package/lean/luci-app-amule/po/zh-cn/amule.po
+#sed -i 's/"ç½‘ç»œå­˜å‚¨"/"å­˜å‚¨"/g' package/lean/luci-app-vsftpd/po/zh-cn/vsftpd.po
+#sed -i 's/"Turbo ACC ç½‘ç»œåŠ é€Ÿ"/"ç½‘ç»œåŠ é€Ÿ"/g' package/lean/luci-app-flowoffload/po/zh-cn/flowoffload.po
+#sed -i 's/"Turbo ACC ç½‘ç»œåŠ é€Ÿ"/"ç½‘ç»œåŠ é€Ÿ"/g' package/lean/luci-app-sfe/po/zh-cn/sfe.po
+#sed -i 's/"å®æ—¶æµé‡ç›‘æµ‹"/"æµé‡"/g' package/lean/luci-app-wrtbwmon/po/zh-cn/wrtbwmon.po
+#sed -i 's/"KMS æœåŠ¡å™¨"/"KMSæ¿€æ´»"/g' package/lean/luci-app-vlmcsd/po/zh-cn/vlmcsd.zh-cn.po
+#sed -i 's/"TTYD ç»ˆç«¯"/"å‘½ä»¤çª—"/g' package/lean/luci-app-ttyd/po/zh-cn/terminal.po
+#sed -i 's/"USB æ‰“å°æœåŠ¡å™¨"/"æ‰“å°æœåŠ¡"/g' package/lean/luci-app-usb-printer/po/zh-cn/usb-printer.po
+#sed -i 's/"ç½‘ç»œå­˜å‚¨"/"å­˜å‚¨"/g' package/lean/luci-app-usb-printer/po/zh-cn/usb-printer.po
+#sed -i 's/"Web ç®¡ç†"/"Web"/g' package/lean/luci-app-webadmin/po/zh-cn/webadmin.po
+#sed -i 's/"ç®¡ç†æƒ"/"æ”¹å¯†ç "/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
+#sed -i 's/"å¸¦å®½ç›‘æ§"/"ç›‘è§†"/g' feeds/luci/applications/luci-app-nlbwmon/po/zh-cn/nlbwmon.po
+
+./scripts/feeds update -a
+./scripts/feeds install -a
