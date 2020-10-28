@@ -12,11 +12,11 @@ name: Lean-X86
 
 on:
   repository_dispatch:
-    types: [Lean-x86,sshLean-x86]
+    types: [Lean-X86,sshLean-X86]
   workflow_dispatch:
     inputs:
       ssh:
-        description: 'Lean-x86'
+        description: 'Lean-X86'
         required: false
         default: 'false'
 #  schedule:
@@ -26,10 +26,10 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: Lean-x86.config
+  CONFIG_FILE: Lean-X86.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: Lean-x86.sh
-  MRG_ADD_SH: Lean-x86.sh
+  DIY_P2_SH: Lean-X86.sh
+  MRG_ADD_SH: Lean-X86.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
