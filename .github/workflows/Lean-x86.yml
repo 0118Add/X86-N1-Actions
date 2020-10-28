@@ -12,6 +12,7 @@ name: Lean-x86
 
 on:
   repository_dispatch:
+    types: [Lean-x86,sshLean-x86]
   workflow_dispatch:
     inputs:
       ssh:
