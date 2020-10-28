@@ -1,12 +1,12 @@
-name: x64开发版
+name: Lean-x64
 
 on:
   repository_dispatch:
-    types: [kx64,sshkx64]
+    types: [Lean-x64,sshLean-x64]
   workflow_dispatch:
     inputs:
       ssh:
-        description: 'kx64'
+        description: 'Lean-x64'
         required: false
         default: 'false'
   schedule:
@@ -15,7 +15,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: x64.config
+  CONFIG_FILE: Lean-x64.config
   DIY_SH: bin.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: false
@@ -23,15 +23,15 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_COWTRANSFER: false
   TZ: Asia/Shanghai
-  FILE_NAME: x64开发版
+  FILE_NAME: Lean-x64
 
 jobs:
   build:
     runs-on: ubuntu-18.04
 
     steps:
-    - name: WeChat notification
-      run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.FILE_NAME }}开始编译
+    #- name: WeChat notification
+    #  run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.FILE_NAME }}开始编译
       
     - name: Checkout
       uses: actions/checkout@main
@@ -72,11 +72,7 @@ jobs:
         chmod +x $DIY_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_SH
-        sed -i 's/OpenWrt/Bin AutoBuild ${{ env.DATE1 }} @ OpenWrt/g' package/lean/default-settings/files/zzz-default-settings
-        sed -i '/lede/ { s/org/org\/snapshots/g }' package/lean/default-settings/files/zzz-default-settings
-        sed -i '/openwrt_luci/ { s/sed/# sed/g; }'  package/lean/default-settings/files/zzz-default-settings
-        sed -i 's#https://mirrors.cloud.tencent.com/lede#http://256pd.top:9666/开发版/x64/bin#g' package/lean/default-settings/files/zzz-default-settings
-
+        
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'sshkx64')
@@ -136,9 +132,9 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.UPLOAD_RELEASE == 'true' && steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: ${{ env.DATE }} 🚀 x64开发版 | 自动编译
+        name: ${{ env.DATE }} 🚀 Lean-x64 | 自动编译
         allowUpdates: true
-        tag: x64开发版
+        tag: Lean-x64
         commit: master
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
