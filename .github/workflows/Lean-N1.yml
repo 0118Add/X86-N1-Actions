@@ -8,15 +8,15 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt-N1
+name: Lean-N1
 
 on:
   repository_dispatch:
-    types: [N1,sshN1]
+    types: [Lean-N1,sshLean-N1]
   workflow_dispatch:
     inputs:
       ssh:
-        description: 'N1'
+        description: 'Lean-N1'
         required: false
         default: 'false'
 #  schedule:
@@ -26,10 +26,10 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: N1.config
+  CONFIG_FILE: Lean-N1.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  MRG_ADD_SH: N1.sh
+  MRG_ADD_SH: Lean-N1.sh
   Update_Ver_SH: autoVersion.sh
   DOCKER_BUILD_SH: buildImage.sh
   UPLOAD_BIN_DIR: false
