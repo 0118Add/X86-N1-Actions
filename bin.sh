@@ -1,13 +1,14 @@
 #!/bin/bash
-
-# Modify default IP
+# 修改默认IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
-
-#使用源码自带ShadowSocksR Plus+出国软件
-#sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
-
+# 修改默认主题
+#sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+#修改主机名
+sed -i 's/OpenWrt/Bin-Lean/g' package/base-files/files/bin/config_generate
+#关闭自建私有源签名验证
+sed -i '92d' package/system/opkg/Makefile
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
-sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
+#sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
 #git clone https://github.com/lisaac/luci-app-dockerman.git package/openwrt-packages/luci-app-dockerman
