@@ -72,7 +72,7 @@ jobs:
         sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")")
+        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
         echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV    
