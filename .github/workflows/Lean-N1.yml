@@ -39,6 +39,7 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   FILE_NAME: Lean-N1
+  PRODUCT_NAME: Lean-N1
 
 jobs:
   build:
@@ -204,12 +205,13 @@ jobs:
       uses: ncipollo/release-action@v1
       if: env.UPLOAD_RELEASE == 'true' && steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: R${{ env.DATE }} 🚀 Lean-N1 | 自动编译
+        name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
         allowUpdates: true
-        tag: Lean-N1
+        tag: ${{ env.FILE_NAME }}
         commit: master
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
+          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*    
 
