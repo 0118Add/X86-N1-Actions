@@ -38,9 +38,7 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: ARMv8
-  PRODUCT_NAME: ARMv8
-
+  
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -72,11 +70,7 @@ jobs:
         sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
-        echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
-        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
-        echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV  
-    
+        
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
@@ -201,16 +195,23 @@ jobs:
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"
 
-    - name: Create release
-      id: release
-      uses: ncipollo/release-action@v1
+    - name: Generate tag
+      id: tag
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      run: |
+        echo "::set-env name=RELEASE_TAG::$(date +"%Y.%m.%d-%H")"
+        echo "🚀 ARMv8" >> release.txt
+        echo "🔗 [Cowtransfer](${{ env.COWTRANSFER_URL }})" >> release.txt
+        echo "🔗 [WeTransfer](${{ env.WETRANSFER_URL }})" >> release.txt
+        echo "::set-output name=status::success"
+    
+    - name: Upload firmware to release
+      uses: softprops/action-gh-release@v1
+      if: steps.tag.outputs.status == 'success' && !cancelled()
+      env:
+        GITHUB_TOKEN: ${{ secrets.RAC_TOKEN }}
       with:
-        name: R${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
-        allowUpdates: true
-        tag: ${{ env.FILE_NAME }}
-        commit: master
-        token: ${{ secrets.RELEASES_TOKEN }}
-        body: |
-          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          ${{ env.useVersionInfo }}
-        artifacts: ${{ env.FIRMWARE }}/*    
+        tag_name: ${{ env.RELEASE_TAG }}
+        body: ARMv8 | 自动编译
+        body_path: release.txt
+        files: ${{ env.FIRMWARE }}/*    
