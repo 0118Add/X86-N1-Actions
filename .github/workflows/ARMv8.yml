@@ -212,6 +212,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ env.RELEASE_TAG }}
-        body: ARMv8 | 自动编译
+        body: ARMv8 | 自动编译打包
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*    
