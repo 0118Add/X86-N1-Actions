@@ -70,7 +70,11 @@ jobs:
         sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        
+        useVersionInfo=$(git show -s --date=short --format="编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录:<br/>更新人: %an<br/>更新时间: %cd<br/>更新内容: %s<br/>哈希值: %H")
+        echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y年%m月%d日%H时%M分")" >> $GITHUB_ENV
+        echo "DATE1=$(date "+%Y.%m.%d")" >> $GITHUB_ENV
+    
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
@@ -211,7 +215,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
+        name: ${{ env.DATE }} 🚀 ARMv8 | 自动编译
+        allowUpdates: true
         tag_name: ${{ env.RELEASE_TAG }}
         body: ARMv8 | 自动编译打包
+          ${{ env.useVersionInfo }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*    
