@@ -216,7 +216,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         name: ${{ env.DATE }} 🚀 ARMv8 | 自动编译
-        allowUpdates: true
         tag_name: ${{ env.RELEASE_TAG }}
         body: | 
           ARMv8 🚀 自动编译打包
