@@ -181,15 +181,14 @@ jobs:
       id: release
       uses: ncipollo/release-action@v1
       with:
-        name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
-        allowUpdates: true
-        tag: ${{ env.FILE_NAME }}
+        name: ${{ env.DATE }} 🚀 ARMv8 | 自动编译
+        tag: ${{ env.RELEASE_TAG }}
         commit: master
-        token: ${{ secrets.RELEASES_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         body: |
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
-        artifacts: ${{ env.FIRMWARE }}/*
+        files: ${{ env.FIRMWARE }}/*
     
     - name: WeChat notification
       if: steps.organize.outputs.status == 'success' && !cancelled()
