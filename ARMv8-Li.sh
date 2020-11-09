@@ -50,6 +50,7 @@ git clone https://github.com/tuanqing/install-program package/install-program
 svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/redsocks2
 
 #赋予koolddns权限
 chmod 0755 package/openwrt-packages/luci-app-koolddns/root/etc/init.d/koolddns
