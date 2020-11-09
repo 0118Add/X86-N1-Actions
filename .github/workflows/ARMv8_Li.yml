@@ -1,4 +1,4 @@
-name: ARMv8_F
+name: ARMv8_Li
 
 on:
   repository_dispatch:
@@ -8,20 +8,20 @@ on:
     branches:
       - master
     paths:
-      - 'ARMv8.config'
+      - 'ARMv8-Li.config'
 #  schedule:
 #    - cron: 0 16 * * *
   watch:
     types: started
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/Lienol/openwrt
+  REPO_BRANCH: 19.07
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ARMv8.config
+  CONFIG_FILE: ARMv8-Li.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  MRG_ADD_SH: ARMv8.sh
+  MRG_ADD_SH: ARMv8-Li.sh
   Update_Ver_SH: autoVersion.sh
   Get_Imgs_SH: getImgs.sh
   DOCKER_BUILD_SH: buildImage.sh
@@ -32,7 +32,7 @@ env:
   UPLOAD_WETRANSFER: false
   TZ: Asia/Shanghai
   FILE_NAME: ARMv8
-  PRODUCT_NAME: ARMv8_F
+  PRODUCT_NAME: ARMv8_Li
 jobs:
   build:
     runs-on: ubuntu-18.04
