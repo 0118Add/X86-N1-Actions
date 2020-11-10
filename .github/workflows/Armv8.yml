@@ -8,15 +8,15 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: ARMv8
+name: Armv8
 
 on:
   repository_dispatch:
-    types: [ARMv8,sshARMv8]
+    types: [Armv8,sshArmv8]
   workflow_dispatch:
     inputs:
       ssh:
-        description: 'ARMv8'
+        description: 'Armv8'
         required: false
         default: 'false'
 #  schedule:
@@ -26,10 +26,10 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ARMv8.config
+  CONFIG_FILE: Armv8.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  MRG_ADD_SH: ARMv8.sh
+  MRG_ADD_SH: Armv8.sh
   Update_Ver_SH: autoVersion.sh
   DOCKER_BUILD_SH: buildImage.sh
   UPLOAD_BIN_DIR: false
@@ -204,7 +204,7 @@ jobs:
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
         echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H")"
-        echo "🚀 ARMv8" >> release.txt
+        echo "🚀 Armv8" >> release.txt
         echo "🔗 [Cowtransfer](${{ env.COWTRANSFER_URL }})" >> release.txt
         echo "🔗 [WeTransfer](${{ env.WETRANSFER_URL }})" >> release.txt
         echo "::set-output name=status::success"
@@ -215,10 +215,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: ${{ env.DATE }} 🚀 ARMv8 | 自动编译
+        name: ${{ env.DATE }} 🚀 Armv8 | 自动编译
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body: | 
-          ARMv8 🚀 自动编译打包
+          Armv8 🚀 自动编译打包
           ${{ env.useVersionInfo }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*    
