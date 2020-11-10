@@ -203,7 +203,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "::set-env name=RELEASE_TAG::$(date +"%Y.%m.%d-%H")"
+        echo "::set-output name=RELEASE_TAG::$(date +"%Y.%m.%d-%H")"
         echo "🚀 ARMv8" >> release.txt
         echo "🔗 [Cowtransfer](${{ env.COWTRANSFER_URL }})" >> release.txt
         echo "🔗 [WeTransfer](${{ env.WETRANSFER_URL }})" >> release.txt
