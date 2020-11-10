@@ -53,6 +53,8 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost pack
 svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/diy/luci-app-ssr-plus
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/diy/redsocks2
+svn co https://github.com/xiaorouji/openwrt-package/trunk/lienol/luci-app-passwall package/lean/luci-app-passwall
+svn co https://github.com/xiaorouji/openwrt-package/trunk/package package/lean/package
 
 #赋予koolddns权限
 chmod 0755 package/openwrt-packages/luci-app-koolddns/root/etc/init.d/koolddns
