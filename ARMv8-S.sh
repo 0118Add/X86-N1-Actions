@@ -35,6 +35,7 @@ sed -i '$a src-git lienol https://github.com/xiaorouji/openwrt-package' feeds.co
 #svn co https://github.com/siropboy/mypackages/trunk/luci-app-control-timewol package/openwrt-packages/luci-app-control-timewol
 #git clone https://github.com/tty228/luci-app-serverchan.git package/openwrt-packages/luci-app-serverchan
 git clone https://github.com/8688Add/luci-app-adbyby-plus-special.git package/luci-app-adbyby-plus-ram_edition-special
+rm -rf package/lean/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
