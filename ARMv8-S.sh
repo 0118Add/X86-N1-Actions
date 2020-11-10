@@ -48,6 +48,7 @@ git clone https://github.com/bin20088/luci-app-koolddns.git package/luci-app-koo
 git clone https://github.com/tuanqing/install-program package/install-program
 #svn co https://github.com/0saga0/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-gost package/lean/luci-app-gost
+svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/lean/gost
 svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/diy/luci-app-ssr-plus
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/diy/redsocks2
