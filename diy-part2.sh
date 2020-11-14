@@ -51,6 +51,11 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-
 svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/lean/gost
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+#添加udp2raw
+#git clone https://github.com/sensec/openwrt-udp2raw package/openwrt-udp2raw
+#git clone https://github.com/sensec/luci-app-udp2raw package/luci-app-udp2raw
+#sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f2f90a9a150be94d50af555b53657a2a4309f287/" package/openwrt-udp2raw/Makefile
+#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
 
 #赋予koolddns权限
 chmod 0755 package/openwrt-packages/luci-app-koolddns/root/etc/init.d/koolddns
