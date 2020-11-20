@@ -23,8 +23,8 @@ sed -i '$a src-git lienol https://github.com/xiaorouji/openwrt-package' feeds.co
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
-#rm -rf package/lean/luci-app-dockerman
-#git clone https://github.com/lisaac/luci-app-dockerman.git package/lean/luci-app-dockerman
+rm -rf package/lean/luci-app-dockerman
+git clone https://github.com/lisaac/luci-app-dockerman.git package/lean/luci-app-dockerman
 #svn co https://github.com/xiaorouji/openwrt-package/trunk/package/brook package/brook
 #svn co https://github.com/xiaorouji/openwrt-package/trunk/package/chinadns-ng package/chinadns-ng
 #svn co https://github.com/xiaorouji/openwrt-package/trunk/package/trojan-go package/trojan-go
