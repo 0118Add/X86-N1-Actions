@@ -59,8 +59,8 @@ svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
 
 #赋予koolddns权限
-chmod 0755 package/openwrt-packages/luci-app-koolddns/root/etc/init.d/koolddns
-chmod 0755 package/openwrt-packages/luci-app-koolddns/root/usr/share/koolddns/aliddns
+chmod 0755 package/luci-app-koolddns/root/etc/init.d/koolddns
+chmod 0755 package/luci-app-koolddns/root/usr/share/koolddns/aliddns
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
