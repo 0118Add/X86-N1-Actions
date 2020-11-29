@@ -15,7 +15,7 @@
 
 
 #使用源码自带ShadowSocksR Plus+出国软件
-#sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
+sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
 
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
@@ -43,6 +43,7 @@ git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-a
 #git clone https://github.com/8688Add/luci-app-adbyby-plus-special.git package/luci-app-adbyby-plus-ram_edition-special
 rm -rf package/lean/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 #git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/8688Add/luci-app-vssr-plus.git package/luci-app-vssr-plus
@@ -52,8 +53,8 @@ git clone https://github.com/tuanqing/install-program package/install-program
 svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-gost package/lean/luci-app-gost
 svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/lean/gost
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+#svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+#svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/8688Add/sirpdboy-package/trunk/luci-app-ddnsto package/luci-app-ddnsto
 
 #添加udp2raw
