@@ -44,9 +44,9 @@ git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-a
 rm -rf package/lean/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
-#git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
-#git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
-git clone https://github.com/8688Add/luci-app-vssr-plus.git package/luci-app-vssr-plus
+git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
+git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
+#git clone https://github.com/8688Add/luci-app-vssr-plus.git package/luci-app-vssr-plus
 git clone https://github.com/bin20088/luci-app-koolddns.git package/luci-app-koolddns
 git clone https://github.com/tuanqing/install-program package/install-program
 #svn co https://github.com/0saga0/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
