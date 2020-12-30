@@ -15,7 +15,7 @@
 
 
 #使用源码自带ShadowSocksR Plus+出国软件
-sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
+#sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
 
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
@@ -31,6 +31,7 @@ git clone https://github.com/lisaac/luci-app-dockerman.git package/lean/luci-app
 #svn co https://github.com/xiaorouji/openwrt-package/trunk/package/tcping package/tcping
 #svn co https://github.com/xiaorouji/openwrt-package/trunk/lienol/luci-app-passwall package/luci-app-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
+git clone https://github.com/Mattraks/helloworld.git package/luci-app-ssr-plus
 #svn co https://github.com/siropboy/mypackages/trunk/luci-app-autopoweroff package/openwrt-packages/luci-app-autopoweroff
 #svn co https://github.com/siropboy/mypackages/trunk/luci-app-control-timewol package/openwrt-packages/luci-app-control-timewol
 #git clone https://github.com/tty228/luci-app-serverchan.git package/openwrt-packages/luci-app-serverchan
