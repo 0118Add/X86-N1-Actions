@@ -48,7 +48,7 @@ git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-ap
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 #git clone https://github.com/8688Add/luci-app-vssr-plus.git package/luci-app-vssr-plus
-git clone https://github.com/bin20088/luci-app-koolddns.git package/luci-app-koolddns
+#git clone https://github.com/bin20088/luci-app-koolddns.git package/luci-app-koolddns
 git clone https://github.com/tuanqing/install-program package/install-program
 #svn co https://github.com/0saga0/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 rm -rf package/lean/v2ray
@@ -67,8 +67,8 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost pack
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
 
 #赋予koolddns权限
-chmod 0755 package/luci-app-koolddns/root/etc/init.d/koolddns
-chmod 0755 package/luci-app-koolddns/root/usr/share/koolddns/aliddns
+#chmod 0755 package/luci-app-koolddns/root/etc/init.d/koolddns
+#chmod 0755 package/luci-app-koolddns/root/usr/share/koolddns/aliddns
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
