@@ -17,7 +17,7 @@
 #sed -i '$a src-git lienol https://github.com/xiaorouji/openwrt-package' feeds.conf.default
 
 #使用源码自带ShadowSocksR Plus+出国软件
-#sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
+sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
 
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
@@ -44,7 +44,7 @@ git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 #git clone https://github.com/8688Add/luci-app-vssr-plus.git package/luci-app-vssr-plus
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
-git clone https://github.com/Mattraks/helloworld.git package/luci-app-ssr-plus
+#git clone https://github.com/Mattraks/helloworld.git package/luci-app-ssr-plus
 #git clone https://github.com/bin20088/luci-theme-argon-mc.git package/openwrt-packages/luci-theme-argon-mc
 #git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/openwrt-packages/luci-theme-opentomcat
 #git clone https://github.com/bin20088/luci-theme-butongwifi.git package/openwrt-packages/luci-theme-butongwifi
@@ -54,8 +54,8 @@ git clone https://github.com/Mattraks/helloworld.git package/luci-app-ssr-plus
 git clone https://github.com/tuanqing/install-program package/install-program
 #svn co https://github.com/0saga0/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 #svn co https://github.com/8688Add/sirpdboy-package/trunk/luci-app-ddnsto package/luci-app-ddnsto
-rm -rf package/lean/v2ray
-svn co https://github.com/8688Add/Lienol-openwrt-package/trunk/package/v2ray package/v2ray
+#rm -rf package/lean/v2ray
+#svn co https://github.com/8688Add/Lienol-openwrt-package/trunk/package/v2ray package/v2ray
 svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-gost package/lean/luci-app-gost
 svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/lean/gost
 svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
