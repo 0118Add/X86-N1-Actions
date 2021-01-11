@@ -52,7 +52,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-pass
 #git clone https://github.com/bin20088/luci-app-koolproxy.git package/openwrt-packages/luci-app-koolproxy
 #git clone https://github.com/bin20088/luci-app-koolddns.git package/luci-app-koolddns
 git clone https://github.com/tuanqing/install-program package/install-program
-#svn co https://github.com/0saga0/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 #svn co https://github.com/8688Add/sirpdboy-package/trunk/luci-app-ddnsto package/luci-app-ddnsto
 #rm -rf package/lean/v2ray
 #svn co https://github.com/8688Add/Lienol-openwrt-package/trunk/package/v2ray package/v2ray
