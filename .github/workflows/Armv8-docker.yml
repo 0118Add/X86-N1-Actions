@@ -1,4 +1,4 @@
-name: ARMv8_Docker
+name: Armv8-docker
 
 on:
   repository_dispatch:
@@ -15,7 +15,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ARMv8/ARMv8-Docker.config
+  CONFIG_FILE: Armv8-docker.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   DOCKER_BUILD_SH: buildImage.sh
@@ -25,8 +25,8 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: ARMv8-Docker
-  PRODUCT_NAME: ARMv8-Docker
+  FILE_NAME: Armv8-docker
+  PRODUCT_NAME: Armv8-docker
 
 jobs:
   build:
@@ -141,13 +141,13 @@ jobs:
         ./$DOCKER_BUILD_SH
         gzip -dc dockerimgs/docker/*.gz | docker load
         docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
-        docker tag hibuddies/openwrt-aarch64 hibuddies/openwrt-aarch64:${{ env.DATE_YMD }}
-        docker push hibuddies/openwrt-aarch64
+        docker tag bgg/openwrt-aarch64 bgg/openwrt-aarch64:${{ env.DATE_YMD }}
+        docker push bgg/openwrt-aarch64
         echo "::set-output name=status::success"
 
-    - name: Telegram notification
-      if: steps.organize.outputs.status == 'success' && !cancelled()
-      run: curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=${{ env.FILE_NAME }}编译完成" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
+#    - name: Telegram notification
+#      if: steps.organize.outputs.status == 'success' && !cancelled()
+#      run: curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=${{ env.FILE_NAME }}编译完成" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
 
 #    - name: WeChat notification
 #      if: steps.organize.outputs.status == 'success' && !cancelled()
