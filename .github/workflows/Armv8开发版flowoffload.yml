@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Armv8
+name: Armv8开发版flowoffload
 
 on:
   repository_dispatch:
