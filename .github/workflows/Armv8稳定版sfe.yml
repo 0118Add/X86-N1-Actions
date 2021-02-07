@@ -24,7 +24,7 @@ on:
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/openwrt
-  REPO_BRANCH: 17.01
+  REPO_BRANCH: lede-17.01
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: Armv8-S.config
   DIY_P1_SH: Armv8-S.sh
