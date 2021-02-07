@@ -8,28 +8,28 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Armv8开发版flowoffload
+name: Armv8稳定版sfe
 
 on:
   repository_dispatch:
-    types: [Armv8,sshArmv8]
+    types: [Armv8-S,sshArmv8-S]
   workflow_dispatch:
     inputs:
       ssh:
-        description: 'Armv8'
+        description: 'Armv8-S'
         required: false
         default: 'false'
 #  schedule:
 #    - cron: 00 17 * * *
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/coolsnowwolf/openwrt
+  REPO_BRANCH: 17.01
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: Armv8.config
-  DIY_P1_SH: diy-part1.sh
+  CONFIG_FILE: Armv8-S.config
+  DIY_P1_SH: Armv8-S.sh
   DIY_P2_SH: diy-part2.sh
-  MRG_ADD_SH: Armv8.sh
+  MRG_ADD_SH: Armv8-S.sh
   Update_Ver_SH: autoVersion.sh
   DOCKER_BUILD_SH: buildImage.sh
   UPLOAD_BIN_DIR: false
