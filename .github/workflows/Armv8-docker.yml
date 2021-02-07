@@ -25,7 +25,7 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: Armv8-docker
+  FILE_NAME: Armv8docker
   PRODUCT_NAME: Armv8-docker
 
 jobs:
