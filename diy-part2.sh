@@ -57,8 +57,8 @@ git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 #rm -rf package/lean/v2ray
 #svn co https://github.com/8688Add/Lienol-openwrt-package/trunk/package/v2ray package/v2ray
 svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/UnblockNeteaseMusic-Go package/lean/UnblockNeteaseMusic-Go
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/luci-app-unblockneteasemusic package/lean/luci-app-unblockneteasemusic
+#svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/UnblockNeteaseMusic-Go package/lean/UnblockNeteaseMusic-Go
+#svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/luci-app-unblockneteasemusic package/lean/luci-app-unblockneteasemusic
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-gost package/lean/luci-app-gost
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/lean/gost
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
