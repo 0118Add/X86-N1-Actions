@@ -55,6 +55,9 @@ git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 #git clone https://github.com/bin20088/luci-app-koolddns.git package/luci-app-koolddns
 git clone https://github.com/tuanqing/install-program package/install-program
 git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+rm -rf package/lean/luci-app-frpc
+git clone https://github.com/8688Add/luci-app-frpc-mod.git package/lean/luci-app-frpc
+chmod 0755 package/lean/luci-app-frpc/root/etc/init.d/frp
 #rm -rf package/lean/v2ray
 #svn co https://github.com/8688Add/Lienol-openwrt-package/trunk/package/v2ray package/v2ray
 svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
