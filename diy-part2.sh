@@ -30,8 +30,8 @@ git clone https://github.com/lisaac/luci-app-dockerman.git package/lean/luci-app
 #svn co https://github.com/xiaorouji/openwrt-package/trunk/package/ssocks package/ssocks
 #svn co https://github.com/xiaorouji/openwrt-package/trunk/package/tcping package/tcping
 #svn co https://github.com/xiaorouji/openwrt-package/trunk/lienol/luci-app-passwall package/luci-app-passwall
-svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns package/smartdns
-git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
+#svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns package/smartdns
+#git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 git clone https://github.com/Lienol/openwrt-package.git package/openwrt-package
 #git clone https://github.com/Mattraks/helloworld.git package/luci-app-ssr-plus
@@ -78,8 +78,8 @@ svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci
 #chmod 0755 package/luci-app-koolddns/root/usr/share/koolddns/aliddns
 
 #修改bypass的makefile
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
+#find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
+#find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
