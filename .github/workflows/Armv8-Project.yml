@@ -8,28 +8,28 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Armv8稳定版sfe
+name: Armv8-Project
 
 on:
   repository_dispatch:
-    types: [Armv8-S,sshArmv8-S]
+    types: [Armv8-Project,sshArmv8-Project]
   workflow_dispatch:
     inputs:
       ssh:
-        description: 'Armv8-S'
+        description: 'Armv8-Project'
         required: false
         default: 'false'
 #  schedule:
 #    - cron: 00 17 * * *
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/openwrt
-  REPO_BRANCH: lede-17.01
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: openwrt-18.06-k5.4
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: Armv8-S.config
-  DIY_P1_SH: Armv8-S.sh
+  CONFIG_FILE: Armv8-Project.config
+  DIY_P1_SH: Armv8-Project.sh
   DIY_P2_SH: diy-part2.sh
-  MRG_ADD_SH: Armv8-S.sh
+  MRG_ADD_SH: Armv8-Project.sh
   Update_Ver_SH: autoVersion.sh
   DOCKER_BUILD_SH: buildImage.sh
   UPLOAD_BIN_DIR: false
