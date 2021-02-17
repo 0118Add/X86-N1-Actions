@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Armv8开发版flowoffload
+name: Armv8测试
 
 on:
   repository_dispatch:
@@ -141,10 +141,12 @@ jobs:
         cd /opt/openwrt
         chmod +x $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo $GITHUB_WORKSPACE/$Update_Ver_SH
-        sudo ./mk_n1_opimg.sh
-        sudo ./mk_s905x3_opimg.sh
-        sudo ./mk_beikeyun_opimg.sh
-        sudo ./mk_l1pro_opimg.sh
+        sudo ./mk_rk3328_beikeyun.sh
+        sudo ./mk_rk3328_l1pro.sh
+        sudo ./mk_s905d_n1.sh
+        sudo ./mk_s905x3_multi.sh
+        sudo ./mk_s912_zyxq.sh
+        sudo ./mk_s922x_gtking.sh
         sudo ./n1-to-vplus.sh
         echo "::set-output name=status::success"
     
