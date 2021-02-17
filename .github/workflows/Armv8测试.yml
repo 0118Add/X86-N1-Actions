@@ -12,11 +12,11 @@ name: Armv8测试
 
 on:
   repository_dispatch:
-    types: [Armv8,sshArmv8]
+    types: [Armv8测试,sshArmv8测试]
   workflow_dispatch:
     inputs:
       ssh:
-        description: 'Armv8'
+        description: 'Armv8测试'
         required: false
         default: 'false'
 #  schedule:
