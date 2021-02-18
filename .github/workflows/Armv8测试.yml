@@ -131,6 +131,7 @@ jobs:
         sudo tar xvzf *.tar.gz
         sudo mkdir imgs
         sudo wget https://github.com/8688Add/Actions/releases/download/Armv8/Armbian_20.10_Aml-s9xxx_buster_5.4.98-flippy-53+o.img.xz
+        sudo xz -d Armbian*Aml*\+\.img\.xz
         sudo xz -d Armbian*Aml*\+o*
         sudo wget https://github.com/8688Add/Actions/releases/download/Armv8/Armbian_20.10_Beikeyun_buster_5.4.98-flippy-53+o.img.xz
         sudo xz -d Armbian*Beike*
