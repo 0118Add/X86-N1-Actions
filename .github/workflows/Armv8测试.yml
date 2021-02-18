@@ -9,8 +9,8 @@ on:
       - master
     paths:
       - 'Armv8.config'
-  schedule:
-#    - cron: 0 16 * * *
+  #schedule:
+    #- cron: 0 16 * * *
   watch:
     types: started
 
