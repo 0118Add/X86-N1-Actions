@@ -1,4 +1,4 @@
-name: ARMv8_Build
+name: Armv8_Build
 
 on:
   repository_dispatch:
@@ -178,9 +178,9 @@ jobs:
 
         artifacts: ${{ env.FIRMWARE }}/*
     
-    - name: WeChat notification
-      if: steps.organize.outputs.status == 'success' && !cancelled()
-      run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.PRODUCT_NAME }}打包完成
+#    - name: WeChat notification
+#      if: steps.organize.outputs.status == 'success' && !cancelled()
+#      run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.PRODUCT_NAME }}打包完成
 
 #     - name: Upload package
 #       id: upload_package
