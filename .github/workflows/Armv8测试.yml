@@ -1,4 +1,4 @@
-name: ARMv8_FOL
+name: Armv8测试
 
 on:
   repository_dispatch:
@@ -8,7 +8,7 @@ on:
     branches:
       - master
     paths:
-      - 'aarch64/ARMv8_FOL.config'
+      - 'Armv8.config'
   schedule:
     - cron: 0 16 * * *
   watch:
@@ -18,12 +18,12 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: aarch64/ARMv8_FOL.config
+  CONFIG_FILE: Armv8.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  MRG_ADD_SH: aarch64/ARMv8.sh
-  Update_Ver_SH: aarch64/autoVersion.sh
-  Get_Imgs_SH: aarch64/getImgs.sh
+  MRG_ADD_SH: Armv8.sh
+  Update_Ver_SH: autoVersion.sh
+  Get_Imgs_SH: getImgs.sh
   DOCKER_BUILD_SH: buildImage.sh
 #   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
@@ -32,7 +32,7 @@ env:
   UPLOAD_WETRANSFER: false
   TZ: Asia/Shanghai
   FILE_NAME: Files4Build
-  PRODUCT_NAME: ARMv8_FOL
+  PRODUCT_NAME: Armv8测试
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -93,8 +93,8 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
-        sed -i 's/OpenWrt/MRG AutoBuild ${{ env.DATE1 }} @ OpenWrt/g' package/lean/default-settings/files/zzz-default-settings
+#        sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
+#        sed -i 's/OpenWrt/MRG AutoBuild ${{ env.DATE1 }} @ OpenWrt/g' package/lean/default-settings/files/zzz-default-settings
         
 #     - name: SSH connection to Actions
 #       uses: P3TERX/debugger-action@master
