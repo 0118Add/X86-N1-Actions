@@ -1,26 +1,18 @@
-#
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-# https://github.com/P3TERX/Actions-OpenWrt
-# Description: Build OpenWrt using GitHub Actions
-#
-
-name: Armv8测试
+name: Armv8
 
 on:
   repository_dispatch:
-    types: [Armv8测试,sshArmv8测试]
-  workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'Armv8测试'
-        required: false
-        default: 'false'
-#  schedule:
-#    - cron: 00 17 * * *
+#  release:
+#    types: published
+  push:
+    branches:
+      - master
+    paths:
+      - 'Armv8.config'
+  schedule:
+    - cron: 0 16 * * *
+  watch:
+    types: started
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
