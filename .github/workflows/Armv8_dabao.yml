@@ -1,13 +1,19 @@
-name: Armv8_Build
+name: Armv8_dabao
 
 on:
   repository_dispatch:
-#  release:
-#    types: published
-  #schedule:
-    #- cron: 30 23 * * *
-  watch:
-    types: started
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Number of days.'
+        required: true
+        default: 60
+      minimum_runs:
+        description: 'The minimum runs to keep for each workflow.'
+        required: true
+        default: 6
+ # schedule:
+  #  - cron: 0 23 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -16,18 +22,15 @@ env:
   CONFIG_FILE: Armv8.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  MRG_ADD_SH: Armv8.sh
   Update_Ver_SH: autoVersion.sh
   Get_Imgs_SH: getImgs.sh
-  DOCKER_BUILD_SH: buildImage.sh
-#   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
   TZ: Asia/Shanghai
   FILE_NAME: Armv8
-  PRODUCT_NAME: Armv8测试
+ # PRODUCT_NAME: ARMv8_SFE
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -48,14 +51,21 @@ jobs:
         sudo -E apt-get -qq update
         sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-1804)
         sudo -E apt-get -qq install rename
-        sudo -E apt-get -qq install pigz
         sudo -E apt-get -qq install time
         sudo -E apt-get -qq install sshpass
+        sudo -E apt-get -qq install pigz
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
+        echo "dibao_sfe=${{ secrets.dibao_mini_sfe }}"  >> $GITHUB_ENV
+        echo "dibao_o=${{ secrets.dibao_mini_o }}"  >> $GITHUB_ENV
+        echo "getimgs=${{ secrets.getimgs }}"  >> $GITHUB_ENV
+    
+    - name: 编译前硬盘容量
+      if: (!cancelled())
+      run: df -hT
 
     - name: Clone source code
       working-directory: /workdir
@@ -67,62 +77,142 @@ jobs:
         useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
         echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
-        echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
+#        echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
 #        echo "::set-env name=useVersionInfo::$useVersionInfo"
 #        echo "::set-env name=DATE::$(date "+%Y-%m-%d %H:%M:%S")"
 
-    - name: Build firmware
-      id: build
+    - name: Download and organize files
+      #if: steps.opwenwrtcache.outputs.cache-hit != 'true'
       run: |
         cd /opt
-        chmod +x $GITHUB_WORKSPACE/$Get_Imgs_SH
+        sudo rm -rf Armbian_*
+        sudo wget -P $GITHUB_WORKSPACE/ARMv8 $getimgs
+        sudo chmod +x $GITHUB_WORKSPACE/$Get_Imgs_SH
         sudo $GITHUB_WORKSPACE/$Get_Imgs_SH
         sudo tar xvzf *.tar.gz
         sudo mkdir imgs
+        sudo xz -d Armbian*Beike*\+\.img\.xz
+        sudo xz -d Armbian*Beike*\+o*
         sudo xz -d Armbian*Aml*\+\.img\.xz
         sudo xz -d Armbian*Aml*\+o*
-        #sudo xz -d Armbian*Beike*\+\.img\.xz
-        sudo xz -d Armbian*Beike*\+o*
-        #sudo xz -d Armbian*L1*\+\.img\.xz
+        sudo xz -d Armbian*L1*\+\.img\.xz
         sudo xz -d Armbian*L1*\+o*
         sudo mv *.img imgs
         cd /opt/openwrt
-        sudo wget $(curl -s https://api.github.com/repos/HoldOnBro/Actions-OpenWrt/releases/34554768 | grep browser_download_url | cut -d '"' -f 4)
+        sudo mkdir sfe && cd sfe
+        sudo rm -rf openwrt-armvirt-64-*
+        sudo wget $dibao_sfe
+        cd ..
+        sudo mkdir flowoffload && cd flowoffload
+        sudo rm -rf openwrt-armvirt-64-*
+        sudo wget $dibao_o
+    - name: autoVersion
+      run: |
+        cd /opt/openwrt
         chmod +x $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo $GITHUB_WORKSPACE/$Update_Ver_SH
-        sudo ./mk_rk3328_beikeyun.sh
-        sudo ./mk_rk3328_beikeyun_fol.sh
-        sudo ./mk_rk3328_l1pro.sh
-        sudo ./mk_rk3328_l1pro_fol.sh
-        sudo ./mk_s905d_n1.sh
-        sudo ./mk_s905d_n1_fol.sh
-        sudo ./mk_s905d_n1_tf.sh
-        sudo ./mk_s905x3_multi.sh
-        sudo ./mk_s905x3_multi_fol.sh
-        sudo ./mk_s905x3_multi_tf.sh
-        sudo ./mk_s912_zyxq.sh
-        sudo ./mk_s912_zyxq_fol.sh
-        sudo ./mk_s912_zyxq_tf.sh
-        sudo ./mk_s922x_gtking.sh
-        sudo ./mk_s922x_gtking_fol.sh
-        sudo ./mk_s922x_gtking_tf.sh
-        sudo ./n1-to-vplus.sh
-        sudo ./n1-to-vplus_fol.sh
-        sudo ./n1-to-vplus_tf.sh
-        sudo cp ./*AllPackages.tar.gz ./tmp/
-        echo "::set-output name=status::success"
-
-    - name: Organize files
-      id: organize
-      if: steps.build.outputs.status == 'success' && !cancelled()
+    - name: Check Files1
       run: |
-        cd /opt/openwrt/tmp/
-        pigz -6 -p $(nproc) *.img
+        cd /opt/imgs
+        ls
+    - name: Check Files2
+      run: |
+        cd /opt/openwrt
+        ls
+    - name: Build firmware
+      id: build
+      run: |
+        cd /opt/openwrt
+        sudo chmod +x *.sh
+        sudo ./mk_rk3328_beikeyun.sh
+        sudo ./mk_rk3328_beikeyun_sfe.sh
+        sudo ./mk_rk3328_l1pro.sh
+        sudo ./mk_rk3328_l1pro_sfe.sh
+        sudo ./mk_s905d_n1.sh
+        sudo ./mk_s905d_n1_sfe.sh
+        sudo ./mk_s905x3_multi.sh
+        sudo ./mk_s905x3_multi_sfe.sh
+        sudo ./mk_s912_zyxq.sh
+        sudo ./mk_s912_zyxq_sfe.sh
+        sudo ./mk_s922x_gtking.sh
+        sudo ./mk_s922x_gtking_sfe.sh
+        sudo ./n1-to-vplus.sh
+        sudo ./n1-to-vplus_sfe.sh
+        echo "::set-output name=status::success"
+    - name: copy update files
+      run: |
+        cd /opt/openwrt
+        sudo cp files/update-amlogic-openwrt.sh tmp/z-update-amlogic-openwrt.sh
+        sudo cp files/update-beikeyun-openwrt.sh tmp/z-update-beikeyun-openwrt.sh
+        sudo cp files/update-l1pro-openwrt.sh tmp/z-update-l1pro-openwrt.sh
+        sudo cp files/update-vplus-openwrt.sh tmp/z-update-vplus-openwrt.sh
+    - name: Check Files3
+      run: |
+        cd /opt/openwrt/tmp
+        ls
+    - name: pigz -9
+      id: pigz
+      run: |
+        sudo chmod  -R 777 /opt/openwrt/tmp
+        cd /opt/openwrt/tmp
+        sudo rm -rf *.gz
+        #sudo rm N1_*\+.*
+        sudo pigz -9 -k *.img
+        #sudo rm N1_*\+o.img
         sudo rm btld-rk3328.bin
-        rename 's/openwrt/S-openwrt/' openwrt*gz
-
+        wget https://github.com/hibuddies/Actions-OpenWrt/releases/download/ARMv8-mini-sfe/AllPackages.tar.gz
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
+    - name: Check Files4
+      run: |
+        cd /opt/openwrt/tmp
+        ls
+        
+    - name: 编译后硬盘容量
+      if: (!cancelled())
+      run: df -hT
+
+    - name: Create release
+      id: release
+      uses: ncipollo/release-action@v1
+      with:
+        name: ${{ env.DATE }} Openwrt for ARMv8 精简版
+        allowUpdates: true
+        tag: ${{ env.FILE_NAME }}
+        commit: main
+        token: ${{ secrets.RELEASES_TOKEN }}
+        body: |
+          默认IP：192.168.1.1 默认密码： password
+          Openwrt🚀(注:+o版为flowoffload加速,+版为sfe加速)
+          下面的sh脚本是固件升级使用
+          在线升级方法：
+             1. 贝壳云、我家云、微加云：cd /mnt/mmcblk0p4
+               N1、S903×3、S922x：cd /mnt/mmcblk2p4
+             2. wget 升级脚本链接
+             3. wget img后缀名的固件链接
+             4. chmod +x *.sh
+             5. ./升级脚本名字 img固件名
+        artifacts: ${{ env.FIRMWARE }}/*
+
+#    - name: Telegram notification
+#      if: steps.pigz.outputs.status == 'success' && !cancelled()
+#      run: curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=${{ env.FILE_NAME }}打包完成" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
+
+#    - name: WeChat notification
+#      if: steps.xz.outputs.status == 'success' && !cancelled()
+#      run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.PRODUCT_NAME }}打包完成
+
+#     - name: Upload package
+#       id: upload_package
+#       if: steps.organize.outputs.status == 'success' && !cancelled()
+#       run: |
+#         cd /opt/openwrt/tmp/
+#         sudo ${{ secrets.UPLOAD_PACKAGE }}
+#         echo "::set-output name=status::success"
+
+#     - name: WeChat notification
+#       if: steps.upload_package.outputs.status == 'success' && !cancelled()
+#       run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.PRODUCT_NAME }} Package已上传
 
     - name: Upload bin directory
       uses: actions/upload-artifact@master
@@ -138,69 +228,12 @@ jobs:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
-    - name: Create release
-      id: release
-      uses: ncipollo/release-action@v1
-      with:
-        name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
-        allowUpdates: true
-        tag: ${{ env.FILE_NAME }}
-        commit: main
-        token: ${{ secrets.RELEASES_TOKEN }}
-        body: |
-          默认IP：192.168.123.1 默认密码： password
-          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          参见 Files4Build 内记录
-
-          53版 openwrt 固件说明：
-
-          1. openwrt包名格式更改为：
-              openwrt_[soc]_[board]_Rxx.xx.xx_kxx.xx.xx.img  
-
-          2. amlogic已支持 5.10内核，但是需要从 u盘或 tf卡启动，可以刷入emmc(仅数据分区），boot分区还是只能在 u盘或tf卡上面。
-              5.10内核的副作用是 905x3、922x等机型 hdmi 绿屏、启动时间较长、mac地址会发生变化等
-
-          3. amlogic盒子统一用 update-amlogic-openwrt.sh 进行升级或降级。
-
-          4. 新增了 N1 和章鱼星球的新格式镜像（4分区，支持在线升降级），至此，amlogic的盒子全部统一了分区格式
-              副作用是：不支持从旧格式升级，也不能降级到旧格式，mmc设备名从以前的 mmcblk1变成了mmcblk2
-
-          5. 调大了个别固件的rootfs分区，因为以前的512MB快不够用了
-
-          6. amlogic盒子的刷入emmc命令统一为：
-              cd      /root
-              ./install-to-emmc.sh
-            升级降级方法统一为：
-              1. 把 update-amlogic-openwrt.sh 及 img镜像上传至  /mnt/mmcblk2p4
-              2. cd    /mnt/mmcblk2p4
-              3. chmod   755  update-amlogic-openwrt.sh
-              4. ./update-amlogic-openwrt.sh    xxxxx.img
-
-        artifacts: ${{ env.FIRMWARE }}/*
-    
-#    - name: WeChat notification
-#      if: steps.organize.outputs.status == 'success' && !cancelled()
-#      run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.PRODUCT_NAME }}打包完成
-
-#     - name: Upload package
-#       id: upload_package
-#       if: steps.organize.outputs.status == 'success' && !cancelled()
-#       run: |
-#         cd /opt/openwrt/tmp/
-#         sudo ${{ secrets.UPLOAD_PACKAGE }}
-#         echo "::set-output name=status::success"
-
-#     - name: WeChat notification
-#       if: steps.upload_package.outputs.status == 'success' && !cancelled()
-#       run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.PRODUCT_NAME }} Package已上传
-
     - name: Upload firmware to cowtransfer
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
-
     - name: Upload firmware to WeTransfer
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
