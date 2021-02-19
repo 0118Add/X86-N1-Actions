@@ -142,9 +142,9 @@ jobs:
         sudo ./n1-to-vplus.sh
         echo "::set-output name=status::success"
     
-    - name: Check space usage
-      if: (!cancelled())
-      run: df -hT
+#    - name: Check space usage
+#      if: (!cancelled())
+#      run: df -hT
 
     - name: Organize files
       id: organize
