@@ -86,7 +86,7 @@ jobs:
       run: |
         cd /opt
         sudo rm -rf Armbian_*
-        sudo wget -P $GITHUB_WORKSPACE/ARMv8 $getimgs
+        sudo wget -P $GITHUB_WORKSPACE/Armv8 $getimgs
         sudo chmod +x $GITHUB_WORKSPACE/$Get_Imgs_SH
         sudo $GITHUB_WORKSPACE/$Get_Imgs_SH
         sudo tar xvzf *.tar.gz
