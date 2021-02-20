@@ -2,11 +2,11 @@ name: Armv8开发版sfe
 
 on:
   repository_dispatch:
-    types: [Armv8,sshArmv8]
+    types: [Armv8-S,sshArmv8-S]
   workflow_dispatch:
     inputs:
       ssh:
-        description: 'Armv8'
+        description: 'Armv8-S'
         required: false
         default: 'false'
 #  schedule:
