@@ -25,13 +25,6 @@ sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz
 #添加额外软件包
 rm -rf package/lean/luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman.git package/lean/luci-app-dockerman
-#svn co https://github.com/xiaorouji/openwrt-package/trunk/package/brook package/brook
-#svn co https://github.com/xiaorouji/openwrt-package/trunk/package/chinadns-ng package/chinadns-ng
-#svn co https://github.com/xiaorouji/openwrt-package/trunk/package/trojan-go package/trojan-go
-#svn co https://github.com/xiaorouji/openwrt-package/trunk/package/trojan-plus package/trojan-plus
-#svn co https://github.com/xiaorouji/openwrt-package/trunk/package/ssocks package/ssocks
-#svn co https://github.com/xiaorouji/openwrt-package/trunk/package/tcping package/tcping
-#svn co https://github.com/xiaorouji/openwrt-package/trunk/lienol/luci-app-passwall package/luci-app-passwall
 #svn co https://github.com/siropboy/mypackages/trunk/luci-app-autopoweroff package/openwrt-packages/luci-app-autopoweroff
 #svn co https://github.com/siropboy/mypackages/trunk/luci-app-control-timewol package/openwrt-packages/luci-app-control-timewol
 #git clone https://github.com/tty228/luci-app-serverchan.git package/openwrt-packages/luci-app-serverchan
@@ -45,7 +38,13 @@ git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 #git clone https://github.com/8688Add/luci-app-vssr-plus.git package/luci-app-vssr-plus
 #svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns package/smartdns
 #git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
-git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/trojan-go
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/trojan-plus
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/ssocks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
+#git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 git clone https://github.com/Lienol/openwrt-package.git package/openwrt-package
 #git clone https://github.com/Mattraks/helloworld.git package/luci-app-ssr-plus
 #git clone https://github.com/bin20088/luci-theme-argon-mc.git package/openwrt-packages/luci-theme-argon-mc
