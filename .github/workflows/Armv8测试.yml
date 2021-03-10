@@ -136,8 +136,6 @@ jobs:
         sudo xz -d Armbian*Beike*
         sudo wget https://github.com/8688Add/Actions/releases/download/Armv8/Armbian_20.10_L1-Pro_buster_5.4.101-flippy-54+o.img.xz
         sudo xz -d Armbian*L1*
-        sudo wget https://github.com/8688Add/Actions/releases/download/Armv8/Armbian_20.10_VPlus_buster_5.4.101-flippy-54+o.img.xz
-        sudo xz -d Armbian*VPlus*
         sudo mv *.img imgs
         sudo cp /workdir/openwrt/bin/targets/armvirt/64/openwrt-armvirt-64-default-rootfs.tar.gz /opt/openwrt
         cd /opt/openwrt
@@ -150,7 +148,6 @@ jobs:
         sudo ./mk_s922x_gtking.sh
         sudo ./mk_rk3328_beikeyun.sh
         sudo ./mk_rk3328_l1pro.sh
-        sudo ./n1-to-vplus.sh
         echo "::set-output name=status::success"
     
     - name: Check space usage
