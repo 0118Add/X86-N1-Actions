@@ -143,7 +143,6 @@ jobs:
         sudo $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo ./mk_s905x3_multi.sh
         sudo ./mk_s905d_n1.sh
-        sudo ./OLD_mk_n1_opimg.sh
         sudo ./mk_s912_zyxq.sh
         sudo ./mk_s922x_gtking.sh
         sudo ./mk_rk3328_beikeyun.sh
