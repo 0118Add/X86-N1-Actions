@@ -150,6 +150,7 @@ jobs:
         sudo ./mk_rk3328_beikeyun.sh
         sudo ./mk_rk3328_l1pro.sh
         sudo ./mk_h6_vplus.sh
+        sudo ./mk_s905x2_x96max.sh
         echo "::set-output name=status::success"
     
     - name: Check space usage
