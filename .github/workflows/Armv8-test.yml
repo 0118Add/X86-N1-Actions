@@ -26,9 +26,9 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-18.06-k5.4
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: Armv8.config
+  CONFIG_FILE: Armv8-test.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
+  DIY_P2_SH: Armv8-test.sh
   MRG_ADD_SH: Armv8.sh
   Update_Ver_SH: autoVer.sh
   DOCKER_BUILD_SH: buildImage.sh
