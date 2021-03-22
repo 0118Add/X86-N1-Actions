@@ -12,11 +12,10 @@ name: Armv8-Test
 
 on:
   repository_dispatch:
-    types: [Armv8,sshArmv8]
   workflow_dispatch:
     inputs:
       ssh:
-        description: 'Armv8'
+        description: 'SSH connection to Actions'
         required: false
         default: 'false'
 #  schedule:
