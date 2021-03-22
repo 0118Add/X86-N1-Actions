@@ -29,14 +29,16 @@ env:
   CONFIG_FILE: Armv8-test.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: Armv8-test.sh
-  MRG_ADD_SH: Armv8.sh
-  Update_Ver_SH: autoVer.sh
-  DOCKER_BUILD_SH: buildImage.sh
   UPLOAD_BIN_DIR: false
+  UPLOAD_ARMVIRT: false
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: false
-  UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
+  DELETE_RELEASE: true
+  DELETE_ARTIFACTS: true
+  KEEP_DAY: 3
+  KEEP_MININUM_RUNS: 0
+  KEEP_MININUM_RELEASE: 3
+  RECENT_LASTEST: 3
   TZ: Asia/Shanghai
   
 jobs:
@@ -111,127 +113,54 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: Compile the firmware
-      id: compile
-      run: |
-        cd openwrt
-        echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j1 || make -j1 V=s
-        echo "::set-output name=status::success"
-        grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
-        [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
-        echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
-
-    - name: Build firmware
-      id: build
-      run: |
-        cd /opt
-        sudo wget https://github.com/8688Add/N1-Actions-Dabao/releases/download/Armbian-55/img+0.tar
-        sudo tar xvf *.tar
-        sudo xz -d *.img.xz
-        sudo tar zxvf *.tar.gz
-        sudo mkdir imgs
-        sudo mv *.img imgs
-        cd /opt/openwrt
-        sudo wget https://github.com/8688Add/N1-Actions-Dabao/releases/download/armv8开发版/openwrt-armvirt-64-default-rootfs.tar.gz
-        sudo ./mk_s905x3_multi.sh
-        sudo ./mk_h6_vplus.sh
-        sudo ./mk_s905x2_x96max.sh
-        sudo ./mk_s905d_n1.sh
-        sudo ./mk_s912_zyxq.sh
-        sudo ./mk_s922x_gtking.sh
-        sudo ./mk_rk3328_beikeyun.sh
-        sudo ./mk_rk3328_l1pro.sh
-        sudo ./OLD_mk_n1_opimg.sh
-        sudo ./OLD_n1-to-vplus.sh
-        cd /opt/openwrt/tmp
-        sudo bzip2 *.img
-        echo "::set-output name=status::success"
-    
     - name: Check space usage
       if: (!cancelled())
       run: df -hT
 
-    - name: Organize files
-      id: organize
-      if: steps.build.outputs.status == 'success' && !cancelled()
+    - name: Build OpenWrt firmware
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+      id: build
       run: |
-        echo "${{ env.useVersionInfo }}" > openwrt/bin/${{ env.DATE }}更新说明.md
-        cd /workdir/
-        tar -zcvf bin.tar.gz openwrt/bin
-        cp bin.tar.gz openwrt/bin/targets/*/*
-        cd openwrt/bin/targets/*/*
-        rm -rf packages config.buildinfo feeds.buildinfo openwrt-armvirt-64-default.manifest openwrt-armvirt-64-Image openwrt-armvirt-64-rootfs-ext4.img version.buildinfo
-        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+        [ -d openwrt-armvirt ] || mkdir -p openwrt-armvirt
+        cp -f openwrt/bin/targets/*/*/*.tar.gz openwrt-armvirt/ && sync
+        sudo rm -rf openwrt && sync
+        sudo rm -rf /workdir && sync
+        sudo chmod +x make
+        sudo ./make -d -b s905x3_s905x2_s905x_s905d_s922x_s912 -k 5.10.23.TF_5.4.105
+        cd out/ && sudo gzip *.img
+        cp -f ../openwrt-armvirt/*.tar.gz . && sync
+        echo "FILEPATH=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
-
-    - name: Upload bin directory
-      uses: actions/upload-artifact@main
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
-      with:
-        name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: /opt/openwrt/tmp/*.img.bz2
-    
-    - name: Upload firmware directory
-      uses: actions/upload-artifact@main
-      if: steps.organize.outputs.status == 'success' && !cancelled()
-      with:
-        name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: ${{ env.FIRMWARE }}
-
-    - name: Upload firmware to cowtransfer
-      id: cowtransfer
-      if: steps.organize.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
-      run: |
-        curl -fsSL git.io/file-transfer | sh
-        ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
-        echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
-        echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
-
-    - name: Upload firmware to WeTransfer
-      id: wetransfer
-      if: steps.organize.outputs.status == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
-      run: |
-        curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
-        echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
-        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"
-
-    - name: Generate tag
-      id: tag
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      run: |
-        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H")"
-        echo "🚀 Armv8" >> release.txt
-        echo "🔗 [Cowtransfer](${{ env.COWTRANSFER_URL }})" >> release.txt
-        echo "🔗 [WeTransfer](${{ env.WETRANSFER_URL }})" >> release.txt
-        echo "::set-output name=status::success"
-    
-    - name: Upload firmware to release
+        
+    - name: Upload OpenWrt Firmware to Release
       uses: softprops/action-gh-release@v1
-      if: steps.tag.outputs.status == 'success' && !cancelled()
+      if: steps.build.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: ${{ env.DATE }} 🚀 Armv8 | 自动编译打包
-        tag_name: ${{ steps.tag.outputs.release_tag }}
-        body: | 
-          Armv8 🚀 自动编译打包
-          ${{ env.useVersionInfo }}
-        body_path: release.txt
-        files: ${{ env.FIRMWARE }}/*    
-
-    - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
+        tag_name: openwrt_s9xxx_${{ env.FILE_DATE }}
+        files: ${{ env.FILEPATH }}/*
+        body: |
+          This is OpenWrt firmware for Amlogic S9xxx STB
+          * Firmware information
+          Default IP: 192.168.1.1
+          Default username: root
+          Default password: password
+          
+    - name: Delete older releases
+      uses: dev-drprasad/delete-older-releases@master
+      if: env.DELETE_RELEASE == 'true'
       with:
-        retain_days: 15
-        keep_minimum_runs: 3
-
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 3
+        keep_latest: ${{ env.KEEP_MININUM_RELEASE }}
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Delete older workflow runs and artifacts
+      uses: Mattraks/delete-workflow-runs@main
+      if: env.DELETE_ARTIFACTS == 'true'
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: ${{ github.repository }}
+        retain_days: ${{ env.KEEP_DAY }}
+        keep_minimum_runs: ${{ env.KEEP_MININUM_RUNS }}        
