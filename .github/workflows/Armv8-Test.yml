@@ -153,7 +153,7 @@ jobs:
         tag_name: openwrt_s9xxx_${{ env.FILE_DATE }}
         files: ${{ env.FILEPATH }}/*
         body: |
-          This is OpenWrt firmware for Amlogic S9xxx STB
+          This is OpenWrt firmware for Phicomm-N1
           * Firmware information
           Default IP: 192.168.1.1
           Default username: root
