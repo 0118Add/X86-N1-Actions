@@ -61,7 +61,7 @@ git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-adbyby-plus package/lean/luci-app-adbyby-plus
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-arpbind package/lean/luci-app-arpbind
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-lib-fs package/lean/luci-lib-fs
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/trojan-go package/lienol/trojan-go
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/trojan-plus package/lienol/trojan-plus
