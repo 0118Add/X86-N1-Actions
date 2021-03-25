@@ -14,7 +14,7 @@
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
 sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
-sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+#sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
 
 #使用源码自带ShadowSocksR Plus+出国软件
 #sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
@@ -55,31 +55,31 @@ git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 #chmod 0755 package/lean/luci-app-frpc/root/etc/init.d/frp
 #rm -rf package/lean/v2ray
 #svn co https://github.com/8688Add/Lienol-openwrt-package/trunk/package/v2ray package/v2ray
-svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/autocore package/lean/autocore
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/adbyby package/lean/adbyby
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-adbyby-plus package/lean/luci-app-adbyby-plus
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-arpbind package/lean/luci-app-arpbind
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-lib-fs package/lean/luci-lib-fs
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/trojan-go package/lienol/trojan-go
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/trojan-plus package/lienol/trojan-plus
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/ipt2socks package/lienol/ipt2socks
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/dns2socks package/lienol/dns2socks
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/tcping package/lienol/tcping
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/trojan package/lienol/trojan
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/luci-app-passwall package/lienol/luci-app-passwall
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-filetransfer package/lean/luci-app-filetransfer
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-ipsec-vpnd package/lean/luci-app-ipsec-vpnd
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-unblockmusic package/lean/luci-app-unblockmusic
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/UnblockNeteaseMusic package/lean/UnblockNeteaseMusic
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/UnblockNeteaseMusic-Go package/lean/UnblockNeteaseMusic-Go
+#svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/autocore package/lean/autocore
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/adbyby package/lean/adbyby
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-adbyby-plus package/lean/luci-app-adbyby-plus
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-arpbind package/lean/luci-app-arpbind
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-lib-fs package/lean/luci-lib-fs
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/trojan-go package/lienol/trojan-go
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/trojan-plus package/lienol/trojan-plus
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/ipt2socks package/lienol/ipt2socks
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/dns2socks package/lienol/dns2socks
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/tcping package/lienol/tcping
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/trojan package/lienol/trojan
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/luci-app-passwall package/lienol/luci-app-passwall
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-filetransfer package/lean/luci-app-filetransfer
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-ipsec-vpnd package/lean/luci-app-ipsec-vpnd
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-unblockmusic package/lean/luci-app-unblockmusic
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/UnblockNeteaseMusic package/lean/UnblockNeteaseMusic
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/UnblockNeteaseMusic-Go package/lean/UnblockNeteaseMusic-Go
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-gost package/lean/luci-app-gost
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/lean/gost
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
 #svn co https://github.com/8688Add/sirpdboy-package/trunk/luci-app-ddnsto package/luci-app-ddnsto
 
 #添加udp2raw
