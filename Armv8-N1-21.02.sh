@@ -23,8 +23,8 @@ sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
-rm -rf package/lean/luci-app-dockerman
-git clone https://github.com/lisaac/luci-app-dockerman.git package/lean/luci-app-dockerman
+#rm -rf package/lean/luci-app-dockerman
+#git clone https://github.com/lisaac/luci-app-dockerman.git package/lean/luci-app-dockerman
 svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
 git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
 #git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
@@ -79,7 +79,7 @@ git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/lean/gost
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
-#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
 #svn co https://github.com/8688Add/sirpdboy-package/trunk/luci-app-ddnsto package/luci-app-ddnsto
 
 #添加udp2raw
