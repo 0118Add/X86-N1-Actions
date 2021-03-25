@@ -25,12 +25,6 @@ sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds
 #添加额外软件包
 rm -rf package/lean/luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman.git package/lean/luci-app-dockerman
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/trojan-go
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/trojan-plus
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/ssocks
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
 git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
 #git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
@@ -69,6 +63,13 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-lib-fs package/lean/luci-lib-fs
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/trojan-go package/lienol/trojan-go
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/trojan-plus package/lienol/trojan-plus
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/ipt2socks package/lienol/ipt2socks
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/dns2socks package/lienol/dns2socks
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/tcping package/lienol/tcping
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/trojan package/lienol/trojan
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/luci-app-passwall package/lienol/luci-app-passwall
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-filetransfer package/lean/luci-app-filetransfer
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-ipsec-vpnd package/lean/luci-app-ipsec-vpnd
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-unblockmusic package/lean/luci-app-unblockmusic
