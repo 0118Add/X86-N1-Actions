@@ -67,6 +67,7 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/lean/gost
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
 #svn co https://github.com/8688Add/sirpdboy-package/trunk/luci-app-ddnsto package/luci-app-ddnsto
 
 #添加udp2raw
