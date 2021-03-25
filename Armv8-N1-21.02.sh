@@ -15,6 +15,7 @@
 
 sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+sed -i '$a src-git openwrt-packages https://github.com/garypang13/openwrt-packages' feeds.conf.default
 
 #使用源码自带ShadowSocksR Plus+出国软件
 #sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
