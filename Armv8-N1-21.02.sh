@@ -15,10 +15,11 @@
 
 #sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 #sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
-sed -i '$a src-git packages https://github.com/garypang13/openwrt-packages' feeds.conf.default
+#sed -i '$a src-git packages https://github.com/garypang13/openwrt-packages' feeds.conf.default
 
 #添加额外软件包
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean package/lean
+git clone https://github.com/garypang13/openwrt-packages.git package/openwrt-packages
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 #git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/lean/luci-app-jd-dailybonus
