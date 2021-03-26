@@ -15,18 +15,19 @@
 
 #sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 #sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+sed -i '$a src-git packages https://github.com/garypang13/openwrt-packages' feeds.conf.default
 
 #添加额外软件包
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean package/lean
-git clone https://github.com/fw876/helloworld.git package/helloworld
-git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
+#git clone https://github.com/fw876/helloworld.git package/helloworld
+#git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/lean/luci-app-jd-dailybonus
-git clone https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
-git clone https://github.com/tuanqing/install-program package/install-program
-git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+#git clone https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+#git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+#git clone https://github.com/tuanqing/install-program package/install-program
+#git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
 
 # 添加cpufreq
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
