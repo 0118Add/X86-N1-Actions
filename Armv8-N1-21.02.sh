@@ -23,10 +23,9 @@ sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
-#rm -rf package/lean/luci-app-dockerman
-#git clone https://github.com/lisaac/luci-app-dockerman.git package/lean/luci-app-dockerman
-svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
-git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean package/lean
+#svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
+#git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
 #git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 git clone https://github.com/Lienol/openwrt-package.git package/openwrt-package
 #git clone https://github.com/Mattraks/helloworld.git package/luci-app-ssr-plus
@@ -55,7 +54,7 @@ git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 #chmod 0755 package/lean/luci-app-frpc/root/etc/init.d/frp
 #rm -rf package/lean/v2ray
 #svn co https://github.com/8688Add/Lienol-openwrt-package/trunk/package/v2ray package/v2ray
-svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
+#svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/autocore package/lean/autocore
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/adbyby package/lean/adbyby
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-adbyby-plus package/lean/luci-app-adbyby-plus
@@ -93,13 +92,13 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package
 #chmod 0755 package/luci-app-koolddns/root/usr/share/koolddns/aliddns
 
 # 添加cpufreq
-sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
-sed -i 's/services/system/g' package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
-sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_mvebu||TARGET_sunxi||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
+#sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
+#sed -i 's/services/system/g' package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+#sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_mvebu||TARGET_sunxi||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
 
 #修改bypass的makefile
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
+#find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
+#find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
