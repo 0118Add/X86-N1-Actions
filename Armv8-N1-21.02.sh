@@ -19,13 +19,13 @@
 
 #添加额外软件包
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean package/lean
-rm -rf package/openwrt-packages/trojan-go
-rm -rf package/openwrt-packages/trojan-plus
-rm -rf package/openwrt-packages/luci-app-unblockmusic
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/UnblockNeteaseMusic package/UnblockNeteaseMusic
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/UnblockNeteaseMusicGo package/UnblockNeteaseMusicGo
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-unblockmusic package/luci-app-unblockmusic
-git clone https://github.com/garypang13/openwrt-packages.git package/openwrt-packages
+#rm -rf package/openwrt-packages/trojan-go
+#rm -rf package/openwrt-packages/trojan-plus
+#rm -rf package/openwrt-packages/luci-app-unblockmusic
+#svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/UnblockNeteaseMusic package/UnblockNeteaseMusic
+#svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/UnblockNeteaseMusicGo package/UnblockNeteaseMusicGo
+#svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-unblockmusic package/luci-app-unblockmusic
+#git clone https://github.com/garypang13/openwrt-packages.git package/openwrt-packages
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 #git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/lean/luci-app-jd-dailybonus
