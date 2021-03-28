@@ -19,6 +19,8 @@
 
 #添加额外软件包
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean package/lean
+rm -rf package/openwrt-packages/trojan-go
+rm -rf package/openwrt-packages/trojan-plus
 rm -rf package/openwrt-packages/luci-app-unblockmusic
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/UnblockNeteaseMusic package/UnblockNeteaseMusic
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/UnblockNeteaseMusicGo package/UnblockNeteaseMusicGo
