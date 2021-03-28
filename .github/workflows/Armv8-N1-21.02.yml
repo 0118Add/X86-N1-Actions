@@ -23,7 +23,7 @@ on:
 #    - cron: 00 17 * * *
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: Armv8-N1-21.02.config
