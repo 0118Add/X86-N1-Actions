@@ -133,7 +133,7 @@ jobs:
         name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
-        commit: master
+        commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
           默认IP：192.168.1.2 默认密码： password
