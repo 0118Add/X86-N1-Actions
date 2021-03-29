@@ -66,6 +66,8 @@ svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 #svn co https://github.com/8688Add/sirpdboy-package/trunk/luci-app-ddnsto package/luci-app-ddnsto
 
+sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
+
 #添加udp2raw
 #git clone https://github.com/sensec/openwrt-udp2raw package/openwrt-udp2raw
 #git clone https://github.com/sensec/luci-app-udp2raw package/luci-app-udp2raw
