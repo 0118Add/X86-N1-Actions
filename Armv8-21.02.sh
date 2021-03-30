@@ -11,8 +11,8 @@
 #
 
 git clone https://github.com/tuanqing/install-program package/install-program
-#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
-#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/pdnsd-alt package/lean/pdnsd-alt
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
