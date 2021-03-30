@@ -159,7 +159,8 @@ jobs:
         sudo ./mk_rk3328_l1pro.sh
         sudo ./mk_h6_vplus.sh
         sudo ./mk_s905x2_x96max.sh
-        sudo cp ./*AllPackages.tar.gz ./tmp/
+        sudo ./OLD_mk_n1_opimg.sh
+        sudo ./OLD_n1-to-vplus.sh
         echo "::set-output name=status::success"
     
     - name: Check space usage
