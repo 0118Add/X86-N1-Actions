@@ -11,6 +11,13 @@
 #
 
 git clone https://github.com/tuanqing/install-program package/install-program
+svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lean/luci-app-arpbind package/luci-app-arpbind
+svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lean/luci-app-autoreboot package/luci-app-autoreboot
+svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lean/luci-app-filetransfer package/luci-app-filetransfer
+svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lean/luci-app-ramfree package/luci-app-ramfree
+svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lienol/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
+svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lienol/luci-app-ipsec-vpnserver-manyusers package/luci-app-ipsec-vpnserver-manyusers
+svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lean/luci-lib-fs package/luci-lib-fs
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
@@ -23,6 +30,8 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-unblockm
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-jd-dailybonus package/lean/luci-app-jd-dailybonus
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/adbyby package/lean/adbyby
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-adbyby-plus package/lean/luci-app-adbyby-plus
+svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
+git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
 
 # 添加cpufreq
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
