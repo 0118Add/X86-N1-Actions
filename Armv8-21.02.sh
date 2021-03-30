@@ -15,6 +15,7 @@ sed -i '$a src-git OpenClash https://github.com/vernesong/OpenClash' feeds.conf.
 sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 
 git clone https://github.com/tuanqing/install-program package/install-program
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/pdnsd-alt package/lean/pdnsd-alt
