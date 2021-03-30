@@ -11,13 +11,13 @@
 #
 
 git clone https://github.com/tuanqing/install-program package/install-program
-svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lean/luci-app-arpbind package/luci-app-arpbind
-svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lean/luci-app-autoreboot package/luci-app-autoreboot
-svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lean/luci-app-filetransfer package/luci-app-filetransfer
-svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lean/luci-app-ramfree package/luci-app-ramfree
-svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lienol/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
-svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lienol/luci-app-ipsec-vpnserver-manyusers package/luci-app-ipsec-vpnserver-manyusers
-svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/lean/luci-lib-fs package/luci-lib-fs
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-arpbind package/luci-app-arpbind
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-autoreboot package/luci-app-autoreboot
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-filetransfer package/luci-app-filetransfer
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-ramfree package/luci-app-ramfree
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/luci-app-ipsec-vpnserver-manyusers package/luci-app-ipsec-vpnserver-manyusers
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-lib-fs package/luci-lib-fs
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
