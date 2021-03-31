@@ -10,7 +10,7 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/{lean,lienol,ctcgfw,ntlf9t} package
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/{lean,ctcgfw,ntlf9t} package
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/openwrt-passwall/dns2socks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ipt2socks package/openwrt-passwall/ipt2socks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/redsocks2 package/openwrt-passwall/redsocks2
@@ -21,7 +21,10 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/o
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/openwrt-passwall/brook
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/openwrt-passwall/chinadns-ng
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/openwrt-passwall/v2ray-plugin
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/openwrt-passwall/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/openwrt-passwall/shadowsocks-rust
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
+https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lienol/luci-app-ipsec-vpnserver-manyusers package/luci-app-ipsec-vpnserver-manyusers
 sed -i '/banner/d' package/lean/default-settings/Makefile
 sed -i '/banner/d' package/lean/default-settings/files/zzz-default-settings
 git clone https://github.com/tuanqing/install-program package/install-program
