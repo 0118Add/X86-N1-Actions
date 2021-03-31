@@ -18,6 +18,9 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/openwr
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/openwrt-passwall/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/openwrt-passwall/naiveproxy
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/openwrt-passwall/simple-obfs
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/openwrt-passwall/brook
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/openwrt-passwall/chinadns-ng
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/openwrt-passwall/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/openwrt-passwall/shadowsocks-rust
 sed -i '/banner/d' package/lean/default-settings/Makefile
 sed -i '/banner/d' package/lean/default-settings/files/zzz-default-settings
