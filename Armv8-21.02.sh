@@ -12,6 +12,7 @@
 
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/{lean,lienol,ctcgfw,ntlf9t} package
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
+rm -rf package/lienol/trojan-go
 sed -i '/banner/d' package/lean/default-settings/Makefile
 sed -i '/banner/d' package/lean/default-settings/files/zzz-default-settings
 git clone https://github.com/tuanqing/install-program package/install-program
