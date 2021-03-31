@@ -11,8 +11,14 @@
 #
 
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/{lean,lienol,ctcgfw,ntlf9t} package
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
-rm -rf package/lienol/trojan-go
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/openwrt-passwall/dns2socks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ipt2socks package/openwrt-passwall/ipt2socks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/redsocks2 package/openwrt-passwall/redsocks2
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/openwrt-passwall/tcping
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/openwrt-passwall/trojan
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/openwrt-passwall/naiveproxy
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/openwrt-passwall/simple-obfs
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/openwrt-passwall/shadowsocks-rust
 sed -i '/banner/d' package/lean/default-settings/Makefile
 sed -i '/banner/d' package/lean/default-settings/files/zzz-default-settings
 git clone https://github.com/tuanqing/install-program package/install-program
