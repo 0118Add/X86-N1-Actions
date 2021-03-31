@@ -10,7 +10,7 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/{lean,lienol,ctcgfw,ntlf9t} package
+svn co https://github.com/1980Add/immortalwrt/branches/openwrt-21.02/package/{lean,lienol,ctcgfw,ntlf9t} package
 svn co https://github.com/1980Add/openwrt-passwall/trunk package/openwrt-passwall
 sed -i '/banner/d' package/lean/default-settings/Makefile
 sed -i '/banner/d' package/lean/default-settings/files/zzz-default-settings
