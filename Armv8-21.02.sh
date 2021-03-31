@@ -17,6 +17,8 @@ sed -i '/banner/d' package/lean/default-settings/files/zzz-default-settings
 git clone https://github.com/tuanqing/install-program package/install-program
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/openwrt-fullconenat package/lean/openwrt-fullconenat
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
 svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
 git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
