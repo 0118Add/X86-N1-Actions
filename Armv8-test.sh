@@ -18,6 +18,6 @@
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
-svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
-git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
+#svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
+#git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
 git clone https://github.com/tuanqing/install-program package/install-program
