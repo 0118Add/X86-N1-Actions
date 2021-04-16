@@ -173,7 +173,7 @@ jobs:
         allowUpdates: true
         omitBodyDuringUpdate: true
         omitNameDuringUpdate: true
-        tag: Armv8-N1
+        tag: Armv8-N1-Lienol
         commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
         artifacts: /opt/openwrt/tmp/*.img.bz2    
