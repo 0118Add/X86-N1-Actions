@@ -53,7 +53,7 @@ git clone https://github.com/Lienol/openwrt-package.git package/openwrt-package
 #git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/openwrt-packages/luci-theme-atmaterial
 #git clone https://github.com/bin20088/luci-app-koolproxy.git package/openwrt-packages/luci-app-koolproxy
 #git clone https://github.com/bin20088/luci-app-koolddns.git package/luci-app-koolddns
-git clone https://github.com/tuanqing/install-program package/install-program
+svn co https://github.com/ophub/amlogic-s9xxx-openwrt/trunk/amlogic-s9xxx/install-program package/install-program
 git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 rm -rf package/lean/luci-app-frpc
 git clone https://github.com/8688Add/luci-app-frpc-mod.git package/lean/luci-app-frpc
