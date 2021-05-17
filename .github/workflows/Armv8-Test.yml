@@ -138,7 +138,7 @@ jobs:
         sudo rm -rf ../openwrt && sync
         sudo rm -rf /workdir && sync
         sudo chmod +x make
-        sudo ./make -d -b s905d -k 5.10.33.TF_5.4.115_5.4.77_5.4.50
+        sudo ./make -d -b s905d -k 5.12.2.TF_5.4.118
         cd out/ && sudo gzip *.img
         cp -f ../openwrt-armvirt/*.tar.gz . && sync
         echo "FILEPATH=$PWD" >> $GITHUB_ENV
