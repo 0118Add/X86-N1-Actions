@@ -144,6 +144,7 @@ jobs:
         rm -rf packages
         echo "TMPFILEPATH=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
+    
     - name: Upload armvirt directory to Actions
       uses: actions/upload-artifact@v2
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_ARMVIRT == 'true' && !cancelled()
