@@ -20,7 +20,7 @@ sed -i 's/192.168.1.1/192.168.1.10/g' package/base-files/files/bin/config_genera
 #添加额外软件包
 #svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
 #git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
-svn co https://github.com/ophub/amlogic-s9xxx-openwrt/trunk/amlogic-s9xxx/install-program package/install-program
+git clone https://github.com/tuanqing/install-program package/install-program
 
 #find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-alt/shadowsocksr-libev-ssr-redir/g' {}
 #find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-server/shadowsocksr-libev-ssr-server/g' {}
