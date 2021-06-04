@@ -161,7 +161,6 @@ jobs:
         sudo ./mk_h6_vplus.sh
         #sudo ./mk_h6_vplus_fol.sh
         sudo ./mk_h6_vplus_plus.sh
-        sudo cp ./*AllPackages.tar.gz ./tmp/
         sudo cp ./files/update*.sh ./tmp/
         echo "::set-output name=status::success"    
     
