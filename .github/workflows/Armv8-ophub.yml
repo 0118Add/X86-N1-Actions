@@ -1,4 +1,4 @@
-name: Build OpenWrt for Phicomm-N1
+name: Build Phicomm-N1
 
 on:
   repository_dispatch:
