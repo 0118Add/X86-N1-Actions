@@ -33,7 +33,7 @@ env:
   Update_Ver_SH: autoVer.sh
   DOCKER_BUILD_SH: buildImage.sh
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: true
+  UPLOAD_FIRMWARE: false
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
