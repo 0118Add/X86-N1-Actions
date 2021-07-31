@@ -1,4 +1,4 @@
-name: Build OpenWrt for Phicomm-N1
+name: Build OpenWrt for ARMv8
 
 on:
   repository_dispatch:
