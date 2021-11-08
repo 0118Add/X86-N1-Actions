@@ -78,11 +78,11 @@ jobs:
         sudo mkdir imgs
         sudo xz -d Armbian*Aml*\+\.img\.xz
         sudo xz -d Armbian*Aml*\+o*
-        sudo xz -d Armbian*Beike*\+\.img\.xz
+        #sudo xz -d Armbian*Beike*\+\.img\.xz
         sudo xz -d Armbian*Beike*\+o*
-        sudo xz -d Armbian*L1*\+\.img\.xz
+        #sudo xz -d Armbian*L1*\+\.img\.xz
         sudo xz -d Armbian*L1*\+o*
-        sudo xz -d Armbian*VPlus*\+\.img\.xz
+        #sudo xz -d Armbian*VPlus*\+\.img\.xz
         sudo xz -d Armbian*VPlus*\+o*
         sudo mv *.img imgs
         cd /opt/openwrt
