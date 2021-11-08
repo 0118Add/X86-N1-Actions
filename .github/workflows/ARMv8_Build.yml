@@ -90,11 +90,11 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo $GITHUB_WORKSPACE/$Update_Ver_SH
         #sudo ./mk_rk3328_beikeyun.sh
-        sudo ./mk_rk3328_beikeyun_fol.sh
-        #sudo ./mk_rk3328_beikeyun_plus.sh
+        #sudo ./mk_rk3328_beikeyun_fol.sh
+        sudo ./mk_rk3328_beikeyun_plus.sh
         #sudo ./mk_rk3328_l1pro.sh
-        sudo ./mk_rk3328_l1pro_fol.sh
-        #sudo ./mk_rk3328_l1pro_plus.sh
+        #sudo ./mk_rk3328_l1pro_fol.sh
+        sudo ./mk_rk3328_l1pro_plus.sh
         sudo ./mk_s905d_n1.sh
         sudo ./mk_s905d_n1_fol.sh
         sudo ./mk_s905d_n1_plus.sh
@@ -111,8 +111,8 @@ jobs:
         #sudo ./mk_s922x_gtking_fol.sh
         #sudo ./mk_s922x_gtking_plus.sh
         #sudo ./mk_h6_vplus.sh
-        sudo ./mk_h6_vplus_fol.sh
-        #sudo ./mk_h6_vplus_plus.sh
+        #sudo ./mk_h6_vplus_fol.sh
+        sudo ./mk_h6_vplus_plus.sh
         sudo cp ./*AllPackages.tar.gz ./tmp/
         echo "::set-output name=status::success"
 
