@@ -90,7 +90,7 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo $GITHUB_WORKSPACE/$Update_Ver_SH
         sudo ./mk_n1_opimg.sh
-        #sudo ./mk_s905x3_opimg.sh
+        sudo ./mk_s905x3_opimg.sh
         sudo ./mk_beikeyun_opimg.sh
         sudo ./mk_l1pro_opimg.sh
         #sudo ./n1-to-vplus.sh
@@ -104,7 +104,7 @@ jobs:
         cd /opt/openwrt/tmp/
         pigz -6 -p $(nproc) *.img
         sudo rm btld-rk3328.bin
-        rename 's/openwrt/S-openwrt/' openwrt*gz
+        rename 's/openwrt/openwrt/' openwrt*gz
 
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
