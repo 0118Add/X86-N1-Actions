@@ -1,4 +1,4 @@
-name: ARMv8_FOL
+name: ARMv8
 
 on:
   repository_dispatch:
