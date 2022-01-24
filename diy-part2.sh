@@ -67,7 +67,7 @@ git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-ap
 #git clone https://github.com/bin20088/luci-app-koolddns.git package/openwrt-packages/luci-app-koolddns
 git clone https://github.com/8688Add/install-program.git package/install-program
 git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
-git clone https://github.com/small-5/luci-app-adblock-plus.git package/luci-app-adblock-plus
+#git clone https://github.com/small-5/luci-app-adblock-plus.git package/luci-app-adblock-plus
 git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 #svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
