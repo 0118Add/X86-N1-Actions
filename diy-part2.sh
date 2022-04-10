@@ -20,8 +20,8 @@ sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.de
 
 #添加额外软件包
 rm -rf package/lean/autocore
-rm -rf package/lean/luci-lib-docker
-rm -rf package/lean/luci-app-dockerman
+rm -rf feeds/luci/collections/luci-lib-docker
+rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/0118Add/myautocore.git package/myautocore
 git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
@@ -85,8 +85,8 @@ git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic.git packag
 #sed -i 's/"解锁网易云灰色歌曲"/"网易云音乐"/g' package/lean/luci-app-unblockmusic/po/zh-cn/unblockmusic.po
 
 #readd cpufreq for aarch64
-#sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
-#sed -i 's/services/system/g' package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' feeds/luci/collections/luci-app-cpufreq/Makefile
+sed -i 's/services/system/g' feeds/luci/collections/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
 # Add autocore support for armvirt
 #sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
