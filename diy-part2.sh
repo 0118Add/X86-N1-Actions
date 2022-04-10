@@ -54,7 +54,7 @@ git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dock
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
 git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 git clone https://github.com/kiddin9/openwrt-bypass.git package/bypass
-#rm -rf package/lean/luci-theme-argon
+rm -rf feeds/luci/applications/luci-theme-argon
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
