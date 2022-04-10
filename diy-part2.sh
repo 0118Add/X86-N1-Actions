@@ -19,8 +19,10 @@ sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.de
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
+rm -rf package/lean/autocore
 rm -rf package/lean/luci-lib-docker
 rm -rf package/lean/luci-app-dockerman
+git clone https://github.com/0118Add/myautocore.git package/myautocore
 git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 #git clone https://github.com/0118Add/sirpdboy-package.git package/sirpdboy-package
@@ -49,10 +51,13 @@ git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dock
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/tcping
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
 #svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-#git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
+git clone https://github.com/kiddin9/openwrt-bypass.git package/bypass
 #rm -rf package/lean/luci-theme-argon
-git clone -b revert-271-18.06_bing https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-18.06
+git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #svn co https://github.com/siropboy/mypackages/trunk/luci-app-autopoweroff package/openwrt-packages/luci-app-autopoweroff
 #svn co https://github.com/siropboy/mypackages/trunk/luci-app-control-timewol package/openwrt-packages/luci-app-control-timewol
 #git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
@@ -80,20 +85,20 @@ git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic.git packag
 #sed -i 's/"解锁网易云灰色歌曲"/"网易云音乐"/g' package/lean/luci-app-unblockmusic/po/zh-cn/unblockmusic.po
 
 #readd cpufreq for aarch64
-sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
-sed -i 's/services/system/g' package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+#sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
+#sed -i 's/services/system/g' package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
 # Add autocore support for armvirt
-sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
+#sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
 
 # 添加旁路由防火墙
 echo "iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" >> package/network/config/firewall/files/firewall.user
 
 # 替换banner
-wget -O ./package/base-files/files/etc/banner https://raw.githubusercontent.com/0118Add/Armbian/main/router/Openwrt_N1/diy/n1_lede/banner
+#wget -O ./package/base-files/files/etc/banner https://raw.githubusercontent.com/0118Add/Armbian/main/router/Openwrt_N1/diy/n1_lede/banner
 
 #sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
-sed -i '175i\  --with-sandbox=rlimit \\' feeds/packages/net/openssh//Makefile
+#sed -i '175i\  --with-sandbox=rlimit \\' feeds/packages/net/openssh//Makefile
 
 #replace coremark.sh with the new one
 #rm package/lean/coremark/coremark.sh
