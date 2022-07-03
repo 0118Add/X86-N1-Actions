@@ -89,7 +89,7 @@ svn co https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash pa
 #rm -rf package/lean/luci-app-frpc
 #git clone https://github.com/8688Add/luci-app-frpc-mod.git package/lean/luci-app-frpc
 #chmod 0755 package/lean/luci-app-frpc/root/etc/init.d/frp
-git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+#git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 git clone https://github.com/8688Add/install-program.git package/install-program
 #svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
