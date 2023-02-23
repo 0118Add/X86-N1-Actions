@@ -26,10 +26,10 @@ env:
   TZ: Asia/Shanghai
   FILE_NAME: Files4Build
   PRODUCT_NAME: ARMv8_FOL
+
 jobs:
   build:
-    runs-on: ubuntu-18.04
-    if: github.event.repository.owner.id == github.event.sender.id
+    runs-on: ubuntu-22.04
 
     steps:
     #- name: WeChat notification
@@ -38,15 +38,28 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Initialization environment
+    - name: Check server configuration
+      run: |
+        echo "警告⚠"
+        echo "分配的服务器性能有限，若选择的插件过多，务必注意CPU性能！"
+        echo -e "已知CPU型号（降序）：8370C，8272CL，8171M，E5-2673 \n"
+        echo "--------------------------CPU信息--------------------------"
+        echo "CPU物理数量：$(cat /proc/cpuinfo | grep "physical id" | sort | uniq | wc -l)"
+        echo -e "CPU核心信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
+        echo "--------------------------内存信息--------------------------"
+        echo "已安装内存详细信息："
+        echo -e "$(sudo lshw -short -C memory | grep GiB) \n"
+        echo "--------------------------硬盘信息--------------------------"
+        echo "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l)" && df -hT    
+    
+    - name: Initialization Environment
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /etc/mysql /usr/local/lib/android
+        sudo -E apt-get -qq purge azure-cli google* dotnet* llvm* moby* mysql* php* powershell
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-1804)
-        sudo -E apt-get -qq install rename
-        sudo -E apt-get -qq install time
+        sudo -E apt-get -qq install libfuse-dev $(curl -fsSL is.gd/depends_ubuntu_2204)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
