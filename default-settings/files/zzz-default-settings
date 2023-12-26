@@ -1,0 +1,69 @@
+#!/bin/sh
+
+# lang
+uci set luci.main.lang=en
+uci commit luci
+
+# timezone
+uci set system.@system[0].timezone=WIB-7
+uci set system.@system[0].zonename=Asia/Jakarta
+# zram-swap
+uci set system.@system[0].zram_priority=100
+# ntp server
+uci -q delete system.ntp.server
+uci add_list system.ntp.server="time.indonesia.in"
+uci add_list system.ntp.server="ntp.indosat.com"
+uci add_list system.ntp.server="time3.jaring.id"
+uci add_list system.ntp.server="time.cloudflare.com"  # Cloudflare's NTP server
+uci commit system && service sysntpd reload
+
+# uhttpd
+uci set uhttpd.main.rfc1918_filter=0
+uci set uhttpd.main.redirect_https=0
+uci commit uhttpd && service uhttpd reload
+
+# dnsmasq
+uci set dhcp.lan.ra_management='1'
+uci del dhcp.@dnsmasq[0].rebind_protection='1'
+sed -i '/log-facility/d' /etc/dnsmasq.conf
+echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
+uci commit dhcp
+
+# xmm interface
+uci set network.l860GL=interface
+uci set network.l860GL.proto='xmm'
+uci set network.l860GL.device='/dev/ttyACM0'
+uci set network.l860GL.apn='internet'
+uci set network.l860GL.auth='auto'
+uci set network.l860GL.pdp='ipv4v6'
+uci add_list network.l860GL.dns='8.8.8.8'
+uci add_list network.l860GL.dns='8.8.4.4'
+uci commit network
+/etc/init.d/network restart
+
+#opkg
+sed -i 's/option check_signature/# option check_signature/g' /etc/opkg.conf
+echo "src/gz custom_generic https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/generic" >> /etc/opkg/customfeeds.conf
+echo "src/gz custom_arch https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/$(cat /etc/os-release | grep OPENWRT_ARCH | awk -F '"' '{print $2}')" >> /etc/opkg/customfeeds.conf
+
+cd /aplikasi
+opkg remove --no-depends luci-app-pingcontrol
+sleep 1
+opkg install *.ipk
+rm -rf /aplikasi
+
+# Fixing Bug
+sed -i "/config uhttpd 'main'/a list interpreter '.php=/usr/bin/php-cgi'" /etc/config/uhttpd
+sed -i "/config uhttpd 'main'/a option ubus_prefix '/ubus'" /etc/config/uhttpd
+
+ln -sf /sbin/ip /usr/bin/ip
+
+opkg flag hold luci-app-firewall
+opkg flag hold firewall
+opkg flag hold dnsmasq-full
+
+# luci cache
+rm -rf /tmp/luci-modulecache/
+rm -f /tmp/luci-indexcache
+
+exit 0
