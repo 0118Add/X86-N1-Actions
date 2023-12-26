@@ -1,0 +1,50 @@
+name: Fetch Cache
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "00 00 */6 * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        target: [x86-64]
+        branch: [main]
+
+    steps:
+    - name: Clone Repository
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ matrix.branch }}
+
+    - name: Clone OpenWrt
+      run: |
+        ./scripts/00_init.sh openwrt
+
+    - name: Get variable
+      working-directory: ./openwrt
+      id: var
+      run: |
+        case ${{ matrix.branch }} in
+          23.05)
+            _release_tag=$(git tag --sort=taggerdate --list 'v23.*' | tail -1)
+            git checkout $_release_tag
+            ;;
+          22.03)
+            _release_tag=$(git tag --sort=taggerdate --list 'v22.*' | tail -1)
+            git checkout $_release_tag
+            ;;
+          *)
+            echo "Can't get local/upstream's branch/tags"
+            ;;
+        esac
+
+    - name: Get cache toolchain
+      uses: HiGarfield/cachewrtbuild@main
+      with:
+        prefix: ${{ github.workspace }}/openwrt
+        mixkey: ${{ matrix.target }}
+        skip_saving: 'true'
+
