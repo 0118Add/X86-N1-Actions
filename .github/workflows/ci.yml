@@ -6,10 +6,10 @@ on:
       branch:
         description: 'your local repo branch'
         required: true
-        default: master
+        default: main
         type: choice
         options:
-        - master
+        - main
 
 
 jobs:
