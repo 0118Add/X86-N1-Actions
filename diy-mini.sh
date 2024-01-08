@@ -102,8 +102,8 @@ git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
-svn export -q https://github.com/fw876/helloworld package/helloworld
-#git clone https://github.com/fw876/helloworld package/helloworld
+#svn export -q https://github.com/fw876/helloworld package/helloworld
+git clone https://github.com/fw876/helloworld package/helloworld
 git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 git clone https://github.com/sbwml/luci-app-alist.git package/alist
