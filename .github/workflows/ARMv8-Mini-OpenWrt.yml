@@ -239,7 +239,7 @@ jobs:
 
     - name: Package OpenWrt Firmware
       if: steps.download.outputs.status == 'success'
-      uses: ophub/flippy-openwrt-actions@main
+      uses: 0118Add/flippy-openwrt-actions@main
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
         PACKAGE_SOC: vplus_s905x3_s905d_s922x
