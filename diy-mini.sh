@@ -72,9 +72,7 @@ rm -rf feeds/packages/lang/node
 git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node
 
 # 移除重复软件包
-rm -rf package/helloworld/{hysteria,xray-core}
-rm -rf package/helloworld/hysteria
-rm -rf package/helloworld/xray-core
+#rm -rf package/helloworld/{hysteria,xray-core}
 #rm -rf package/lean/autocore
 #rm -rf feeds/packages/lang/golang
 rm -rf feeds/luci/collections/luci-lib-docker
@@ -101,11 +99,10 @@ git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dock
 #svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata package/luci-app-netdata
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
-svn export -q https://github.com/xiaorouji/openwrt-passwall-packages package/new/openwrt-passwall-packages
-#git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
-git clone https://github.com/fw876/helloworld.git package/helloworld
+#git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
+#git clone https://github.com/fw876/helloworld.git package/helloworld
 git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 git clone https://github.com/sbwml/luci-app-alist.git package/alist
