@@ -103,7 +103,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
 git clone https://github.com/fw876/helloworld.git package/helloworld
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
-#git clone https://github.com/0118Add/luci-theme-neobird.git package/luci-theme-neobird
+git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
