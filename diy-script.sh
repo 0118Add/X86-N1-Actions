@@ -74,6 +74,7 @@ rm -rf feeds/packages/lang/node
 git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node
 
 # 添加额外软件包
+rm -rf package/helloworld/{hysteria,xray-core}
 rm -rf feeds/luci/collections/luci-lib-docker
 rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/packages/lang/golang
