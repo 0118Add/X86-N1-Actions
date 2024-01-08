@@ -103,6 +103,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
 svn co https://github.com/fw876/helloworld/trunk/mosdns package/mosdns
+svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/helloworld
 #git clone https://github.com/fw876/helloworld package/helloworld
 git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
