@@ -51,7 +51,8 @@ sed -i 's/os.date()/os.date("%Y-%m-%d") .. " " .. translate(os.date("%A")) .. " 
 #curl -fsSL https://raw.githubusercontent.com/0118Add/patch/main/x86_index.htm > ./package/lean/autocore/files/x86/index.htm
 #curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/cpuinfo > ./package/myautocore/autocore/files/generic/cpuinfo
 
-# 替换index.htm文件
+# 替换文件
+wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
 #wget -O ./package/lean/autocore/files/x86/index.htm https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/index_x86.htm
 
 # 替换banner
