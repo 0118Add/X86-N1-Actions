@@ -146,7 +146,7 @@ sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wiregu
 sed -i 's/Turbo ACC 网络加速/网络加速/g' feeds/luci/applications/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
-sed -i 's/ +libopenssl-legacy//g' feeds/helloworld/shadowsocksr-libev/Makefile
+#sed -i 's/ +libopenssl-legacy//g' feeds/helloworld/shadowsocksr-libev/Makefile
 
 # 固定shadowsocks-rust版本以免编译失败
 #rm -rf feeds/helloworld/shadowsocks-rust
