@@ -28,12 +28,6 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #orig_version=$(cat "package/lean/default-settings/files/zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
 #sed -i "s/${orig_version}/R${date_version}/g" package/lean/default-settings/files/zzz-default-settings
 
-# 去除主页一串的LUCI版本号显示
-#sed -i 's/distversion)%>/distversion)%><!--/g' package/lean/autocore/files/*/index.htm
-#sed -i 's/luciversion)%>)/luciversion)%>)-->/g' package/lean/autocore/files/*/index.htm
-sed -i 's/luciname)%>/Lede)%>/g' package/lean/autocore/files/*/index.htm
-sed -i 's/luciversion)%>)/18.06)%>)/g' package/lean/autocore/files/*/index.htm
-
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
@@ -49,6 +43,12 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/N1-Actions-Dabao56/master/b
 #curl -fsSL https://raw.githubusercontent.com/0118Add/N1-Actions-Dabao56/master/backup/x86index.htm > ./package/lean/autocore/files/x86/index.htm
 curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt/main/scripts/autocore > ./package/lean/autocore/files/x86/autocore
 curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/cpuinfo > ./package/lean/autocore/files/x86/sbin/cpuinfo
+
+# 去除主页一串的LUCI版本号显示
+#sed -i 's/distversion)%>/distversion)%><!--/g' package/lean/autocore/files/*/index.htm
+#sed -i 's/luciversion)%>)/luciversion)%>)-->/g' package/lean/autocore/files/*/index.htm
+sed -i 's/luciname)%>/Lede)%>/g' package/lean/autocore/files/*/index.htm
+sed -i 's/luciversion)%>)/18.06)%>)/g' package/lean/autocore/files/*/index.htm
 
 # 修改概览里时间显示为中文数字
 sed -i 's/os.date()/os.date("%Y-%m-%d") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/x86/index.htm
