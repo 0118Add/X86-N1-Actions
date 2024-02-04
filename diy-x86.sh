@@ -83,6 +83,7 @@ rm -rf package/helloworld/{hysteria,xray-core}
 #rm -rf package/lean/autocore
 #rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/mosdns
+rm -rf feeds/luci/applications/luci-app-mosdns
 #rm -rf feeds/luci/collections/luci-lib-docker
 #rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/applications/luci-app-netdata
