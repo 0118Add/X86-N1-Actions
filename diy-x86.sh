@@ -47,8 +47,8 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/cpuinfo
 # 去除主页一串的LUCI版本号显示
 #sed -i 's/distversion)%>/distversion)%><!--/g' package/lean/autocore/files/*/index.htm
 #sed -i 's/luciversion)%>)/luciversion)%>)-->/g' package/lean/autocore/files/*/index.htm
-sed -i 's/luciname)%>/Lede)%>/g' package/lean/autocore/files/*/index.htm
-sed -i 's/luciversion)%>)/18.06)%>)/g' package/lean/autocore/files/*/index.htm
+#sed -i 's/luciname)%>/Lede)%>/g' package/lean/autocore/files/*/index.htm
+#sed -i 's/luciversion)%>)/18.06)%>)/g' package/lean/autocore/files/*/index.htm
 
 # 修改概览里时间显示为中文数字
 sed -i 's/os.date()/os.date("%Y-%m-%d") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/x86/index.htm
