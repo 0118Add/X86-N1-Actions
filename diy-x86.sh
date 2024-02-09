@@ -35,7 +35,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 
 # 替换文件
-wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
+#wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
 #wget -O ./package/lean/autocore/files/x86/index.htm https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/index.htm
 
 # 修改系统文件
@@ -106,7 +106,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 git clone https://github.com/fw876/helloworld.git package/helloworld
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
-git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
+#git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
