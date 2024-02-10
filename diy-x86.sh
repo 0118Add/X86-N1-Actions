@@ -47,8 +47,6 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/cpuinfo
 # 去除主页一串的LUCI版本号显示
 #sed -i 's/distversion)%>/distversion)%><!--/g' package/lean/autocore/files/*/index.htm
 #sed -i 's/luciversion)%>)/luciversion)%>)-->/g' package/lean/autocore/files/*/index.htm
-#sed -i 's/luciname)%>/Lede)%>/g' package/lean/autocore/files/*/index.htm
-#sed -i 's/luciversion)%>)/18.06)%>)/g' package/lean/autocore/files/*/index.htm
 
 # 修改概览里时间显示为中文数字
 sed -i 's/os.date()/os.date("%Y-%m-%d") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X")/g' package/lean/autocore/files/x86/index.htm
@@ -152,10 +150,10 @@ sed -i 's/Turbo ACC 网络加速/网络加速/g' feeds/luci/applications/luci-ap
 #sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
 
 # 固定shadowsocks-rust版本以免编译失败
-#rm -rf package/helloworld/shadowsocks-rust
-#wget -P package/helloworld/shadowsocks-rust https://github.com/wekingchen/my-file/raw/master/shadowsocks-rust/Makefile
-#rm -rf package/openwrt-passwall/shadowsocks-rust
-#wget -P package/openwrt-passwall/shadowsocks-rust https://github.com/wekingchen/my-file/raw/master/shadowsocks-rust/Makefile
+rm -rf package/helloworld/shadowsocks-rust
+wget -P package/helloworld/shadowsocks-rust https://github.com/wekingchen/my-file/raw/master/shadowsocks-rust/Makefile
+rm -rf package/openwrt-passwall/shadowsocks-rust
+wget -P package/openwrt-passwall/shadowsocks-rust https://github.com/wekingchen/my-file/raw/master/shadowsocks-rust/Makefile
 
 # 调整 Dockerman 到 服务 菜单
 #sed -i 's/"admin",/"admin","services",/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/controller/*.lua
