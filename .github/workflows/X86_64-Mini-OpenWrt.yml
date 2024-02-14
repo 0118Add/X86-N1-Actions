@@ -101,7 +101,6 @@ jobs:
         df -h 
     
     - name: Clone source code
-      working-directory: ./
       run: |
         df -hT $GITHUB_WORKSPACE
         git clone $REPO_URL -b $REPO_BRANCH openwrt
