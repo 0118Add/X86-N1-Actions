@@ -22,6 +22,51 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
+    - name: Before freeing up disk space
+      run: |
+        echo "Before freeing up disk space"
+        echo "=============================================================================="
+        df -hT
+        echo "=============================================================================="
+
+    - name: "Optimize Disk Space"
+      uses: "hugoalh/disk-space-optimizer-ghaction@v0.8.0"
+      with:
+        operate_sudo: "True"
+        general_include: ".+"
+        general_exclude: |-
+          ^GCC$
+          ^G\+\+$
+          LLVM
+        docker_include: ".+"
+        docker_prune: "True"
+        docker_clean: "True"
+        apt_prune: "True"
+        apt_clean: "True"
+        homebrew_prune: "True"
+        homebrew_clean: "True"
+        npm_prune: "True"
+        npm_clean: "True"
+        os_swap: "True"
+
+    - name: Freeing up disk space
+      uses: easimon/maximize-build-space@master
+      with: 
+        root-reserve-mb: 2048
+        swap-size-mb: 1
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
+        remove-codeql: 'true'
+        remove-docker-images: 'true'
+
+    - name: Free up disk space complete
+      run: |
+        echo "Free up disk space complete"
+        echo "=============================================================================="
+        df -hT
+        echo "=============================================================================="    
+ 
     - name: Checkout
       uses: actions/checkout@main
 
@@ -69,14 +114,6 @@ jobs:
         COMMIT_HASH=$(git show -s --date=short --format="hash: %H")
         echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
         
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        # 利用挂载在 /mnt/ 的 14G 额外空间:
-        sudo mkdir -p -m 777 /mnt/openwrt/dl /mnt/openwrt/feeds 
-        ln -s /mnt/openwrt/dl /workdir/openwrt/dl
-        ln -s /mnt/openwrt/feeds /workdir/openwrt/feeds
-        # ln -s /mnt/openwrt/staging_dir ./staging_dir
-        df -h
-    
     - name: Generate Variables
       run: |
         cp $CONFIG_FILE $OPENWRT_PATH/.config
