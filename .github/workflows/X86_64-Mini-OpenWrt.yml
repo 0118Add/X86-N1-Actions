@@ -18,10 +18,13 @@ env:
   TZ: Asia/Shanghai
 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-22.04
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@main
+
     - name: Check Server Performance
       run: |
         echo "警告⚠"
@@ -51,16 +54,6 @@ jobs:
         sudo -E apt-get -y clean
         sudo timedatectl set-timezone "$TZ"
 
-    - name: Combine Disks
-      uses: easimon/maximize-build-space@master
-      with:
-        swap-size-mb: 1024
-        temp-reserve-mb: 100
-        root-reserve-mb: 1024
-
-    - name: Checkout
-      uses: actions/checkout@main    
-    
     - name: Clone Source Code
       run: |
         df -hT $GITHUB_WORKSPACE
@@ -75,7 +68,7 @@ jobs:
         echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
         COMMIT_HASH=$(git show -s --date=short --format="hash: %H")
         echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
-        
+
     - name: Generate Variables
       run: |
         cp $CONFIG_FILE $OPENWRT_PATH/.config
