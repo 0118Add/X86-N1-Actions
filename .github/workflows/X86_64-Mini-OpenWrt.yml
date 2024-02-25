@@ -151,7 +151,9 @@ jobs:
         cat config.buildinfo
         echo "KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ')" >> $GITHUB_ENV
         rm -rf packages *.buildinfo *.manifest *kernel.bin *rootfs.img.gz profiles.json sha256sums
-        mv 's/^/mini-/' *
+        mv openwrt-x86-64-generic-rootfs.tar.gz mini-openwrt-x86-64-generic-rootfs.tar.gz
+        mv openwrt-x86-64-generic-squashfs-combined-efi.img.gz mini-openwrt-x86-64-generic-squashfs-combined-efi.img.gz
+        mv openwrt-x86-64-generic-squashfs-combined.img.gz mini-openwrt-x86-64-generic-squashfs-combined.img.gz
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
         echo "status=success" >> ${GITHUB_OUTPUT}
     
