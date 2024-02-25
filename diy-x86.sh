@@ -39,10 +39,10 @@ sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 #wget -O ./package/lean/autocore/files/x86/index.htm https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/index.htm
 
 # 修改系统文件
-# curl -fsSL https://raw.githubusercontent.com/0118Add/N1-Actions-Dabao56/master/backup/x86index.htm > ./package/lean/autocore/files/x86/index.htm
+curl -fsSL https://raw.githubusercontent.com/0118Add/N1-Actions-Dabao56/master/backup/x86index.htm > ./package/lean/autocore/files/x86/index.htm
 #curl -fsSL https://raw.githubusercontent.com/0118Add/N1-Actions-Dabao56/master/backup/x86index.htm > ./package/lean/autocore/files/x86/index.htm
-# curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt/main/scripts/autocore > ./package/lean/autocore/files/x86/autocore
-# curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/cpuinfo > ./package/lean/autocore/files/x86/sbin/cpuinfo
+curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt/main/scripts/autocore > ./package/lean/autocore/files/x86/autocore
+curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/cpuinfo > ./package/lean/autocore/files/x86/sbin/cpuinfo
 #curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk > ./package/kernel/linux/modules/netsupport.mk
 
 # 去除主页一串的LUCI版本号显示
@@ -79,7 +79,7 @@ git clone https://github.com/8688Add/feeds_packages_lang_node feeds/packages/lan
 
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
-rm -rf package/lean/autocore
+#rm -rf package/lean/autocore
 #rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-mosdns
@@ -91,7 +91,7 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/luci/applications/luci-app-serverchan
 
 # 添加额外软件包
-git clone https://github.com/0118Add/OpenWrt package/myautocore
+#git clone https://github.com/0118Add/OpenWrt package/myautocore
 #curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/cpuinfo > ./package/myautocore/autocore/files/generic/cpuinfo
 #svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 #git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
