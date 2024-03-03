@@ -139,7 +139,6 @@ rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-design
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
-git clone https://github.com/0118Add/openwrt_packages package/luci-theme-atmaterial_new
 #git clone --depth=1 -b main https://github.com/fw876/helloworld package/helloworld
 git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
