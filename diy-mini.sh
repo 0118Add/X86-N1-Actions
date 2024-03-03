@@ -116,7 +116,7 @@ rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/applications/luci-app-netdata
 #rm -rf feeds/luci/applications/luci-app-aliyundrive-webdav
 #rm -rf feeds/packages/multimedia/aliyundrive-webdav
-#svn co https://github.com/sirpdboy/diy/trunk/samba4 feeds/packages/net/samba4
+merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/dae
 git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 #svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata package/luci-app-netdata
