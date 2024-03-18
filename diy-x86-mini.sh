@@ -128,6 +128,8 @@ git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone https://github.com/fw876/helloworld.git package/helloworld
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.8.9/g' package/helloworld/xray-core/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=708cf7754c733c8eb98939495c0c2e698ca5712383b87dc25eea974a0d332721/g' package/helloworld/xray-core/Makefile
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
