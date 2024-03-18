@@ -128,10 +128,9 @@ merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/dae
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #svn co https://github.com/0118Add/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
-#git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
+git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-#git clone https://github.com/fw876/helloworld.git package/helloworld
-git clone https://github.com/sbwml/openwrt_helloworld package/helloworld -b v5
+git clone https://github.com/fw876/helloworld.git package/helloworld
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
