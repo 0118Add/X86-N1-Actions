@@ -6,7 +6,7 @@ on:
     #- cron: 0 19 * * *
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/8688Add/lede
   REPO_BRANCH: master
   CONFIG_FILE: configs/x86_mini.config
   DIY_SCRIPT: diy-x86.sh
