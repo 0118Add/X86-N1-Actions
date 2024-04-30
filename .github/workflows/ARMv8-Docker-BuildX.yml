@@ -50,13 +50,17 @@ jobs:
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get -y clean
         sudo timedatectl set-timezone "$TZ"
-
-    - name: Clone Source Code
+        sudo mkdir -p /mnt/workdir
+        sudo chown $USER:$GROUPS /mnt/workdir
+        echo "status=success" >> ${GITHUB_OUTPUT}
+        df -Th
+    
+    - name: Clone source code
+      working-directory: /mnt/workdir
       run: |
-        df -hT $GITHUB_WORKSPACE
+        df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        cd openwrt
-        echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
+        ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Install Feeds
       run: |
