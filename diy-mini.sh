@@ -126,9 +126,9 @@ git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 #svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata package/luci-app-netdata
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
-#git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
 git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
 git clone https://github.com/fw876/helloworld package/helloworld
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
