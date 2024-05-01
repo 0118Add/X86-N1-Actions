@@ -125,10 +125,15 @@ git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-git clone https://github.com/fw876/helloworld.git package/helloworld
+#git clone https://github.com/fw876/helloworld.git package/helloworld
+merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
+merge_package https://github.com/fw876/helloworld helloworld/mosdns
+merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
+merge_package https://github.com/fw876/helloworld helloworld/redsocks2
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
-git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
+git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 #git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
