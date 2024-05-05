@@ -6,7 +6,7 @@
 # By: BGG
 #===============================================
 
-echo "开始 DIY2 配置……"
+echo "开始配置……"
 echo "========================="
 
 # Git稀疏克隆，只克隆指定目录到本地
@@ -108,18 +108,14 @@ rm -rf feeds/luci/applications/luci-app-serverchan
 #git clone https://github.com/0118Add/OpenWrt package/myautocore
 #git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 #git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
-git_sparse_clone https://github.com/kiddin9/openwrt-packages openwrt-packages/dae
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages dae
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
+#git_sparse_clone main https://github.com/xiaorouji/openwrt-passwall-packages sing-box
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-git_sparse_clone https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
-git_sparse_clone https://github.com/fw876/helloworld helloworld/lua-neturl
-git_sparse_clone https://github.com/fw876/helloworld helloworld/mosdns
-git_sparse_clone https://github.com/fw876/helloworld helloworld/shadow-tls
-git_sparse_clone https://github.com/fw876/helloworld helloworld/redsocks2
+git_sparse_clone master https://github.com/fw876/helloworld luci-app-ssr-plus lua-neturl mosdns shadow-tls redsocks2
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
