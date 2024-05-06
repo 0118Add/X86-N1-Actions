@@ -55,7 +55,7 @@ wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubuserconte
 
 # 修改系统文件
 #curl -fsSL https://raw.githubusercontent.com/0118Add/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
-curl -fsSL https://raw.githubusercontent.com/0118Add/N1-Actions-Dabao49/main/flippyn1_index.htm > ./package/lean/autocore/files/arm/index.htm
+curl -fsSL https://raw.githubusercontent.com/0118Add/N1-Actions-Dabao49/main/custom/flippyn1_index.htm > ./package/lean/autocore/files/arm/index.htm
 #curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/cpuinfo > ./package/myautocore/autocore/files/generic/cpuinfo
 
 # 替换index.htm文件
