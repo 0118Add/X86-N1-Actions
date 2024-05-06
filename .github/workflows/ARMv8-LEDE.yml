@@ -1,4 +1,4 @@
-name: ARMv8 Package
+name: ARMv8 LEDE
 
 on:
   workflow_dispatch:
