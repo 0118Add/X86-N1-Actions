@@ -9,7 +9,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   CONFIG_FILE: configs/armv8-docker-mini.config
-  DIY_SCRIPT: diy-mini.sh
+  DIY_SCRIPT: custom/diy-mini.sh
   CLASH_KERNEL: arm64
   DOCKER_BUILD: buildImageX.sh
   DOCKER_IMAGE: 0118add/openwrt-aarch64
