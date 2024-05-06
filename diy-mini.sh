@@ -6,29 +6,18 @@
 # By: BGG
 #===============================================
 
-echo "开始 DIY2 配置……"
+echo "开始配置……"
 echo "========================="
 
-function merge_package(){
-    repo=`echo $1 | rev | cut -d'/' -f 1 | rev`
-    pkg=`echo $2 | rev | cut -d'/' -f 1 | rev`
-    # find package/ -follow -name $pkg -not -path "package/custom/*" | xargs -rt rm -rf
-    git clone --depth=1 --single-branch $1
-    mv $2 package/custom/
-    rm -rf $repo
+# Git稀疏克隆，只克隆指定目录到本地
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
 }
-function drop_package(){
-    find package/ -follow -name $1 -not -path "package/custom/*" | xargs -rt rm -rf
-}
-function merge_feed(){
-    if [ ! -d "feed/$1" ]; then
-        echo >> feeds.conf.default
-        echo "src-git $1 $2" >> feeds.conf.default
-    fi
-    ./scripts/feeds update $1
-    ./scripts/feeds install -a -p $1
-}
-rm -rf package/custom; mkdir package/custom
 
 # 修改主机名字（不能纯数字或者使用中文）
 #sed -i "s/hostname='.*'/hostname='X86'/g" package/base-files/files/bin/config_generate
@@ -112,25 +101,15 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/luci/applications/luci-app-serverchan
 
 # 添加额外软件包
-#rm -rf package/lean/autocore
-#git clone https://github.com/0118Add/X86_64-TEST.git package/myautocore
-rm -rf feeds/luci/collections/luci-lib-docker
-rm -rf feeds/luci/applications/luci-app-dockerman
-#rm -rf feeds/packages/lang/golang
-#svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
-#rm -rf feeds/luci/applications/luci-app-netdata
-#rm -rf feeds/luci/applications/luci-app-aliyundrive-webdav
-#rm -rf feeds/packages/multimedia/aliyundrive-webdav
-merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/dae
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages dae
 git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
-#svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-netdata package/luci-app-netdata
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
-git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
-git clone https://github.com/fw876/helloworld package/helloworld
+#git_sparse_clone main https://github.com/xiaorouji/openwrt-passwall-packages sing-box
+git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
+git_sparse_clone master https://github.com/fw876/helloworld luci-app-ssr-plus lua-neturl mosdns shadow-tls redsocks2
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
@@ -156,7 +135,7 @@ git clone -b master https://github.com/UnblockNeteaseMusic/luci-app-unblocknetea
 #sed -i 's/广告屏蔽大师 Plus+/广告屏蔽/g' feeds/luci/applications/luci-app-adbyby-plus/po/zh-cn/adbyby.po
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 #sed -i 's/Hello World/Hi World/g' package/luci-app-vssr/luasrc/controller/vssr.lua
-sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 #sed -i 's/Argon 主题设置/主题设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
 #sed -i 's/Frp 内网穿透/内网穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
 #sed -i 's/Frpc内网穿透/内网穿透/g' package/luci-app-multi-frpc/po/zh-cn/frp.po
