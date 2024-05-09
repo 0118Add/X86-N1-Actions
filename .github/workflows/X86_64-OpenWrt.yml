@@ -8,6 +8,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
+  FEEDS_CONF: lean-23.05.feeds.conf.default
   CONFIG_FILE: configs/x86_mini.config
   DIY_SCRIPT: custom/diy-x86.sh
   CLASH_KERNEL: amd64
@@ -79,6 +80,7 @@ jobs:
     - name: Generate Variables
       run: |
         cp $CONFIG_FILE $OPENWRT_PATH/.config
+        cp $FEEDS_CONF $OPENWRT_PATH/.feeds.conf.default
         cd $OPENWRT_PATH
         make defconfig > /dev/null 2>&1
         SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
@@ -106,6 +108,7 @@ jobs:
       run: |
         [ -e files ] && mv files $OPENWRT_PATH/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $OPENWRT_PATH/.config
+        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF $OPENWRT_PATH/.feeds.conf.default
         chmod +x $GITHUB_WORKSPACE/scripts/*.sh
         chmod +x $DIY_SCRIPT
         cd $OPENWRT_PATH
