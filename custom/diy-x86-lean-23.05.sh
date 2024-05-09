@@ -19,6 +19,9 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 
+echo "#src-git luci https://github.com/coolsnowwolf/luci" >> feeds.conf.default
+echo "src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-23.05" >> feeds.conf.default
+
 # 修改主机名字（不能纯数字或者使用中文）
 #sed -i "s/hostname='.*'/hostname='X86'/g" package/base-files/files/bin/config_generate
 #sed -i "s/OpenWrt /OPWRT/g" package/lean/default-settings/files/zzz-default-settings
