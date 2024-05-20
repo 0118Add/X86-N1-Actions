@@ -65,7 +65,6 @@ jobs:
         ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
-        version=$(cat "package/lean/default-settings/files/zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
         echo "TAG=$version" >> $GITHUB_ENV
 
     - name: Install Feeds
