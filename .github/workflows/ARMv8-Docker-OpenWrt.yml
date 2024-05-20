@@ -9,7 +9,7 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-23.05
   CONFIG_FILE: configs/armv8-docker.config
-  DIY_SCRIPT: diy-mini.sh
+  DIY_SCRIPT: custom/diy-armv8-23.05.sh
   CLASH_KERNEL: arm64
   DOCKER_BUILD: buildImageX.sh
   DOCKER_IMAGE: 0118add/openwrt-aarch64
