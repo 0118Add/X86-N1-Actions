@@ -116,6 +116,7 @@ jobs:
       id: generate
       run: |
         cd $OPENWRT_PATH/bin/targets/*/*
+        mv immortalwrt-armsr-armv8-generic-rootfs.tar.gz openwrt-armvirt-64-default-rootfs.tar.gz
         cat config.buildinfo
         cp *rootfs.tar.gz $GITHUB_WORKSPACE/docker
         cd $GITHUB_WORKSPACE/docker
