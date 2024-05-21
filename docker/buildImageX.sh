@@ -1,7 +1,8 @@
 #!/bin/bash
 
 TMPDIR=openwrt-armvirt
-ROOTFS=("openwrt-armvirt-64-generic-rootfs.tar.gz" "immortalwrt-armsr-armv8-generic-rootfs.tar.gz")
+#ROOTFS=openwrt-armvirt-64-generic-rootfs.tar.gz
+ROOTFS=immortalwrt-armsr-armv8-generic-rootfs.tar.gz
 
 [ -d "$TMPDIR" ] && rm -rf "$TMPDIR"
 mkdir -p "$TMPDIR" && gzip -dc ${ROOTFS} | ( cd "$TMPDIR" && tar xf - && rm -rf ./lib/firmware/* && rm -rf ./lib/modules/*)
