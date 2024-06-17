@@ -101,7 +101,7 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/luci/applications/luci-app-serverchan
 
 # 添加额外软件包
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages dae
+git_sparse_clone master https://github.com/0118Add/openwrt-packages dae
 git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
