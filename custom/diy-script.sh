@@ -6,7 +6,7 @@
 # By: BGG
 #===============================================
 
-echo "开始 DIY2 配置……"
+echo "开始配置……"
 echo "========================="
 
 function merge_package(){
@@ -109,17 +109,19 @@ rm -rf feeds/luci/applications/luci-app-serverchan
 
 # 添加额外软件包
 #git clone https://github.com/0118Add/OpenWrt package/myautocore
-#curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/cpuinfo > ./package/myautocore/autocore/files/generic/cpuinfo
-#svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/dae
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-git clone https://github.com/fw876/helloworld.git package/helloworld
+#git clone https://github.com/fw876/helloworld.git package/helloworld
+merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
+merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
+merge_package https://github.com/fw876/helloworld helloworld/mosdns
+merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
+merge_package https://github.com/fw876/helloworld helloworld/redsocks2
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
