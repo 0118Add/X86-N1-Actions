@@ -67,9 +67,7 @@ sed -i 's/os.date()/os.date("%Y-%m-%d") .. " " .. translate(os.date("%A")) .. " 
 #sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 
 # 修改系统文件
-#curl -fsSL https://raw.githubusercontent.com/0118Add/patch/main/zzz-default-settings > ./package/lean/default-settings/files/zzz-default-settings
-#curl -fsSL https://raw.githubusercontent.com/0118Add/patch/main/x86_index.htm > ./package/lean/autocore/files/x86/index.htm
-#curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt-CI/main/x86/diy/x86_lede/cpuinfo > ./package/myautocore/autocore/files/generic/cpuinfo
+curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/master/general/index.htm > ./package/lean/autocore/files/arm/index.htm
 
 # 替换文件
 wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
