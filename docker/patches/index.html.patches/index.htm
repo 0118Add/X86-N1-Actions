@@ -56,15 +56,17 @@
 		local user_info = luci.sys.exec("cat /proc/net/arp | grep -E 'br-lan|eth0' | grep '0x2' | wc -l")
 		
 		local cpu_usage = (luci.sys.exec("expr 100 - $(top -n 1 | grep 'CPU:' | awk -F '%' '{print$4}' | awk -F ' ' '{print$2}')") or "6") .. "%"
-		local cpu_stat = luci.sys.exec("/usr/bin/cpustat 2>/dev/null") or { }
+		local run_time = luci.sys.exec("awk '{print int($1/86400)\"天 \"int($1%86400/3600)\"时 \"int($1%86400%3600/60)\"分 \"int($1%60)\"秒\"}' /proc/uptime")
+	        local cpu_stat = luci.sys.exec("/usr/bin/cpustat 2>/dev/null") or { }
 		local eth_info = luci.sys.exec("/usr/bin/cpustat -e 2>/dev/null")
 		local eth_cnt  = luci.sys.exec("/usr/bin/cpustat -ec 2>/dev/null")
 
 		local rv = {
 			cpuusage    = cpu_usage,
 			userinfo    = user_info,
-			uptime     = sysinfo.uptime or 0,
-			localtime  = os.date(),
+			runtime    = run_time,
+	                uptime     = sysinfo.uptime or 0,
+			localtime  = os.date("%Y年%m月%d日") .. " " .. translate(os.date("%A")) .. " " .. os.date("%X"),
 			loadavg    = sysinfo.load or { 0, 0, 0 },
 			memory     = meminfo,
 			memcached  = mem_cached,
@@ -195,7 +197,7 @@
 		});
 	}
 
-	XHR.poll(5, '<%=REQUEST_URI%>', { status: 1 },
+	XHR.poll(1, '<%=REQUEST_URI%>', { status: 1 },
 		function(x, info)
 		{
 			if (!(npoll++ % 5))
@@ -681,7 +683,10 @@
 			if (e = document.getElementById('uptime'))
 				e.innerHTML = String.format('%t', info.uptime);
 				
-			if (e = document.getElementById('userinfo'))
+			if (e = document.getElementById('runtime'))
+				e.innerHTML = info.runtime;
+	
+	                if (e = document.getElementById('userinfo'))
 				e.innerHTML = info.userinfo;
 				
 			if (e = document.getElementById('cpuusage'))
@@ -736,15 +741,14 @@
 		<tr><td width="33%"><%:Model%></td><td><%=pcdata(boardinfo.model or "?")%> <%=luci.sys.exec("cat /etc/bench.log") or " "%></td></tr>
 		<tr><td width="33%"><%:Architecture%></td><td><%=luci.sys.exec("/usr/bin/cpustat -a 2>/dev/null")%></td></tr>
 		<tr><td width="33%"><%:Firmware Version%></td><td>
-			<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%> /
-			<%=pcdata(ver.luciname)%> (<%=pcdata(ver.luciversion)%>)
+			<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%>
 		</td></tr>
 		<tr><td width="33%"><%:Kernel Version%></td><td><%=unameinfo.release or "?"%></td></tr>
-		<tr><td width="33%"><%:Local Time%></td><td id="localtime">-</td></tr>
-		<tr><td width="33%"><%:Uptime%></td><td id="uptime">-</td></tr>
-		<tr><td width="33%"><%:CPU状态%></td><td id="cpustat">-</td></tr>
+		<tr><td width="33%"><%:CPU负载%></td><td id="cpuusage">-</td></tr>
 		<tr><td width="33%"><%:Load Average%></td><td id="loadavg">-</td></tr>
-		<tr><td width="33%"><%:CPU usage (%)%></td><td id="cpuusage">-</td></tr>
+		<tr><td width="33%"><%:CPU状态%></td><td id="cpustat">-</td></tr>
+	        <tr><td width="33%"><%:Local Time%></td><td id="localtime">-</td></tr>
+	        <tr><td width="33%"><%:Uptime%></td><td id="runtime">-</td></tr>
 	</table>
 </fieldset>
 
