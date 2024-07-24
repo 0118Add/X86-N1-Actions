@@ -104,7 +104,7 @@ rm -rf feeds/luci/collections/luci-lib-docker
 rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf feeds/luci/applications/luci-app-netdata
 #rm -rf feeds/luci/applications/luci-app-aliyundrive-webdav
-#rm -rf feeds/packages/multimedia/aliyundrive-webdav
+rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-serverchan
 
 # 添加额外软件包
@@ -114,7 +114,7 @@ git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dock
 merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/dae
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
-git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
+git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
@@ -125,7 +125,7 @@ merge_package https://github.com/fw876/helloworld helloworld/redsocks2
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 git clone https://github.com/sbwml/luci-app-daed-next package/luci-app-daed-next
-#git clone https://github.com/messense/aliyundrive-webdav.git package/aliyundrive-webdav
+git clone -b lede --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 #git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
@@ -142,6 +142,8 @@ rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-design
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
+rm -rf feeds/packages/net/smartdns
+cp -rf ${GITHUB_WORKSPACE}/general/smartdns feeds/packages/net
 
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
 #sed -i 's/广告屏蔽大师 Plus+/广告屏蔽/g' feeds/luci/applications/luci-app-adbyby-plus/po/zh-cn/adbyby.po
