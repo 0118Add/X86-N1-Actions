@@ -1,4 +1,4 @@
-name: X86_64 Mini OpenWrt
+name: X86_64 Lienol
 
 on:
   workflow_dispatch:
@@ -6,10 +6,10 @@ on:
     #- cron: 0 19 * * *
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
-  CONFIG_FILE: configs/x86_mini.config
-  DIY_SCRIPT: custom/diy-x86-mini.sh
+  REPO_URL: https://github.com/Lienol/openwrt
+  REPO_BRANCH: main
+  CONFIG_FILE: configs/Lienol.config
+  DIY_SCRIPT: custom/Lienol.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
