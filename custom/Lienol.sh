@@ -53,11 +53,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #wget -O ./package/lean/autocore/files/x86/index.htm https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/index.htm
 
 # 修改系统文件
-#curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/index.htm > ./package/lean/autocore/files/x86/index.htm
-#curl -fsSL https://raw.githubusercontent.com/0118Add/N1-Actions-Dabao56/master/backup/x86index.htm > ./package/lean/autocore/files/x86/index.htm
-#curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt/main/scripts/autocore > ./package/lean/autocore/files/x86/autocore
-#curl -fsSL https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/cpuinfo > ./package/lean/autocore/files/x86/sbin/cpuinfo
-#curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk > ./package/kernel/linux/modules/netsupport.mk
+curl -fsSL https://raw.githubusercontent.com/0118Add/X86_64-Test/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
 
 # 去除主页一串的LUCI版本号显示
 #sed -i 's/distversion)%>/distversion)%><!--/g' package/lean/autocore/files/*/index.htm
@@ -156,7 +152,7 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-softethervpn/luasrc/controller/softethervpn.lua
 #sed -i 's/IPSec VPN 服务器/IPSec VPN/g' feeds/luci/applications/luci-app-ipsec-vpnd/po/zh-cn/ipsec.po
 #sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
-#sed -i 's/Turbo ACC 网络加速/网络加速/g' feeds/other/lean/luci-app-turboacc/po/zh-cn/turboacc.po
+sed -i 's/Turbo ACC 网络加速/网络加速/g' package/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
 #sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
