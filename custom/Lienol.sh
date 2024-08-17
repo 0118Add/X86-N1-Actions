@@ -130,7 +130,14 @@ git clone -b master https://github.com/0118Add/luci-app-unblockneteasemusic.git 
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 rm -rf feeds/packages/net/smartdns
 cp -rf ${GITHUB_WORKSPACE}/general/smartdns feeds/packages/net
-cp -rf ${GITHUB_WORKSPACE}/general/luci-app-turboacc package/luci-app-turboacc
+#cp -rf ${GITHUB_WORKSPACE}/general/luci-app-turboacc package/luci-app-turboacc
+
+# turboacc
+git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
+git clone https://github.com/fullcone-nat-nftables/nft-fullcone package/new/nft-fullcone
+#git clone --depth=1 -b package https://github.com/chenmozhijin/turboacc package/new/turboacc
+curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+sed -i 's/Turbo ACC 网络加速/网络加速/g' package/turboacc/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
 #sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
@@ -153,7 +160,7 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-softethervpn/luasrc/controller/softethervpn.lua
 #sed -i 's/IPSec VPN 服务器/IPSec VPN/g' feeds/luci/applications/luci-app-ipsec-vpnd/po/zh-cn/ipsec.po
 #sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
-sed -i 's/Turbo ACC 网络加速/网络加速/g' package/luci-app-turboacc/po/zh-cn/turboacc.po
+#sed -i 's/Turbo ACC 网络加速/网络加速/g' package/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
 #sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
