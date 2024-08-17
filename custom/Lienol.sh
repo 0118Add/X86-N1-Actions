@@ -9,26 +9,15 @@
 echo "开始配置……"
 echo "========================="
 
-function merge_package(){
-    repo=`echo $1 | rev | cut -d'/' -f 1 | rev`
-    pkg=`echo $2 | rev | cut -d'/' -f 1 | rev`
-    # find package/ -follow -name $pkg -not -path "package/custom/*" | xargs -rt rm -rf
-    git clone --depth=1 --single-branch $1
-    mv $2 package/custom/
-    rm -rf $repo
+# Git稀疏克隆，只克隆指定目录到本地
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
 }
-function drop_package(){
-    find package/ -follow -name $1 -not -path "package/custom/*" | xargs -rt rm -rf
-}
-function merge_feed(){
-    if [ ! -d "feed/$1" ]; then
-        echo >> feeds.conf.default
-        echo "src-git $1 $2" >> feeds.conf.default
-    fi
-    ./scripts/feeds update $1
-    ./scripts/feeds install -a -p $1
-}
-rm -rf package/custom; mkdir package/custom
 
 # 修改主机名字（不能纯数字或者使用中文）
 #sed -i "s/hostname='.*'/hostname='X86'/g" package/base-files/files/bin/config_generate
@@ -116,23 +105,18 @@ rm -rf feeds/lienol/luci-app-ramfree
 
 # 添加额外软件包
 #git clone https://github.com/0118Add/OpenWrt package/myautocore
-#merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/dae
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
-#merge_package https://github.com/0118Add/openwrt-packages openwrt-packages/luci-app-bypass
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-#merge_package https://github.com/fw876/helloworld helloworld/luci-app-ssr-plus
-#merge_package https://github.com/fw876/helloworld helloworld/lua-neturl
-#merge_package https://github.com/fw876/helloworld helloworld/mosdns
-#merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
-#merge_package https://github.com/fw876/helloworld helloworld/redsocks2
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-autoreboot luci-app-diskman luci-app-turboacc luci-app-ramfree
+git_sparse_clone master https://github.com/immortalwrt/luci luci-app-zerotier luci-app-smartdns
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
-git clone -b lede --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
+#git clone -b lede --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 #git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
