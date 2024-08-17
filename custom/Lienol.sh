@@ -132,6 +132,28 @@ rm -rf feeds/packages/net/smartdns
 cp -rf ${GITHUB_WORKSPACE}/general/smartdns feeds/packages/net
 #cp -rf ${GITHUB_WORKSPACE}/general/luci-app-turboacc package/luci-app-turboacc
 
+git clone https://github.com/immortalwrt/homeproxy package/homeproxy
+sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
+sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
+
+# mihomo
+git clone https://github.com/morytyann/OpenWrt-mihomo  package/new/openwrt-mihomo
+mkdir -p files/etc/mihomo/run/ui
+curl -Lso files/etc/mihomo/run/Country.mmdb https://github.com/NobyDa/geoip/raw/release/Private-GeoIP-CN.mmdb
+curl -Lso files/etc/mihomo/run/GeoIP.dat https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
+curl -Lso files/etc/mihomo/run/GeoSite.dat https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+curl -Lso metacubexd-gh-pages.tar.gz https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.tar.gz
+tar zxf metacubexd-gh-pages.tar.gz
+mv metacubexd-gh-pages files/etc/mihomo/run/ui/metacubexd
+
+# sysupgrade keep files
+echo "/etc/hotplug.d/iface/*.sh" >> files/etc/sysupgrade.conf
+echo "/etc/mihomo/run/proxies" >> files/etc/sysupgrade.conf
+echo "/etc/mihomo/run/rules" >> files/etc/sysupgrade.conf
+echo "/etc/mihomo/run/config.yaml" >> files/etc/sysupgrade.conf
+echo "/opt" >> files/etc/sysupgrade.conf
+echo "/etc/init.d/nezha-service" >> files/etc/sysupgrade.conf
+
 # turboacc
 git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
 git clone https://github.com/fullcone-nat-nftables/nft-fullcone package/new/nft-fullcone
