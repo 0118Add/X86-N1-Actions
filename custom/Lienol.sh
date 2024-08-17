@@ -107,12 +107,12 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #rm -rf package/lean/autocore
 #rm -rf feeds/packages/lang/golang
 #rm -rf feeds/packages/net/mosdns
-#rm -rf feeds/luci/applications/luci-app-mosdns
-#rm -rf feeds/luci/collections/luci-lib-docker
-#rm -rf feeds/luci/applications/luci-app-dockerman
-#rm -rf feeds/luci/applications/luci-app-netdata
+rm -rf feeds/other/luci-app-diskman
+rm -rf feeds/other/lean/luci-app-autoreboot
+rm -rf feeds/other/lean/luci-app-turboacc
+rm -rf feeds/other/lean/luci-app-zerotier
 rm -rf feeds/luci/applications/luci-app-smartdns
-#rm -rf feeds/luci/applications/luci-app-serverchan
+rm -rf feeds/lienol/luci-app-ramfree
 
 # 添加额外软件包
 #git clone https://github.com/0118Add/OpenWrt package/myautocore
