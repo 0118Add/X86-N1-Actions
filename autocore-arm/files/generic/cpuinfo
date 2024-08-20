@@ -11,9 +11,7 @@ cpu_arch="$(awk -F ': ' '/model name/ {print $2}' "$CPUINFO_PATH" | head -n1)"
 
 case "$DISTRIB_TARGET" in
 "x86"/*)
-	cpu_cores="$(grep "core id" "$CPUINFO_PATH" | sort -u | wc -l)C $(grep -c "processor" "$CPUINFO_PATH")T" ;;
-*)
-	cpu_cores="$(grep -c "processor" "$CPUINFO_PATH")" ;;
+	 
 esac
 
 case "$DISTRIB_TARGET" in
@@ -55,7 +53,7 @@ elif [ -z "$cpu_temp" ] && [ -n "$big_cpu_freq$cpu_freq" ] || \
 		grep -Eq "ipq|mt7622" "/etc/openwrt_release"; then
 	echo -n "$cpu_arch x $cpu_cores ($big_cpu_freq$cpu_freq)"
 elif [ -n "$cpu_temp" ] && [ -n "$big_cpu_freq$cpu_freq" ]; then
-	echo -n "$cpu_arch x $cpu_cores ($big_cpu_freq$cpu_freq, ${cpu_temp})"
+	echo -n "$cpu_arch  $cpu_cores ($big_cpu_freq$cpu_freq, ${cpu_temp})"
 else
 	echo -n "$cpu_arch x $cpu_cores"
 fi
