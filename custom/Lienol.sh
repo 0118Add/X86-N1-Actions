@@ -53,9 +53,9 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #wget -O ./package/lean/autocore/files/x86/index.htm https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/index.htm
 
 # 修改系统文件
-curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/cpuinfo > ./feeds/other/lean/autocore/files/x86/sbin/cpuinfo
-curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
-curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+#curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/cpuinfo > ./feeds/other/lean/autocore/files/x86/sbin/cpuinfo
+#curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
+#curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 
 # 去除主页一串的LUCI版本号显示
 #sed -i 's/distversion)%>/distversion)%><!--/g' package/lean/autocore/files/*/index.htm
@@ -91,7 +91,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
-#rm -rf package/lean/autocore
+rm -rf feeds/other/lean/autocore
 #rm -rf feeds/packages/lang/golang
 #rm -rf feeds/packages/net/mosdns
 rm -rf feeds/other/luci-app-diskman
@@ -102,7 +102,7 @@ rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/lienol/luci-app-ramfree
 
 # 添加额外软件包
-#git clone https://github.com/0118Add/OpenWrt package/myautocore
+git clone https://github.com/0118Add/X86-N1-Actions package/autocore
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
