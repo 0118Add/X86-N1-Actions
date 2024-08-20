@@ -53,9 +53,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #wget -O ./package/lean/autocore/files/x86/index.htm https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/index.htm
 
 # 修改系统文件
-#curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/cpuinfo > ./feeds/other/lean/autocore/files/x86/sbin/cpuinfo
-#curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
-#curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
 
 # 去除主页一串的LUCI版本号显示
 #sed -i 's/distversion)%>/distversion)%><!--/g' package/lean/autocore/files/*/index.htm
@@ -132,7 +130,7 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic pa
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 rm -rf feeds/packages/net/smartdns
 cp -rf ${GITHUB_WORKSPACE}/general/smartdns feeds/packages/net
-#cp -rf ${GITHUB_WORKSPACE}/general/luci-app-turboacc package/luci-app-turboacc
+cp -rf ${GITHUB_WORKSPACE}/general/luci-app-turboacc package/luci-app-turboacc
 
 git clone https://github.com/immortalwrt/homeproxy package/homeproxy
 sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
@@ -156,13 +154,6 @@ echo "/etc/mihomo/run/config.yaml" >> files/etc/sysupgrade.conf
 echo "/opt" >> files/etc/sysupgrade.conf
 echo "/etc/init.d/nezha-service" >> files/etc/sysupgrade.conf
 
-# turboacc
-git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
-git clone https://github.com/fullcone-nat-nftables/nft-fullcone package/new/nft-fullcone
-#git clone --depth=1 -b package https://github.com/chenmozhijin/turboacc package/new/turboacc
-curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
-sed -i 's/Turbo ACC 网络加速/网络加速/g' package/turboacc/luci-app-turboacc/po/zh-cn/turboacc.po
-
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
 #sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
 #sed -i 's/Design 主题设置/Design设置/g' feeds/luci/applications/luci-app-design-config/po/zh-cn/design-config.po
@@ -184,7 +175,7 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/firstchild(), "VPN"/firstchild(), "GFW"/g' feeds/luci/applications/luci-app-softethervpn/luasrc/controller/softethervpn.lua
 #sed -i 's/IPSec VPN 服务器/IPSec VPN/g' feeds/luci/applications/luci-app-ipsec-vpnd/po/zh-cn/ipsec.po
 #sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
-#sed -i 's/Turbo ACC 网络加速/网络加速/g' package/luci-app-turboacc/po/zh-cn/turboacc.po
+sed -i 's/Turbo ACC 网络加速/网络加速/g' package/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
 #sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
