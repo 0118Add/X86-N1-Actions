@@ -93,6 +93,7 @@ rm -rf feeds/other/luci-app-diskman
 rm -rf feeds/other/lean/luci-app-autoreboot
 rm -rf feeds/other/lean/luci-app-turboacc
 rm -rf feeds/other/lean/luci-app-zerotier
+rm -rf feeds/luci/applications/luci-app-firewall
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/lienol/luci-app-ramfree
 
@@ -127,7 +128,7 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic pa
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 rm -rf feeds/packages/net/smartdns
 cp -rf ${GITHUB_WORKSPACE}/general/smartdns feeds/packages/net
-#cp -rf ${GITHUB_WORKSPACE}/general/luci-app-turboacc package/luci-app-turboacc
+cp -rf ${GITHUB_WORKSPACE}/general/luci-app-firewall feeds/luci/applications/luci-app-firewall
 
 git clone https://github.com/immortalwrt/homeproxy package/homeproxy
 sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
@@ -152,10 +153,10 @@ echo "/opt" >> files/etc/sysupgrade.conf
 echo "/etc/init.d/nezha-service" >> files/etc/sysupgrade.conf
 
 # turboacc
-git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
-git clone https://github.com/fullcone-nat-nftables/nft-fullcone package/new/nft-fullcone
-curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
-sed -i 's/Turbo ACC 网络加速/网络加速/g' package/turboacc/luci-app-turboacc/po/zh-cn/turboacc.po
+#git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
+#git clone https://github.com/fullcone-nat-nftables/nft-fullcone package/new/nft-fullcone
+#curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+#sed -i 's/Turbo ACC 网络加速/网络加速/g' package/turboacc/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 修改系统文件
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
