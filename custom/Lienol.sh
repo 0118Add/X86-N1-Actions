@@ -153,7 +153,7 @@ echo "/opt" >> files/etc/sysupgrade.conf
 echo "/etc/init.d/nezha-service" >> files/etc/sysupgrade.conf
 
 # turboacc
-git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
+#git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
 #git clone https://github.com/fullcone-nat-nftables/nft-fullcone package/new/nft-fullcone
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh --no-sfe
