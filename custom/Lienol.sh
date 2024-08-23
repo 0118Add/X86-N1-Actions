@@ -96,6 +96,7 @@ rm -rf feeds/other/lean/luci-app-zerotier
 #rm -rf feeds/luci/applications/luci-app-firewall
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/lienol/luci-app-ramfree
+rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multiple-registrant.patch
 
 # 添加额外软件包
 git clone https://github.com/0118Add/X86-N1-Actions package/autocore
