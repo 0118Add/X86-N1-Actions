@@ -130,7 +130,7 @@ rm -rf feeds/packages/net/smartdns
 cp -rf ${GITHUB_WORKSPACE}/general/smartdns feeds/packages/net
 #cp -rf ${GITHUB_WORKSPACE}/general/luci-app-firewall feeds/luci/applications/luci-app-firewall
 
-git clone https://github.com/immortalwrt/homeproxy package/homeproxy
+git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
 sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
@@ -154,7 +154,6 @@ echo "/etc/init.d/nezha-service" >> files/etc/sysupgrade.conf
 
 # turboacc
 #git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
-#git clone https://github.com/fullcone-nat-nftables/nft-fullcone package/new/nft-fullcone
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh --no-sfe
 sed -i 's/Turbo ACC 网络加速/网络加速/g' package/turboacc/luci-app-turboacc/po/zh-cn/turboacc.po
