@@ -103,8 +103,7 @@ rm -rf target/linux/generic/hack-6.1/953-net-patch-linux-kernel-to-support-short
 rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multiple-registrant.patch
 
 # 添加额外软件包
-git clone https://github.com/0118Add/Actions-OpenWrt package/autocore
-git clone https://github.com/0118Add/Actions-OpenWrt package/coremark
+git clone https://github.com/0118Add/X86-N1-Actions package/autocore
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
