@@ -1,4 +1,4 @@
-name: X86_64 Lienol-Main
+name: X86_64 Lienol Main
 
 on:
   workflow_dispatch:
