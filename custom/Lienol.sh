@@ -110,7 +110,7 @@ git clone https://github.com/0118Add/Actions-OpenWrt package/autocore
 git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-autoreboot luci-app-diskman luci-app-ramfree luci-app-zerotier luci-app-smartdns
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-autoreboot luci-app-diskman luci-app-ramfree luci-app-zerotier luci-app-smartdns coremark
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
@@ -140,7 +140,7 @@ sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
 # mihomo
-git clone https://github.com/morytyann/OpenWrt-mihomo  package/new/openwrt-mihomo
+git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 mkdir -p files/etc/mihomo/run/ui
 curl -Lso files/etc/mihomo/run/Country.mmdb https://github.com/NobyDa/geoip/raw/release/Private-GeoIP-CN.mmdb
 curl -Lso files/etc/mihomo/run/GeoIP.dat https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
