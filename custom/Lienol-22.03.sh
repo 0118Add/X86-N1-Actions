@@ -96,11 +96,9 @@ rm -rf feeds/other/lean/luci-app-zerotier
 #rm -rf feeds/luci/applications/luci-app-firewall
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/lienol/luci-app-ramfree
-rm -rf target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch
-rm -rf target/linux/generic/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
-rm -rf target/linux/generic/hack-6.1/952-add-net-conntrack-events-support-multiple-registrant.patch
-rm -rf target/linux/generic/hack-6.1/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
-rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multiple-registrant.patch
+rm -rf target/linux/generic/hack-5.10/952-net-conntrack-events-support-multiple-registrant.patch
+rm -rf target/linux/generic/hack-5.10/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
+rm -rf target/linux/generic/pending-5.10/613-netfilter_optional_tcp_window_check.patch
 
 # 添加额外软件包
 git clone https://github.com/0118Add/X86-N1-Actions package/autocore
@@ -149,7 +147,7 @@ curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turbo
 sed -i 's/Turbo ACC 网络加速/网络加速/g' package/turboacc/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 修改系统文件
-curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
+#curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
 
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
 #sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
