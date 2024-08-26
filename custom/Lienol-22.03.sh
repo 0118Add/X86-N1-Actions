@@ -86,7 +86,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 # 移除重复软件包
 #rm -rf package/helloworld/{hysteria,xray-core}
-rm -rf feeds/other/lean/autocore
+#rm -rf feeds/other/lean/autocore
 #rm -rf feeds/packages/lang/golang
 #rm -rf feeds/packages/net/mosdns
 rm -rf feeds/other/luci-app-diskman
@@ -101,7 +101,7 @@ rm -rf target/linux/generic/hack-5.10/953-net-patch-linux-kernel-to-support-shor
 rm -rf target/linux/generic/pending-5.10/613-netfilter_optional_tcp_window_check.patch
 
 # 添加额外软件包
-git clone https://github.com/0118Add/X86-N1-Actions package/autocore
+#git clone https://github.com/0118Add/X86-N1-Actions package/autocore
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
