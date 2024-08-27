@@ -105,10 +105,10 @@ rm -rf target/linux/generic/pending-5.10/613-netfilter_optional_tcp_window_check
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
+#git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
-rm -rf package/passwall-packages/{chinadns-ng,hysteria,shadowsocks-rust,v2ray-geodata}
-git_sparse_clone v5 https://github.com/sbwml/openwrt_helloworld chinadns-ng hysteria shadowsocks-rust v2ray-geodata
+#rm -rf package/passwall-packages/{chinadns-ng,hysteria,shadowsocks-rust,v2ray-geodata}
+#git_sparse_clone v5 https://github.com/sbwml/openwrt_helloworld chinadns-ng hysteria shadowsocks-rust v2ray-geodata
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-autoreboot luci-app-diskman luci-app-ramfree luci-app-zerotier luci-app-smartdns
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
@@ -118,7 +118,7 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-aut
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 #git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
-#git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
+git clone -b luci-app-neko --depth 1 https://github.com/Thaolga/neko package/neko
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 #git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
