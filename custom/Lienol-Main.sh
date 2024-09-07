@@ -85,10 +85,9 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #git clone https://github.com/8688Add/feeds_packages_lang_node feeds/packages/lang/node
 
 # 移除重复软件包
-#rm -rf package/helloworld/{hysteria,xray-core}
 rm -rf feeds/other/lean/autocore
 #rm -rf feeds/packages/lang/golang
-#rm -rf feeds/packages/net/mosdns
+rm -rf feeds/packages/net/{sing-box,xray-core}
 rm -rf feeds/other/luci-app-diskman
 rm -rf feeds/other/lean/luci-app-autoreboot
 rm -rf feeds/other/lean/luci-app-turboacc
