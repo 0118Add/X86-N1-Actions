@@ -125,7 +125,7 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 #git clone https://github.com/leshanydy2022/luci-theme-bootstrap-mod.git package/luci-theme-bootstrap-mod
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-git clone -b luci-app-neko --depth 1 https://github.com/Thaolga/neko package/neko
+git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/luci-app-nekoclash
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #rm -rf feeds/luci/themes/luci-theme-argon
 #rm -rf feeds/luci/themes/luci-theme-design
