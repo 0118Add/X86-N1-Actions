@@ -128,7 +128,7 @@ git clone -b lede --single-branch https://github.com/lwb1978/luci-app-smartdns p
 #git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
-git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
+git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
 git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
