@@ -126,7 +126,8 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luc
 git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 #git clone --depth=1 -b main https://github.com/fw876/helloworld package/helloworld
 git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
-git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
+git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
+git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
 git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone https://github.com/ophub/luci-app-amlogic.git package/amlogic
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
