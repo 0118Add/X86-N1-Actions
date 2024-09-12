@@ -143,7 +143,7 @@ git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package
 git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
-#git clone https://github.com/leshanydy2022/luci-theme-bootstrap-mod.git package/luci-theme-bootstrap-mod
+git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash package/nekoclash
 git clone -b master https://github.com/0118Add/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 rm -rf feeds/luci/themes/luci-theme-argon
