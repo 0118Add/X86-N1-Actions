@@ -5,7 +5,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=my-autocore
+PKG_NAME:=myautocore
 PKG_FLAGS:=nonshared
 PKG_RELEASE:=$(COMMITCOUNT)
 
@@ -16,7 +16,7 @@ PKG_CONFIG_DEPENDS:= \
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/target.mk
 
-define Package/my-autocore-arm
+define Package/myautocore-arm
   TITLE:=Arm auto core loadbalance script
   MAINTAINER:=CN_SZTL
   DEPENDS:=@(arm||aarch64) \
@@ -25,7 +25,7 @@ define Package/my-autocore-arm
   VARIANT:=arm
 endef
 
-define Package/my-autocore-x86
+define Package/myautocore-x86
   TITLE:=x86/x64 auto core loadbalance script
   MAINTAINER:=Lean
   DEPENDS:=@TARGET_x86 +lm-sensors +ethtool
@@ -35,7 +35,7 @@ endef
 define Build/Compile
 endef
 
-define Package/my-autocore/install/Default
+define Package/myautocore/install/Default
 	$(INSTALL_DIR) $(1)/etc
 	$(CP) ./files/generic/index.htm $(1)/etc/
 
@@ -47,7 +47,7 @@ define Package/my-autocore/install/Default
 	$(INSTALL_BIN) ./files/generic/ethinfo $(1)/sbin/
 endef
 
-define Package/my-autocore-arm/install
+define Package/myautocore-arm/install
 	$(call Package/myautocore/install/Default,$(1))
 
 ifneq ($(filter ipq% %mt7622, $(TARGETID)),)
@@ -55,12 +55,12 @@ ifneq ($(filter ipq% %mt7622, $(TARGETID)),)
 endif
 endef
 
-define Package/my-autocore-x86/install
-	$(call Package/my-autocore/install/Default,$(1))
+define Package/myautocore-x86/install
+	$(call Package/myautocore/install/Default,$(1))
 
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/x86/my-autocore $(1)/etc/init.d/
+	$(INSTALL_BIN) ./files/x86/myautocore $(1)/etc/init.d/
 endef
 
-$(eval $(call BuildPackage,my-autocore-arm))
-$(eval $(call BuildPackage,my-autocore-x86))
+$(eval $(call BuildPackage,myautocore-arm))
+$(eval $(call BuildPackage,myautocore-x86))
