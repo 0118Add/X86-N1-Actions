@@ -52,7 +52,7 @@ define Package/myautocore/install/Default
 endef
 
 define Package/myautocore-arm/install
-	$(call Package/autocore/install/Default,$(1))
+	$(call Package/myautocore/install/Default,$(1))
 
 ifneq ($(filter ipq% %mt7622, $(TARGETID)),)
 	$(INSTALL_BIN) ./files/arm/tempinfo $(1)/sbin/
@@ -60,7 +60,7 @@ endif
 endef
 
 define Package/myautocore-x86/install
-	$(call Package/autocore/install/Default,$(1))
+	$(call Package/myautocore/install/Default,$(1))
 
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/x86/autocore $(1)/etc/init.d/
