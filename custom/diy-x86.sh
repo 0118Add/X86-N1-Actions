@@ -42,7 +42,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 替换内核
-sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
+#sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 
 # 内核替换 kernel xxx
 #sed -i 's/LINUX_KERNEL_HASH-6.6.19 = b5637e6b72c2b4b12e7db790bc155d141a9c2fe4b25f7b215410107e8747139a/LINUX_KERNEL_HASH-6.6.18 = 4e43d8c5fba14f7c82597838011648056487b7550fd83276ad534559e8499b1d/g' ./include/kernel-6.6
