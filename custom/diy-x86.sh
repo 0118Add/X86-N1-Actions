@@ -108,7 +108,7 @@ rm -rf feeds/luci/applications/luci-app-serverchan
 git clone https://github.com/0118Add/X86-N1-Actions package/autocore
 #git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 #git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages dae
+git_sparse_clone master https://github.com/mgz0227/OP-Packages dae
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
