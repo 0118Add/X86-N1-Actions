@@ -59,7 +59,7 @@ define Package/myautocore-x86/install
 	$(call Package/myautocore/install/Default,$(1))
 
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/x86/myautocore $(1)/etc/init.d/
+	$(INSTALL_BIN) ./files/x86/autocore $(1)/etc/init.d/
 endef
 
 $(eval $(call BuildPackage,myautocore-arm))
