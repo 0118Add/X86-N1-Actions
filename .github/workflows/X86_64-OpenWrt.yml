@@ -8,7 +8,7 @@ on:
 env:
   REPO_URL: https://github.com/0118Add/lede
   REPO_BRANCH: master
-  CONFIG_FILE: configs/x86_mini.config
+  CONFIG_FILE: configs/x86.config
   DIY_SCRIPT: custom/diy-x86.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: false
