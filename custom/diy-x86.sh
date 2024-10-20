@@ -105,7 +105,7 @@ rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-serverchan
 
 # 添加额外软件包
-git_sparse_clone main https://github.com/0118Add/X86-N1-Actions X86-N1-Actions/autocore
+git_sparse_clone main https://github.com/0118Add/X86-N1-Actions autocore
 #git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
 #git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 git_sparse_clone master https://github.com/mgz0227/OP-Packages dae
