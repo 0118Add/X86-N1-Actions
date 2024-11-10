@@ -1,4 +1,4 @@
-name: X86_64 Lienol Main
+name: X86_64 Lienol 24.10
 
 on:
   workflow_dispatch:
@@ -7,14 +7,14 @@ on:
 
 env:
   REPO_URL: https://github.com/Lienol/openwrt
-  REPO_BRANCH: main
+  REPO_BRANCH: 24.10
   CONFIG_FILE: configs/Lienol-Main.config
   DIY_SCRIPT: custom/Lienol-Main.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: Lienol-Main
+  FIRMWARE_TAG: Lienol-24.10
   TZ: Asia/Shanghai
 
 jobs:
