@@ -133,7 +133,8 @@ git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash packag
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 rm -rf feeds/packages/net/smartdns
 cp -rf ${GITHUB_WORKSPACE}/general/smartdns feeds/packages/net
-#cp -rf ${GITHUB_WORKSPACE}/general/luci-app-firewall feeds/luci/applications/luci-app-firewall
+rm -rf package/libs/libnftnl
+cp -rf ${GITHUB_WORKSPACE}/general/libnftnl package/libs
 
 git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
 sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
