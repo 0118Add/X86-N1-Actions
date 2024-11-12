@@ -86,7 +86,8 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 # 移除重复软件包
 rm -rf feeds/other/lean/autocore
-#rm -rf feeds/packages/lang/golang
+rm -rf package/public/autosamba
+rm -rf package/feeds/other/nps
 rm -rf feeds/packages/net/{sing-box,xray-core}
 rm -rf feeds/other/luci-app-diskman
 rm -rf feeds/other/lean/luci-app-autoreboot
@@ -111,7 +112,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt
 #git clone https://github.com/fw876/helloworld.git package/helloworld
 rm -rf package/libs/libnftnl
 rm -rf package/kernel/r8152
-git_sparse_clone master https://github.com/mgz0227/OP-Packages luci-app-autoreboot luci-app-diskman luci-app-ramfree luci-app-zerotier luci-app-smartdns
+git_sparse_clone master https://github.com/mgz0227/OP-Packages luci-app-autoreboot luci-app-diskman luci-app-ramfree luci-app-zerotier luci-app-smartdns libnftnl r8152
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
