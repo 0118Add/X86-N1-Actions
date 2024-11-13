@@ -135,8 +135,10 @@ git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash packag
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 rm -rf feeds/packages/net/smartdns
 cp -rf ${GITHUB_WORKSPACE}/general/smartdns feeds/packages/net
-#rm -rf package/network/utils/nftables
-#cp -rf ${GITHUB_WORKSPACE}/general/nftables package/network/utils
+rm -rf package/network/utils/nftables
+cp -rf ${GITHUB_WORKSPACE}/general/nftables package/network/utils
+rm -rf package/network/services/ppp
+cp -rf ${GITHUB_WORKSPACE}/general/ppp package/network/services
 cp -rf ${GITHUB_WORKSPACE}/general/luci-app-turboacc package/luci-app-turboacc
 
 git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
