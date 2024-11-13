@@ -109,9 +109,9 @@ git clone https://github.com/0118Add/X86-N1-Actions package/autocore
 git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-#rm -rf package/libs/libnftnl
-#rm -rf package/kernel/r8152
-git_sparse_clone master https://github.com/mgz0227/OP-Packages luci-app-autoreboot luci-app-diskman luci-app-ramfree luci-app-zerotier luci-app-smartdns
+rm -rf package/libs/libnftnl
+rm -rf package/kernel/r8152
+git_sparse_clone master https://github.com/mgz0227/OP-Packages luci-app-autoreboot luci-app-diskman luci-app-ramfree luci-app-zerotier luci-app-smartdns libnftnl r8152
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
@@ -135,8 +135,8 @@ git clone -b neko --depth 1 https://github.com/Thaolga/luci-app-nekoclash packag
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 rm -rf feeds/packages/net/smartdns
 cp -rf ${GITHUB_WORKSPACE}/general/smartdns feeds/packages/net
-#rm -rf package/network/utils/nftables
-#cp -rf ${GITHUB_WORKSPACE}/general/nftables package/network/utils
+rm -rf package/network/utils/nftables
+cp -rf ${GITHUB_WORKSPACE}/general/nftables package/network/utils
 cp -rf ${GITHUB_WORKSPACE}/general/luci-app-turboacc package/luci-app-turboacc
 
 git clone --depth 1 -b test https://github.com/m0eak/homeproxy package/homeproxy
