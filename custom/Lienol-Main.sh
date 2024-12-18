@@ -110,18 +110,16 @@ git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwr
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-git_sparse_clone master https://github.com/mgz0227/OP-Packages luci-app-autoreboot luci-app-diskman luci-app-ramfree luci-app-zerotier
+git_sparse_clone master https://github.com/mgz0227/OP-Packages luci-app-autoreboot luci-app-diskman luci-app-ramfree
+git clone https://github.com/Firsgith/luci-app-zerotier package/luci-app-zerotier
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 #git clone -b lede --single-branch https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
-#git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
-#git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 #git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
-#git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 #git clone https://github.com/leshanydy2022/luci-theme-bootstrap-mod.git package/luci-theme-bootstrap-mod
