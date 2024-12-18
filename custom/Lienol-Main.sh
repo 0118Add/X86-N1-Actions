@@ -108,8 +108,9 @@ git clone https://github.com/0118Add/X86-N1-Actions package/autocore
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 git clone -b luci-smartdns-dev --single-branch https://github.com/lwb1978/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+git clone https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
 #git clone https://github.com/fw876/helloworld.git package/helloworld
-git_sparse_clone master https://github.com/mgz0227/OP-Packages luci-app-autoreboot luci-app-diskman luci-app-ramfree luci-app-zerotier luci-app-smartdns
+git_sparse_clone master https://github.com/mgz0227/OP-Packages luci-app-autoreboot luci-app-diskman luci-app-ramfree luci-app-zerotier
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
@@ -142,7 +143,6 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-stati
 git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
 sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/po/zh_Hans/mihomo.po
 sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/root/usr/share/luci/menu.d/luci-app-mihomo.json
-sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/htdocs/luci-static/resources/view/mihomo/config.js
 
 # turboacc
 #git clone --depth 1 -b luci https://github.com/chenmozhijin/turboacc package/turboacc
