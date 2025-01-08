@@ -45,8 +45,8 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 
 # 内核替换 kernel xxx
-sed -i 's/LINUX_KERNEL_HASH-6.6.67 = e41da482ec42a3b0e2b8ed2574c1d327e3dcf95cdf025c55a356b04307113e1a/LINUX_KERNEL_HASH-6.6.66 = 9d757937c4661c2f512c62641b74ef74eff9bb13dc5dbcbaaa108c21152f1e52/g' ./include/kernel-6.6
-sed -i 's/LINUX_VERSION-6.6 = .67/LINUX_VERSION-6.6 = .66/g' ./include/kernel-6.6
+sed -i 's/LINUX_KERNEL_HASH-6.6.69 = 9c6305567b75d99514cde6eb9de39973f3d5c857a75bd9dcdfca57041f8d4f34/LINUX_KERNEL_HASH-6.6.66 = 9d757937c4661c2f512c62641b74ef74eff9bb13dc5dbcbaaa108c21152f1e52/g' ./include/kernel-6.6
+sed -i 's/LINUX_VERSION-6.6 = .69/LINUX_VERSION-6.6 = .66/g' ./include/kernel-6.6
 
 # 替换文件
 #wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
