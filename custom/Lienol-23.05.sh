@@ -88,7 +88,7 @@ git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/l
 #rm -rf package/helloworld/{hysteria,xray-core}
 rm -rf feeds/other/lean/autocore
 #rm -rf feeds/packages/lang/golang
-#rm -rf feeds/packages/net/mosdns
+rm -rf package/public/autosamba
 rm -rf feeds/other/luci-app-diskman
 rm -rf feeds/other/lean/luci-app-autoreboot
 rm -rf feeds/other/lean/luci-app-turboacc
