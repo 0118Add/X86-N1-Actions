@@ -6,7 +6,7 @@ on:
     #- cron: 0 19 * * *
 
 env:
-  REPO_URL: https://github.com/0118Add/Lienol_openwrt
+  REPO_URL: https://github.com/Lienol/openwrt
   REPO_BRANCH: main
   CONFIG_FILE: configs/Lienol-Main.config
   DIY_SCRIPT: custom/Lienol-Main.sh
