@@ -106,7 +106,6 @@ rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/net/sing-box
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
-rm -rf feeds/luci/applications/luci-app-zerotier
 
 rm -rf package/lean/autocore
 #rm -rf feeds/luci/modules/luci-base
@@ -120,7 +119,7 @@ git clone https://github.com/0118Add/X86-N1-Actions package/autocore
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
 #merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
-git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
+#git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
 #git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
