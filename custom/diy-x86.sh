@@ -115,10 +115,10 @@ git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autoc
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
-#merge_package https://github.com/mgz0227/OP-Packages OP-Packages/dae
+merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 #git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
-git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
+#git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
 #git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #merge_package https://github.com/8688Add/openwrt_pkgs openwrt_pkgs/wrtbwmon
 git clone https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
