@@ -115,7 +115,7 @@ git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autoc
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
-merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
+#merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 #git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
@@ -130,7 +130,7 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 #git clone https://github.com/gngpp/luci-theme-design package/luci-theme-design
 
-#git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
+git clone -b main --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
 #rm -rf package/nekobox/sing-box
 #merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
