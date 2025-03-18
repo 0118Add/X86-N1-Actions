@@ -60,7 +60,7 @@ sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.12/g' ./target/linux/x86/Makefi
 #sed -i 's/LINUX_VERSION-6.6 = .23/LINUX_VERSION-6.6 = .22/g' ./include/kernel-6.6
 
 # 替换文件
-wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
+#wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
 #wget -O ./package/lean/autocore/files/x86/index.htm https://raw.githubusercontent.com/0118Add/OpenWrt/main/images/index.htm
 
 # 修改概览里时间显示为中文数字
