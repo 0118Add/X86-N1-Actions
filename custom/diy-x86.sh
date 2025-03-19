@@ -104,6 +104,7 @@ rm -rf feeds/packages/net/sing-box
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 
 rm -rf package/lean/autocore
+rm -rf feeds/packages/utils/coremark
 #rm -rf feeds/luci/modules/luci-base
 #rm -rf feeds/luci/modules/luci-mod-status
 
@@ -116,6 +117,7 @@ git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autoc
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-lib-fs
 #merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
+merge_package https://github.com/8688Add/openwrt_pkgs openwrt_pkgs/coremark
 #git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/openclash
