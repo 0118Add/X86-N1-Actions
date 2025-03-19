@@ -38,17 +38,6 @@ rm -rf package/custom; mkdir package/custom
 #sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWrt-X86-$(date +%Y%m%d)'/g" package/lean/default-settings/files/zzz-default-settings   
 #sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' BGG'/g" package/lean/default-settings/files/zzz-default-settings
 
-# 测试编译时间
-YUOS_DATE="$(date +%Y.%m.%d)"
-BUILD_STRING=${BUILD_STRING:-$YUOS_DATE}
-echo "Write build date in openwrt : $BUILD_DATE"
-echo -e '\nBGG Build @ '${BUILD_STRING}'\n'  >> package/base-files/files/etc/banner
-sed -i '/DISTRIB_REVISION/d' package/base-files/files/etc/openwrt_release
-echo "DISTRIB_REVISION=''" >> package/base-files/files/etc/openwrt_release
-sed -i '/DISTRIB_DESCRIPTION/d' package/base-files/files/etc/openwrt_release
-echo "DISTRIB_DESCRIPTION='BGG Build @ ${BUILD_STRING}'" >> package/base-files/files/etc/openwrt_release
-sed -i '/luciversion/d' feeds/luci/modules/luci-base/luasrc/version.lua
-
 # 修改默认IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/luci2/bin/config_generate
 
