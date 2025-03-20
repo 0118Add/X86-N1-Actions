@@ -106,7 +106,8 @@ rm -rf feeds/packages/utils/coremark
 
 # 添加额外软件包
 #git clone https://github.com/0118Add/X86-N1-Actions package/autocore
-git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autocore
+#git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autocore
+merge_package https://github.com/0118Add/OpenWrt-Actions OpenWrt-Actions/autocore-arm
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
