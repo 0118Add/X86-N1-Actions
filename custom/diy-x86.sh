@@ -44,10 +44,8 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/luci2/bin/config_generate
 # 修改autocore
 #sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_ipq807x||TARGET_mvebu||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
 
-# 修改版本为编译日期
-#date_version=$(date +"%y.%m.%d")
-#orig_version=$(cat "package/lean/default-settings/files/zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
-#sed -i "s/${orig_version}/R${date_version}/g" package/lean/default-settings/files/zzz-default-settings
+# 修改版本
+sed -i "s/(\(LuCI openwrt-23.05 || ''\))/(\1)/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
 
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
