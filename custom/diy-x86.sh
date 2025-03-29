@@ -90,7 +90,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #rm -rf package/helloworld/{hysteria,xray-core}
 #rm -rf feeds/packages/net/{dae,daed}
 rm -rf feeds/luci/applications/luci-app-openclash
-rm -rf feeds/luci/applications/luci-app-diskman
+rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-ssr-plus
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-passwall
@@ -103,10 +103,13 @@ rm -rf feeds/packages/utils/coremark
 #rm -rf feeds/luci/modules/luci-base
 #rm -rf feeds/luci/modules/luci-mod-status
 
+git clone --depth=1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git immortalwrt-luci
+cp -rf immortalwrt-luci/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
+ln -sf ../../../feeds/luci/applications/luci-app-dockerman ./package/feeds/luci/luci-app-dockerman
 
 # 添加额外软件包
 #git clone https://github.com/0118Add/X86-N1-Actions package/autocore
-git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autocore
+#git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autocore
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #merge_package https://github.com/0118Add/OP-Packages OP-Packages/luci-app-filetransfer
@@ -131,7 +134,8 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #rm -rf package/nekobox/sing-box
 #merge_package https://github.com/sbwml/openwrt_helloworld openwrt_helloworld/sing-box
 
-git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
+merge_package https://github.com/kenzok8/small small/mihomo
+#git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 
@@ -159,11 +163,11 @@ sed -i 's/TurboACC/网络加速/g' feeds/luci/applications/luci-app-turboacc/roo
 sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
 
 # 调整 Dockerman 到 服务 菜单
-#sed -i 's/"admin",/"admin","services",/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/controller/*.lua
-#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/model/*.lua
-#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
-#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/view/dockerman/*.htm
-#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/applications/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
+sed -i 's/"admin",/"admin","services",/g' feeds/luci/applications/luci-app-dockerman/luasrc/controller/*.lua
+sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/model/*.lua
+sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
+sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/view/dockerman/*.htm
+sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
 # 调整 Zerotier 到 服务 菜单
 #sed -i 's/vpn/services/g' ./feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
