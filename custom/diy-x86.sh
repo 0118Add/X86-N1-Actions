@@ -98,7 +98,7 @@ rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/net/sing-box
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 
-rm -rf package/lean/autocore
+#rm -rf package/lean/autocore
 rm -rf feeds/packages/utils/coremark
 #rm -rf feeds/luci/modules/luci-base
 #rm -rf feeds/luci/modules/luci-mod-status
