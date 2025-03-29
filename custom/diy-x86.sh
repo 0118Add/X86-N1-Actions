@@ -97,11 +97,10 @@ rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/net/sing-box
 rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
+rm -rf feeds/luci/applications/luci-app-zerotier
 
 #rm -rf package/lean/autocore
 rm -rf feeds/packages/utils/coremark
-#rm -rf feeds/luci/modules/luci-base
-#rm -rf feeds/luci/modules/luci-mod-status
 
 git clone --depth=1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git immortalwrt-luci
 cp -rf immortalwrt-luci/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
@@ -123,7 +122,7 @@ git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-fileman
 #merge_package https://github.com/8688Add/openwrt_pkgs openwrt_pkgs/wrtbwmon
 git clone https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
-#git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
+git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #rm -rf feeds/luci/themes/luci-theme-argon
 #rm -rf feeds/luci/themes/luci-theme-design
@@ -160,7 +159,7 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #sed -i 's/IPSec VPN 服务器/IPSec VPN/g' feeds/luci/applications/luci-app-ipsec-vpnd/po/zh-cn/ipsec.po
 #sed -i 's/WireGuard 状态/WiGd状态/g' feeds/luci/applications/luci-app-wireguard/po/zh-cn/wireguard.po
 sed -i 's/TurboACC/网络加速/g' feeds/luci/applications/luci-app-turboacc/root/usr/share/luci/menu.d/luci-app-turboacc.json
-sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
+#sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
 
 # 调整 Dockerman 到 服务 菜单
 sed -i 's/"admin",/"admin","services",/g' feeds/luci/applications/luci-app-dockerman/luasrc/controller/*.lua
