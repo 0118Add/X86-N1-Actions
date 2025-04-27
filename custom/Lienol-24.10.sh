@@ -45,8 +45,8 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 
 # 内核替换 kernel xxx
-sed -i 's/LINUX_KERNEL_HASH-6.6.69 = 9c6305567b75d99514cde6eb9de39973f3d5c857a75bd9dcdfca57041f8d4f34/LINUX_KERNEL_HASH-6.6.66 = 9d757937c4661c2f512c62641b74ef74eff9bb13dc5dbcbaaa108c21152f1e52/g' ./include/kernel-6.6
-sed -i 's/LINUX_VERSION-6.6 = .69/LINUX_VERSION-6.6 = .66/g' ./include/kernel-6.6
+#sed -i 's/LINUX_KERNEL_HASH-6.6.69 = 9c6305567b75d99514cde6eb9de39973f3d5c857a75bd9dcdfca57041f8d4f34/LINUX_KERNEL_HASH-6.6.66 = 9d757937c4661c2f512c62641b74ef74eff9bb13dc5dbcbaaa108c21152f1e52/g' ./include/kernel-6.6
+#sed -i 's/LINUX_VERSION-6.6 = .69/LINUX_VERSION-6.6 = .66/g' ./include/kernel-6.6
 
 # 替换文件
 #wget -O ./package/kernel/linux/modules/netsupport.mk https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/netsupport.mk
@@ -91,7 +91,7 @@ rm -rf feeds/packages/net/{sing-box,xray-core}
 rm -rf feeds/other/luci-app-diskman
 rm -rf feeds/other/lean/luci-app-autoreboot
 rm -rf feeds/other/lean/luci-app-turboacc
-#rm -rf feeds/other/lean/luci-app-zerotier
+rm -rf feeds/other/lean/luci-app-zerotier
 rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/lienol/luci-app-ramfree
@@ -120,7 +120,7 @@ git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-autorebo
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 #git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
-#git clone https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
+git clone https://github.com/xuanranran/luci-app-zerotier package/luci-app-zerotier
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
@@ -139,7 +139,7 @@ sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
 # mihomo
-git clone https://github.com/morytyann/OpenWrt-mihomo  package/openwrt-mihomo
+git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 #sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/po/zh_Hans/mihomo.po
 #sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/root/usr/share/luci/menu.d/luci-app-mihomo.json
 
@@ -171,7 +171,7 @@ sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/p
 #sed -i 's/Frp 内网穿透/内网穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
 #sed -i 's/Frpc内网穿透/内网穿透/g' package/luci-app-multi-frpc/po/zh-cn/frp.po
 #sed -i 's/NekoClash/Clash/g' package/nekoclash/luci-app-nekoclash/luasrc/controller/neko.lua
-sed -i 's/解除网易云音乐播放限制/音乐云解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
+sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 #sed -i 's/V2ray 服务器/V2ray服务/g' feeds/luci/applications/luci-app-v2ray-server/po/zh-cn/v2ray_server.po
 #sed -i 's/SoftEther VPN 服务器/SoftEther/g' feeds/luci/applications/luci-app-softethervpn/po/zh-cn/softethervpn.po
