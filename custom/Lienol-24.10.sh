@@ -89,7 +89,7 @@ rm -rf feeds/other/lean/autocore
 rm -rf package/public/autosamba
 rm -rf feeds/packages/net/{sing-box,xray-core}
 rm -rf feeds/other/luci-app-diskman
-rm -rf feeds/other/luci-app-dockerman
+#rm -rf feeds/other/luci-app-dockerman
 rm -rf feeds/other/lean/luci-app-autoreboot
 rm -rf feeds/other/lean/luci-app-turboacc
 rm -rf feeds/other/lean/luci-app-zerotier
@@ -151,9 +151,9 @@ curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turbo
 sed -i 's/Turbo ACC 网络加速/网络加速/g' package/turboacc/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 克隆immortalwrt-luci仓库
-git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/luci.git immortalwrt-luci
-cp -rf immortalwrt-luci/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
-ln -sf ../../../feeds/luci/applications/luci-app-dockerman ./package/feeds/luci/luci-app-dockerman
+#git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/luci.git immortalwrt-luci
+#cp -rf immortalwrt-luci/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
+#ln -sf ../../../feeds/luci/applications/luci-app-dockerman ./package/feeds/luci/luci-app-dockerman
 
 # 修改系统文件
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
@@ -163,7 +163,7 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general
 #sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
 #sed -i 's/Design 主题设置/Design设置/g' feeds/luci/applications/luci-app-design-config/po/zh-cn/design-config.po
 #sed -i 's/CPU 性能优化调节/性能优化/g' feeds/luci/applications/luci-app-cpufreq/po/zh-cn/cpufreq.po
-sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/partexp.po
+#sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/partexp.po
 #sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
 #sed -i 's/TTYD 终端/命令行/g' feeds/luci/applications/luci-app-ttyd/po/zh-cn/terminal.po
 #sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
@@ -191,11 +191,11 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 #wget -P package/openwrt-passwall/shadowsocks-rust https://github.com/wekingchen/my-file/raw/master/shadowsocks-rust/Makefile
 
 # 调整 Dockerman 到 服务 菜单
-sed -i 's/"admin",/"admin","services",/g' feeds/luci/applications/luci-app-dockerman/luasrc/controller/*.lua
-sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/model/*.lua
-sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
-sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/view/dockerman/*.htm
-sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
+sed -i 's/"admin",/"admin","services",/g' feeds/other/luci-app-dockerman/luasrc/controller/*.lua
+sed -i 's/"admin/"admin\/services/g' feeds/other/luci-app-dockerman/luasrc/model/*.lua
+sed -i 's/"admin/"admin\/services/g' feeds/other/luci-app-dockerman/luasrc/model/cbi/dockerman/*.lua
+sed -i 's/"admin/"admin\/services/g' feeds/other/luci-app-dockerman/luasrc/view/dockerman/*.htm
+sed -i 's/"admin/"admin\/services/g' feeds/other/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
 # 调整 Zerotier 到 服务 菜单
 #sed -i 's/vpn/services/g' feeds/other/lean/luci-app-zerotier/luasrc/controller/*.lua
