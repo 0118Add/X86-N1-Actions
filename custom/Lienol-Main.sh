@@ -259,7 +259,7 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload\.github\.com/g' {}
 
 # 拷贝自定义文件
-if [ -n "$(ls -A "${GITHUB_WORKSPACE}/immortalwrt/diy" 2>/dev/null)" ]; then
+if [ -n "$(ls -A "${GITHUB_WORKSPACE}/general/diy" 2>/dev/null)" ]; then
 	cp -Rf ${GITHUB_WORKSPACE}/general/diy/* .
 fi
 
