@@ -87,6 +87,7 @@ git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/l
 # 移除重复软件包
 rm -rf feeds/other/lean/autocore
 rm -rf package/public/autosamba
+rm -rf package/kernel/r8152
 rm -rf feeds/packages/net/{sing-box,xray-core}
 rm -rf feeds/other/luci-app-diskman
 rm -rf feeds/other/luci-app-dockerman
@@ -257,11 +258,6 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/lang\/golang\/golang\-package\.mk/include \$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang\-package\.mk/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHREPO/PKG_SOURCE_URL:=https:\/\/github\.com/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload\.github\.com/g' {}
-
-# 拷贝自定义文件
-if [ -n "$(ls -A "${GITHUB_WORKSPACE}/general/diy" 2>/dev/null)" ]; then
-	cp -Rf ${GITHUB_WORKSPACE}/general/diy/* .
-fi
 
 ./scripts/feeds update -i
 ./scripts/feeds install -a
