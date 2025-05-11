@@ -121,7 +121,7 @@ git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-autorebo
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 #git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
-git clone https://github.com/lwb1978/luci-app-zerotier package/luci-app-zerotier
+git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
@@ -257,6 +257,11 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/lang\/golang\/golang\-package\.mk/include \$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang\-package\.mk/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHREPO/PKG_SOURCE_URL:=https:\/\/github\.com/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload\.github\.com/g' {}
+
+# 拷贝自定义文件
+if [ -n "$(ls -A "${GITHUB_WORKSPACE}/immortalwrt/diy" 2>/dev/null)" ]; then
+	cp -Rf ${GITHUB_WORKSPACE}/general/diy/* .
+fi
 
 ./scripts/feeds update -i
 ./scripts/feeds install -a
