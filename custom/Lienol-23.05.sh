@@ -121,6 +121,7 @@ git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-autorebo
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
 #git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
 git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
