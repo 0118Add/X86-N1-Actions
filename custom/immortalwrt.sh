@@ -72,7 +72,8 @@ rm -rf feeds/luci/applications/luci-app-openclash
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
-#git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
+git clone https://github.com/Jaykwok2999/luci-app-tailscale  package/luci-app-tailscale
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
 git clone --depth=1 -b dev https://github.com/vernesong/openclash package/openclash
 
@@ -98,7 +99,7 @@ git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 #sed -i 's/services/vpn/g' package/openwrt_packages/luci-app-v2ray-server/luasrc/view/v2ray_server/*.htm
 
 # 调整 zerotier 到 服务菜单
-sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
+#sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
 
 # 调整Dockerman到服务菜单
 sed -i 's/"admin",/"admin","services",/g' feeds/luci/applications/luci-app-dockerman/luasrc/controller/*.lua
