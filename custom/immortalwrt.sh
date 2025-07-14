@@ -74,7 +74,7 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
-#git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
+git clone --depth=1 -b dev https://github.com/vernesong/openclash package/openclash
 
 # homeproxy
 #rm -rf feeds/luci/applications/luci-app-homeproxy
