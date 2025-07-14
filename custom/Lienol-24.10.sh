@@ -87,6 +87,7 @@ git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/l
 # 移除重复软件包
 rm -rf feeds/other/lean/autocore
 rm -rf package/public/autosamba
+rm -rf package/kernel/r8152
 rm -rf feeds/packages/net/{sing-box,xray-core}
 rm -rf feeds/other/luci-app-diskman
 rm -rf feeds/other/luci-app-dockerman
@@ -96,7 +97,6 @@ rm -rf feeds/other/lean/luci-app-zerotier
 rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/lienol/luci-app-ramfree
-rm -rf feeds/packages/net/zerotier
 rm -rf target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch
 rm -rf target/linux/generic/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
 rm -rf target/linux/generic/hack-6.1/952-add-net-conntrack-events-support-multiple-registrant.patch
@@ -108,10 +108,10 @@ git clone https://github.com/0118Add/X86-N1-Actions package/autocore
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-git clone -b main --single-branch https://github.com/xiaorouji/openwrt-passwall package/passwall-luci
+#git clone -b main --single-branch https://github.com/xiaorouji/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-#git clone https://github.com/fw876/helloworld.git package/helloworld
-git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-autoreboot luci-app-diskman luci-app-ramfree
+#git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
+#git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-autoreboot luci-app-diskman luci-app-ramfree
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
@@ -119,14 +119,15 @@ git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-autorebo
 #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
 #git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
-#git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/luci-app-openclash
-#git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+#git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
+git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
 git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
+git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
 git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
-git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+#git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
+#git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #rm -rf feeds/luci/themes/luci-theme-argon
@@ -136,9 +137,9 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic pa
 #rm -rf feeds/packages/net/smartdns
 #cp -rf ${GITHUB_WORKSPACE}/general/smartdns feeds/packages/net
 
-git clone --depth 1 -b dev https://github.com/immortalwrt/homeproxy package/homeproxy
-sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
-sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
+#git clone --depth 1 -b dev https://github.com/immortalwrt/homeproxy package/homeproxy
+#sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
+#sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
 # mihomo
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
@@ -147,14 +148,18 @@ git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 
 # turboacc
 #git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
-#curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
-curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh --no-sfe
+curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 sed -i 's/Turbo ACC 网络加速/网络加速/g' package/turboacc/luci-app-turboacc/po/zh-cn/turboacc.po
 
-# 克隆immortalwrt-luci仓库
-#git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/luci.git immortalwrt-luci
-#cp -rf immortalwrt-luci/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
-#ln -sf ../../../feeds/luci/applications/luci-app-dockerman ./package/feeds/luci/luci-app-dockerman
+# 克隆immortalwrt-luci packages仓库
+git clone --depth=1 -b master https://github.com/immortalwrt/luci.git immortalwrt-luci
+cp -rf immortalwrt-luci/applications/luci-app-msd_lite feeds/luci/applications/luci-app-msd_lite
+ln -sf ../../../feeds/luci/applications/luci-app-msd_lite ./package/feeds/luci/luci-app-msd_lite
+cp -rf immortalwrt-luci/applications/luci-app-unblockneteasemusic feeds/luci/applications/luci-app-unblockneteasemusic
+ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/feeds/luci/luci-app-unblockneteasemusic
+git clone --depth=1 -b master https://github.com/immortalwrt/packages.git immortalwrt-packages
+cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
+ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
 
 # 修改系统文件
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
@@ -173,7 +178,7 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general
 #sed -i 's/Frp 内网穿透/内网穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
 #sed -i 's/Frpc内网穿透/内网穿透/g' package/luci-app-multi-frpc/po/zh-cn/frp.po
 #sed -i 's/NekoClash/Clash/g' package/nekoclash/luci-app-nekoclash/luasrc/controller/neko.lua
-sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
+sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 #sed -i 's/V2ray 服务器/V2ray服务/g' feeds/luci/applications/luci-app-v2ray-server/po/zh-cn/v2ray_server.po
 #sed -i 's/SoftEther VPN 服务器/SoftEther/g' feeds/luci/applications/luci-app-softethervpn/po/zh-cn/softethervpn.po
@@ -185,18 +190,8 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' package/luci-app-unb
 # 去掉ssr+中shadowsocksr-libev的libopenssl-legacy依赖支持
 #sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
 
-# 克隆immortalwrt-luci仓库
-git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/luci.git immortalwrt-luci
-#cp -rf immortalwrt-luci/modules/luci-base feeds/luci/modules/luci-base
-#cp -rf immortalwrt-luci/modules/luci-mod-status feeds/luci/modules/luci-mod-status
-cp -rf immortalwrt-luci/applications/luci-app-msd_lite feeds/luci/applications/luci-app-msd_lite
-ln -sf ../../../feeds/luci/applications/luci-app-msd_lite ./package/feeds/luci/luci-app-msd_lite
-# 克隆immortalwrt-packages仓库
-git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/packages.git immortalwrt-packages
-cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
-ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
-cp -rf immortalwrt-packages/net/zerotier feeds/packages/net/zerotier
-ln -sf ../../../feeds/packages/net/zerotier ./package/feeds/packages/zerotier
+# rust版本以免编译失败
+#sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
 
 # 调整 Dockerman 到 服务 菜单
 sed -i 's/"admin",/"admin","services",/g' feeds/luci/applications/luci-app-dockerman/luasrc/controller/*.lua
@@ -260,7 +255,7 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
-# 修改 Makefile
+# 修正部分从第三方仓库拉取的软件 Makefile 路径问题
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/lang\/golang\/golang-package.mk/$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang-package.mk/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/lang\/rust\/rust-package.mk/$(TOPDIR)\/feeds\/packages\/lang\/rust\/rust-package.mk/g' {}
