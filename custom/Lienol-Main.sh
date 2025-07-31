@@ -85,6 +85,7 @@ rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
 
 # 移除重复软件包
+rm -rf feeds/packages/utils/coremark
 rm -rf feeds/other/lean/autocore
 rm -rf package/public/autosamba
 rm -rf package/kernel/r8152
@@ -107,6 +108,7 @@ git clone https://github.com/0118Add/Cloudbuild package/autocore
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-autoreboot luci-app-diskman luci-app-ramfree
+git_sparse_clone master https://github.com/sbwml/openwrt_pkgs coremark
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
