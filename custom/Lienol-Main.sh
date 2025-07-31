@@ -9,15 +9,26 @@
 echo "开始配置……"
 echo "========================="
 
-# Git稀疏克隆，只克隆指定目录到本地
-function git_sparse_clone() {
-  branch="$1" repourl="$2" && shift 2
-  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
-  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
-  cd $repodir && git sparse-checkout set $@
-  mv -f $@ ../package
-  cd .. && rm -rf $repodir
+function merge_package(){
+    repo=`echo $1 | rev | cut -d'/' -f 1 | rev`
+    pkg=`echo $2 | rev | cut -d'/' -f 1 | rev`
+    # find package/ -follow -name $pkg -not -path "package/custom/*" | xargs -rt rm -rf
+    git clone --depth=1 --single-branch $1
+    mv $2 package/custom/
+    rm -rf $repo
 }
+function drop_package(){
+    find package/ -follow -name $1 -not -path "package/custom/*" | xargs -rt rm -rf
+}
+function merge_feed(){
+    if [ ! -d "feed/$1" ]; then
+        echo >> feeds.conf.default
+        echo "src-git $1 $2" >> feeds.conf.default
+    fi
+    ./scripts/feeds update $1
+    ./scripts/feeds install -a -p $1
+}
+rm -rf package/custom; mkdir package/custom
 
 # 修改主机名字（不能纯数字或者使用中文）
 #sed -i "s/hostname='.*'/hostname='X86'/g" package/base-files/files/bin/config_generate
@@ -102,14 +113,13 @@ rm -rf feeds/lienol/luci-app-ramfree
 
 # 添加额外软件包
 git clone https://github.com/0118Add/Cloudbuild package/autocore
-git clone https://github.com/0118Add/Cloudbuild package/coremark
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone -b main --single-branch https://github.com/xiaorouji/openwrt-passwall package/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
-#git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-autoreboot luci-app-diskman luci-app-ramfree
+merge_package https://github.com/sbwml/openwrt_pkgs openwrt_pkgs/coremark
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
