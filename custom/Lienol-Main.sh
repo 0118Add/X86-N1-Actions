@@ -85,7 +85,6 @@ rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
 
 # 移除重复软件包
-rm -rf feeds/packages/utils/coremark
 rm -rf feeds/other/lean/autocore
 rm -rf package/public/autocore
 rm -rf package/public/autosamba
