@@ -157,6 +157,8 @@ ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/f
 git clone --depth=1 -b master https://github.com/immortalwrt/packages.git immortalwrt-packages
 cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
 ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
+cp -rf immortalwrt-packages/utils/coremark feeds/packages/utils/coremark
+ln -sf ../../../feeds/packages/utils/coremark ./package/feeds/packages/coremark
 
 # 修改系统文件
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
