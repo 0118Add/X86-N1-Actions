@@ -102,6 +102,7 @@ rm -rf feeds/lienol/luci-app-ramfree
 
 # 添加额外软件包
 git clone https://github.com/0118Add/Cloudbuild package/autocore
+git clone https://github.com/0118Add/Cloudbuild package/coremark
 #git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
@@ -109,7 +110,6 @@ git clone https://github.com/0118Add/Cloudbuild package/autocore
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 #git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-autoreboot luci-app-diskman luci-app-ramfree
-git_sparse_clone master https://github.com/sbwml/openwrt_pkgs coremark
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
 #git clone https://github.com/sbwml/luci-app-alist.git package/alist
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
