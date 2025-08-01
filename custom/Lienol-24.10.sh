@@ -87,7 +87,7 @@ git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/l
 # 移除重复软件包
 rm -rf feeds/other/lean/autocore
 rm -rf package/public/autosamba
-rm -rf package/kernel/r8152
+#rm -rf package/kernel/r8152
 rm -rf feeds/packages/net/{sing-box,xray-core}
 rm -rf feeds/other/luci-app-diskman
 rm -rf feeds/other/luci-app-dockerman
