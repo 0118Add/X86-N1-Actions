@@ -134,8 +134,8 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #cp -rf ${GITHUB_WORKSPACE}/general/smartdns feeds/packages/net
 
 git clone --depth 1 -b dev https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
-sed -i "s/ImmortalWrt/OpenWrt/g" package/homeproxy/po/zh_Hans/homeproxy.po
-sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
+sed -i "s/ImmortalWrt/OpenWrt/g" package/luci-app-homeproxy/po/zh_Hans/homeproxy.po
+sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
 # mihomo
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
