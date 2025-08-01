@@ -98,6 +98,7 @@ rm -rf feeds/other/lean/luci-app-zerotier
 rm -rf feeds/luci/applications/luci-app-ttyd
 rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-smartdns
+rm -rf feeds/lienol/luci-app-ramfree
 
 # 添加额外软件包
 git clone https://github.com/0118Add/X86-N1-Actions package/autocore
