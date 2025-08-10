@@ -260,6 +260,7 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # Default settings
+rm -rf package/default-settings
 git clone https://github.com/sbwml/default-settings package/default-settings
 
 # comment out the following line to restore the full description
