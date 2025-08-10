@@ -119,7 +119,7 @@ git_sparse_clone main https://github.com/kiddin9/kwrt-packages coremark
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
-git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
+#git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
 git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
