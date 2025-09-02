@@ -99,12 +99,6 @@ rm -rf feeds/luci/applications/luci-app-ttyd
 rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/lienol/luci-app-ramfree
-#rm -rf feeds/lienol/luci-app-control-timewol
-#rm -rf feeds/lienol/luci-app-control-weburl
-#rm -rf feeds/lienol/luci-app-control-webrestriction
-#rm -rf feeds/lienol/luci-app-timecontrol
-#rm -rf feeds/other/lean/ddns-scripts_dnspod
-#rm -rf feeds/packages/net/ddns-scripts
 rm -rf target/linux/generic/hack-6.12/952-add-net-conntrack-events-support-multiple-registrant.patch
 rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multiple-registrant.patch
 
