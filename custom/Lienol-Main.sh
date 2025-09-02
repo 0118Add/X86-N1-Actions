@@ -279,17 +279,5 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/lang
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=@GHREPO/PKG_SOURCE_URL:=https:\/\/github.com/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload.github.com/g' {}
 
-# Shortcut Forwarding Engine
-#git clone https://git.cooluc.com/sbwml/shortcut-fe package/shortcut-fe
-
-# FullCone module
-git clone https://git.cooluc.com/sbwml/nft-fullcone package/nft-fullcone
-
-# IPv6 NAT
-git clone https://github.com/sbwml/packages_new_nat6 package/nat6
-
-# natflow
-git clone https://github.com/sbwml/package_new_natflow package/natflow
-
 ./scripts/feeds update -i
 ./scripts/feeds install -a
