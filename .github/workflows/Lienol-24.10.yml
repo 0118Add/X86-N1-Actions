@@ -6,8 +6,8 @@ on:
     #- cron: 0 19 * * *
 
 env:
-  REPO_URL: https://github.com/0118Add/Lienol_openwrt
-  REPO_BRANCH: openwrt-24.10
+  REPO_URL: https://github.com/8688Add/Lienol-openwrt
+  REPO_BRANCH: 2410
   CONFIG_FILE: configs/Lienol-24.10.config
   DIY_SCRIPT: custom/Lienol-24.10.sh
   CLASH_KERNEL: amd64
