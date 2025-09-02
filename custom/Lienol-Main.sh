@@ -280,7 +280,7 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload.github.com/g' {}
 
 # Shortcut Forwarding Engine
-git clone https://git.cooluc.com/sbwml/shortcut-fe package/shortcut-fe
+#git clone https://git.cooluc.com/sbwml/shortcut-fe package/shortcut-fe
 
 # FullCone module
 git clone https://git.cooluc.com/sbwml/nft-fullcone package/nft-fullcone
