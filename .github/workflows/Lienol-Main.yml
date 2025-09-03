@@ -8,7 +8,7 @@ on:
 env:
   REPO_URL: https://github.com/0118Add/Lienol-openwrt
   REPO_BRANCH: 2410
-  CONFIG_FILE: configs/Main.config
+  CONFIG_FILE: configs/Lienol-Main.config
   DIY_SCRIPT: custom/Lienol-Main.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: false
