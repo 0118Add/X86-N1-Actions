@@ -122,8 +122,8 @@ git_sparse_clone main https://github.com/kiddin9/kwrt-packages coremark
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
 #git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
-git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
-git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
+git clone https://github.com/Jaykwok2999/luci-app-tailscale  package/luci-app-tailscale
+#git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
