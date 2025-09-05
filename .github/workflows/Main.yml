@@ -7,7 +7,7 @@ on:
 
 env:
   REPO_URL: https://github.com/0118Add/Lienol-openwrt
-  REPO_BRANCH: 2410
+  REPO_BRANCH: main
   CONFIG_FILE: configs/Main.config
   DIY_SCRIPT: custom/Main.sh
   CLASH_KERNEL: amd64
