@@ -196,9 +196,7 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applicati
 #sed -i 's/ +libopenssl-legacy//g' package/helloworld/shadowsocksr-libev/Makefile
 
 # rust版本以免编译失败
-pushd feeds/packages
-  curl -s https://patch-diff.githubusercontent.com/raw/openwrt/packages/pull/27487.patch | patch -p1
-popd
+sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
 
 # 调整 Dockerman 到 服务 菜单
 sed -i 's/"admin",/"admin","services",/g' feeds/luci/applications/luci-app-dockerman/luasrc/controller/*.lua
