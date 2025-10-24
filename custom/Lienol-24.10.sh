@@ -261,7 +261,7 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # Shortcut Forwarding Engine
-git clone https://github.com/dd-ray/shortcut-fe package/new/shortcut-fe
+git clone --depth 1 -b package https://github.com/chenmozhijin/turboacc package/shortcut-fe
 
 # firewall4
 sed -i 's|$(PROJECT_GIT)/project|https://github.com/openwrt|g' package/network/config/firewall4/Makefile
@@ -287,9 +287,6 @@ mkdir -p package/network/utils/nftables/patches
 curl -s $mirror/openwrt/patch/firewall4/nftables/0001-nftables-add-fullcone-expression-support.patch > package/network/utils/nftables/patches/0001-nftables-add-fullcone-expression-support.patch
 curl -s $mirror/openwrt/patch/firewall4/nftables/0002-nftables-add-brcm-fullconenat-support.patch > package/network/utils/nftables/patches/0002-nftables-add-brcm-fullconenat-support.patch
 curl -s $mirror/openwrt/patch/firewall4/nftables/0003-drop-rej-file.patch > package/network/utils/nftables/patches/0003-drop-rej-file.patch
-
-# FullCone module
-git clone https://github.com/dd-ray/nft-fullcone package/new/nft-fullcone
 
 # IPv6 NAT
 git clone https://github.com/sbwml/packages_new_nat6 package/new/nat6
