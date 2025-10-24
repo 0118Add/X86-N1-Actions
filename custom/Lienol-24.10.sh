@@ -261,7 +261,7 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # Shortcut Forwarding Engine
-git clone --depth 1 -b package https://github.com/chenmozhijin/turboacc package/shortcut-fe
+git clone https://github.com/8688Add/shortcut-fe package/shortcut-fe
 
 # firewall4
 sed -i 's|$(PROJECT_GIT)/project|https://github.com/openwrt|g' package/network/config/firewall4/Makefile
