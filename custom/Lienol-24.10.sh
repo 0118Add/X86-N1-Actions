@@ -261,7 +261,7 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # Shortcut Forwarding Engine
-git clone https://$gitea/sbwml/shortcut-fe package/new/shortcut-fe
+git clone https://github.com/dd-ray/shortcut-fe package/new/shortcut-fe
 
 # firewall4
 sed -i 's|$(PROJECT_GIT)/project|https://github.com/openwrt|g' package/network/config/firewall4/Makefile
@@ -289,13 +289,13 @@ curl -s $mirror/openwrt/patch/firewall4/nftables/0002-nftables-add-brcm-fullcone
 curl -s $mirror/openwrt/patch/firewall4/nftables/0003-drop-rej-file.patch > package/network/utils/nftables/patches/0003-drop-rej-file.patch
 
 # FullCone module
-git clone https://$gitea/sbwml/nft-fullcone package/new/nft-fullcone
+git clone https://github.com/dd-ray/nft-fullcone package/new/nft-fullcone
 
 # IPv6 NAT
-git clone https://$github/sbwml/packages_new_nat6 package/new/nat6
+git clone https://github.com/sbwml/packages_new_nat6 package/new/nat6
 
 # natflow
-git clone https://$github/sbwml/package_new_natflow package/new/natflow
+git clone https://github.com/sbwml/package_new_natflow package/new/natflow
 
 # Patch Luci add nft_fullcone/bcm_fullcone & shortcut-fe & natflow & ipv6-nat & custom nft command option
 pushd feeds/luci
