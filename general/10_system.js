@@ -25,28 +25,52 @@ var callSystemInfo = rpc.declare({
 	method: 'info'
 });
 
+var callCPUBench = rpc.declare({
+	object: 'luci',
+	method: 'getCPUBench'
+});
+
+var callCPUInfo = rpc.declare({
+	object: 'luci',
+	method: 'getCPUInfo'
+});
+
+var callCPUUsage = rpc.declare({
+	object: 'luci',
+	method: 'getCPUUsage'
+});
+
+var callTempInfo = rpc.declare({
+	object: 'luci',
+	method: 'getTempInfo'
+});
+
 return baseclass.extend({
 	title: _('System'),
 
 	load: function() {
-		return callSystemBoard().then(function (boardinfo) {
-			return Promise.all([
-				boardinfo,
-				L.resolveDefault(callSystemInfo(), {}),
-				L.resolveDefault(callLuciVersion(), { revision: _('unknown version'), branch: 'LuCI' }),
-				L.resolveDefault(callGetUnixtime(), 0),
-				L.resolveDefault(fs.exec_direct('/sbin/cpuinfo'), ''),
-				boardinfo.system.startsWith("ARM") ? L.resolveDefault(fs.exec_direct('/sbin/usage'), '') : L.resolveDefault(fs.exec_direct('/sbin/luci-mod-status-cpu_free'), ''),
-				uci.load('system')
-			]);
-		});
+		return Promise.all([
+			L.resolveDefault(callSystemBoard(), {}),
+			L.resolveDefault(callSystemInfo(), {}),
+			L.resolveDefault(callCPUBench(), {}),
+			L.resolveDefault(callCPUInfo(), {}),
+			L.resolveDefault(callCPUUsage(), {}),
+			L.resolveDefault(callTempInfo(), {}),
+			L.resolveDefault(callLuciVersion(), { revision: _('unknown version'), branch: 'LuCI' }),
+			L.resolveDefault(callGetUnixtime(), 0),
+			uci.load('system')
+		]);
 	},
 
 	render: function(data) {
 		var boardinfo   = data[0],
 		    systeminfo  = data[1],
-		    luciversion = data[2],
-		    unixtime    = data[3];
+		    cpubench    = data[2],
+		    cpuinfo     = data[3],
+		    cpuusage    = data[4],
+		    tempinfo    = data[5],
+		    luciversion = data[6],
+		    unixtime    = data[7];
 
 		luciversion = luciversion.branch + ' ' + luciversion.revision;
 
@@ -68,8 +92,8 @@ return baseclass.extend({
 
 		var fields = [
 			_('Hostname'),         boardinfo.hostname,
-			_('Model'),            boardinfo.model,
-			_('Architecture'),     boardinfo.system,
+			_('Model'),            boardinfo.model + cpubench.cpubench,
+			_('Architecture'),     cpuinfo.cpuinfo || boardinfo.system,
 			_('Target Platform'),  (L.isObject(boardinfo.release) ? boardinfo.release.target : ''),
 			_('Firmware Version'), (L.isObject(boardinfo.release) ? boardinfo.release.description + ' / ' : '') + (luciversion || ''),
 			_('Kernel Version'),   boardinfo.kernel,
@@ -79,28 +103,12 @@ return baseclass.extend({
 				systeminfo.load[0] / 65535.0,
 				systeminfo.load[1] / 65535.0,
 				systeminfo.load[2] / 65535.0
-			) : null
+			) : null,
 		];
 
-		if (data[4]) {
-			var cpuinfo = data[4];
-			//fields[4] = _('CPU Info')
-			//fields[5] = cpuinfo
-			if ((L.isObject(boardinfo.release) ? boardinfo.release.target : '').startsWith("x86")) {
-				fields[5] = fields[5] + " (" + cpuinfo + ")"
-			} else if (boardinfo.system.startsWith("ARM")) {
-				fields[5] = cpuinfo
-			}
-		}
-
-		if (data[5]) {
-			var cpu_free = data[5];
-			fields.push(_('CPU Used'))
-			if (boardinfo.system.startsWith("ARM")) {
-				fields.push(cpu_free)
-			} else {
-				fields.push((100 - cpu_free) + "%")
-			}
+		if (tempinfo.tempinfo) {
+			fields.splice(6, 0, _('Temperature'));
+			fields.splice(7, 0, tempinfo.tempinfo);
 		}
 
 		var table = E('table', { 'class': 'table' });
