@@ -120,9 +120,9 @@ git_sparse_clone main https://github.com/kiddin9/kwrt-packages coremark
 #git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
-git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
+#git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
 #git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
-git clone https://github.com/Jaykwok2999/luci-app-tailscale  package/luci-app-tailscale
+#git clone https://github.com/Jaykwok2999/luci-app-tailscale  package/luci-app-tailscale
 #git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
@@ -142,8 +142,8 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
 # mihomo
-git clone https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
-#git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
+#git clone https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
+git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 #sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/po/zh_Hans/mihomo.po
 #sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/root/usr/share/luci/menu.d/luci-app-mihomo.json
 
