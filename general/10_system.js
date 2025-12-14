@@ -2,6 +2,13 @@
 'require baseclass';
 'require fs';
 'require rpc';
+'require uci';
+
+var callGetUnixtime = rpc.declare({
+	object: 'luci',
+	method: 'getUnixtime',
+	expect: { result: 0 }
+});
 
 var callLuciVersion = rpc.declare({
 	object: 'luci',
@@ -13,16 +20,6 @@ var callSystemBoard = rpc.declare({
 	method: 'board'
 });
 
-var callCPUInfo = rpc.declare({
-	object: 'luci',
-	method: 'getCPUInfo'
-});
-
-var callTempInfo = rpc.declare({
-	object: 'luci',
-	method: 'getTempInfo'
-});
-
 var callSystemInfo = rpc.declare({
 	object: 'system',
 	method: 'info'
@@ -32,43 +29,47 @@ return baseclass.extend({
 	title: _('System'),
 
 	load: function() {
-		return Promise.all([
-			L.resolveDefault(callSystemBoard(), {}),
-			L.resolveDefault(callSystemInfo(), {}),
-			L.resolveDefault(callCPUInfo(), {}),
-			L.resolveDefault(callTempInfo(), {}),
-			L.resolveDefault(callLuciVersion(), { revision: _('unknown version'), branch: 'LuCI' })
-		]);
+		return callSystemBoard().then(function (boardinfo) {
+			return Promise.all([
+				boardinfo,
+				L.resolveDefault(callSystemInfo(), {}),
+				L.resolveDefault(callLuciVersion(), { revision: _('unknown version'), branch: 'LuCI' }),
+				L.resolveDefault(callGetUnixtime(), 0),
+				L.resolveDefault(fs.exec_direct('/sbin/cpuinfo'), ''),
+				boardinfo.system.startsWith("ARM") ? L.resolveDefault(fs.exec_direct('/sbin/usage'), '') : L.resolveDefault(fs.exec_direct('/sbin/luci-mod-status-cpu_free'), ''),
+				uci.load('system')
+			]);
+		});
 	},
 
 	render: function(data) {
 		var boardinfo   = data[0],
 		    systeminfo  = data[1],
-		    cpuinfo     = data[2],
-		    tempinfo    = data[3],
-		    luciversion = data[4];
+		    luciversion = data[2],
+		    unixtime    = data[3];
 
 		luciversion = luciversion.branch + ' ' + luciversion.revision;
 
 		var datestr = null;
 
-		if (systeminfo.localtime) {
-			var date = new Date(systeminfo.localtime * 1000);
+		if (unixtime) {
+			var date = new Date(unixtime * 1000),
+				zn = uci.get('system', '@system[0]', 'zonename')?.replaceAll(' ', '_') || 'UTC',
+				ts = uci.get('system', '@system[0]', 'clock_timestyle') || 0,
+				hc = uci.get('system', '@system[0]', 'clock_hourcycle') || 0;
 
-			datestr = '%04d-%02d-%02d %02d:%02d:%02d'.format(
-				date.getUTCFullYear(),
-				date.getUTCMonth() + 1,
-				date.getUTCDate(),
-				date.getUTCHours(),
-				date.getUTCMinutes(),
-				date.getUTCSeconds()
-			);
+			datestr = new Intl.DateTimeFormat(undefined, {
+				dateStyle: 'medium',
+				timeStyle: (ts == 0) ? 'long' : 'full',
+				hourCycle: (hc == 0) ? undefined : hc,
+				timeZone: zn
+			}).format(date);
 		}
 
 		var fields = [
 			_('Hostname'),         boardinfo.hostname,
 			_('Model'),            boardinfo.model,
-			_('Architecture'),     cpuinfo.cpuinfo || boardinfo.system,
+			_('Architecture'),     boardinfo.system,
 			_('Target Platform'),  (L.isObject(boardinfo.release) ? boardinfo.release.target : ''),
 			_('Firmware Version'), (L.isObject(boardinfo.release) ? boardinfo.release.description + ' / ' : '') + (luciversion || ''),
 			_('Kernel Version'),   boardinfo.kernel,
@@ -81,11 +82,27 @@ return baseclass.extend({
 			) : null
 		];
 
-		if (tempinfo.tempinfo) {
-			fields.splice(6, 0, _('Temperature'));
-			fields.splice(7, 0, tempinfo.tempinfo);
-	        }
-		
+		if (data[4]) {
+			var cpuinfo = data[4];
+			//fields[4] = _('CPU Info')
+			//fields[5] = cpuinfo
+			if ((L.isObject(boardinfo.release) ? boardinfo.release.target : '').startsWith("x86")) {
+				fields[5] = fields[5] + " (" + cpuinfo + ")"
+			} else if (boardinfo.system.startsWith("ARM")) {
+				fields[5] = cpuinfo
+			}
+		}
+
+		if (data[5]) {
+			var cpu_free = data[5];
+			fields.push(_('CPU Used'))
+			if (boardinfo.system.startsWith("ARM")) {
+				fields.push(cpu_free)
+			} else {
+				fields.push((100 - cpu_free) + "%")
+			}
+		}
+
 		var table = E('table', { 'class': 'table' });
 
 		for (var i = 0; i < fields.length; i += 2) {
