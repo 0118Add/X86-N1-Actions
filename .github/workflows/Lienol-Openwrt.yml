@@ -1,4 +1,4 @@
-name: Lienol-Openwrt
+name: Lienol-Openwrt-x86
 
 on:
   workflow_dispatch:
