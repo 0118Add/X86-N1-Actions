@@ -89,7 +89,7 @@ rm -rf feeds/other/lean/autocore
 rm -rf package/public/autocore
 rm -rf package/public/autosamba
 #rm -rf package/kernel/r8152
-rm -rf feeds/packages/net/{sing-box,xray-core}
+rm -rf feeds/packages/net/{sing-box,xray-core,zerotier}
 rm -rf feeds/other/luci-app-diskman
 rm -rf feeds/other/luci-app-dockerman
 rm -rf feeds/other/lean/luci-app-autoreboot
@@ -123,7 +123,7 @@ git_sparse_clone main https://github.com/kiddin9/kwrt-packages coremark
 #git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
 #git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 #git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
-git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
+#git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
 git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
@@ -164,9 +164,13 @@ cp -rf immortalwrt-luci/applications/luci-app-ttyd feeds/luci/applications/luci-
 ln -sf ../../../feeds/luci/applications/luci-app-ttyd ./package/feeds/luci/luci-app-ttyd
 cp -rf immortalwrt-luci/applications/luci-app-unblockneteasemusic feeds/luci/applications/luci-app-unblockneteasemusic
 ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/feeds/luci/luci-app-unblockneteasemusic
+cp -rf immortalwrt-luci/applications/luci-app-zerotier feeds/luci/applications/luci-app-zerotier
+ln -sf ../../../feeds/luci/applications/luci-app-zerotier ./package/feeds/luci/luci-app-zerotier
 git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/packages.git immortalwrt-packages
 cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
 ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
+cp -rf immortalwrt-packages/net/zerotier feeds/packages/net/zerotier
+ln -sf ../../../feeds/packages/net/zerotier ./package/feeds/packages/zerotier
 
 # 修改系统文件
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
@@ -207,7 +211,7 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/luasrc/view/dockerman/cbi/*.htm
 
 # 调整 tailscale zerotier 到 服务 菜单
-sed -i 's/vpn/services/g' package/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
+sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
 #sed -i 's/vpn/services/g' package/luci-app-tailscale/root/usr/share/luci/menu.d/luci-app-tailscale.json
 
 # 调整 bypass 到 GFW 菜单
