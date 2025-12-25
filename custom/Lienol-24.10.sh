@@ -151,6 +151,9 @@ git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 # turboacc
 #git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+# 修复 turboacc 的 luci-nginx 依赖
+sed -i 's/+luci +luci-compat/+luci-nginx +luci-compat/g' package/turboacc/luci-app-turboacc/Makefile
+update_luci_app_menu
 sed -i 's/Turbo ACC 网络加速/网络加速/g' package/turboacc/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 克隆immortalwrt-luci packages仓库
