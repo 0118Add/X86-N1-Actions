@@ -119,9 +119,9 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/patch/25.12
 rm -rf feeds/packages/net/onionshare-cli
 
 # 移除 luci-app-attendedsysupgrade
-sed -i '18d' customfeeds/luci/collections/luci-nginx/Makefile
-sed -i '17d' customfeeds/luci/collections/luci/Makefile
-sed -i '16s/ \\$//' customfeeds/luci/collections/luci/Makefile
+sed -i '18d' feeds/luci/collections/luci-nginx/Makefile
+sed -i '17d' feeds/luci/collections/luci/Makefile
+sed -i '16s/ \\$//' feeds/luci/collections/luci/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
