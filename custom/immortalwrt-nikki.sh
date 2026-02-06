@@ -61,7 +61,6 @@ rm -rf feeds/luci/applications/luci-app-openclash
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/OpenClash
 
 # homeproxy
-rm -rf feeds/luci/applications/luci-app-attendedsysupgrade
 #rm -rf feeds/luci/applications/luci-app-homeproxy
 #git clone --depth=1 -b dev https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
@@ -117,6 +116,12 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general
 #sed -i '/# timezone/i sed -i "s/\\(DISTRIB_DESCRIPTION=\\).*/\\1'\''ImmortalWrt $(sed -n "s/DISTRIB_DESCRIPTION='\''ImmortalWrt \\([^ ]*\\) .*/\\1/p" /etc/openwrt_release)'\'',/" /etc/openwrt_release\nsource /etc/openwrt_release \&\& sed -i -e "s/distversion\\s=\\s\\".*\\"/distversion = \\"$DISTRIB_ID $DISTRIB_RELEASE ($DISTRIB_REVISION)\\"/g" -e '\''s/distname    = .*$/distname    = ""/g'\'' /usr/lib/lua/luci/version.lua\nsed -i "s/luciname    = \\".*\\"/luciname    = \\"LuCI Master\\"/g" /usr/lib/lua/luci/version.lua\nsed -i "s/luciversion = \\".*\\"/luciversion = \\"v'$(date +%Y%m%d)'\\"/g" /usr/lib/lua/luci/version.lua\necho "export const revision = '\''v'$(date +%Y%m%d)'\'\'', branch = '\''LuCI Master'\'';" > /usr/share/ucode/luci/version.uc\n/etc/init.d/rpcd restart\n' package/emortal/default-settings/files/99-default-settings
 curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/patch/25.12/release-os > package/base-files/files/etc/os-release
 rm -rf feeds/packages/net/onionshare-cli
+
+# 移除attendedsysupgrade
+find "feeds/luci/collections" -name "Makefile" | while read -r makefile; do
+    if grep -q "luci-app-attendedsysupgrade" "$makefile"; then
+        sed -i "/luci-app-attendedsysupgrade/d" "$makefile"
+    fi
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
