@@ -118,9 +118,7 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/patch/25.12
 rm -rf feeds/packages/net/onionshare-cli
 
 # 移除attendedsysupgrade
-find "feeds/luci/collections" -name "Makefile" | while read -r makefile; do
-grep -q "luci-app-attendedsysupgrade" "$makefile"; then
-sed -i "/luci-app-attendedsysupgrade/d" "$makefile"
+rm -rf feeds/luci/applications/luci-app-attendedsysupgrade
     
 ./scripts/feeds update -a
 ./scripts/feeds install -a
