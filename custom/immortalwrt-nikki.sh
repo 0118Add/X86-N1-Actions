@@ -119,10 +119,9 @@ rm -rf feeds/packages/net/onionshare-cli
 
 # 移除attendedsysupgrade
 find "feeds/luci/collections" -name "Makefile" | while read -r makefile; do
-    if grep -q "luci-app-attendedsysupgrade" "$makefile"; then
-        sed -i "/luci-app-attendedsysupgrade/d" "$makefile"
-    fi
-
+grep -q "luci-app-attendedsysupgrade" "$makefile"; then
+sed -i "/luci-app-attendedsysupgrade/d" "$makefile"
+    
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
