@@ -97,7 +97,7 @@ sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applicati
 # 调整Dockerman到服务菜单
 rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
-git clone https://github.com/lisaac/luci-lib-docker feeds/luci/collections/luci-lib-docker
+git clone https://github.com/8688Add/luci-lib-docker package/luci-lib-docker
 rm -rf feeds/packages/utils/{docker,dockerd,containerd,runc}
 git clone https://github.com/sbwml/packages_utils_docker feeds/packages/utils/docker
 git clone https://github.com/sbwml/packages_utils_dockerd feeds/packages/utils/dockerd
