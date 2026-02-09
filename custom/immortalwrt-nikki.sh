@@ -95,6 +95,7 @@ git clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/cu
 sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 
 # 调整Dockerman到服务菜单
+rm -rf feeds/luci/applications/luci-app-dockerman
 git clone https://github.com/lisaac/luci-app-dockerman package/luci-app-dockerman
 sed -i 's/"admin",/"admin","services",/g' package/luci-app-dockerman/luasrc/controller/*.lua
 sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/luasrc/model/*.lua
