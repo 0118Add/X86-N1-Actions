@@ -41,16 +41,8 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 # 修正连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
-# SmartDNS
-#rm -rf feeds/luci/applications/luci-app-smartdns
-#git clone https://github.com/lwb1978/luci-app-smartdns package/luci-app-smartdns
-# 替换immortalwrt 软件仓库smartdns版本为官方最新版
-#rm -rf feeds/packages/net/smartdns
-# cp -rf ${GITHUB_WORKSPACE}/patch/smartdns package/
-#git clone https://github.com/lwb1978/openwrt-smartdns package/smartdns
-# 添加 smartdns-ui
-#echo "CONFIG_PACKAGE_luci-app-smartdns_INCLUDE_smartdns_ui=y" >> .config
-#echo "CONFIG_PACKAGE_smartdns-ui=y" >> .config
+# 设置root用户密码为password
+sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7:::/g' package/base-files/files/etc/shadow
 
 # 核心库
 rm -rf feeds/packages/net/{xray-core,sing-box}
