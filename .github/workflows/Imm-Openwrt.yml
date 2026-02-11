@@ -1,4 +1,4 @@
-name: Lienol-Openwrt-x86
+name: Imm-Openwrt-x86
 
 on:
   workflow_dispatch:
@@ -6,15 +6,15 @@ on:
     #- cron: 0 19 * * *
 
 env:
-  REPO_URL: https://github.com/Lienol/openwrt
-  REPO_BRANCH: '24.10'
-  CONFIG_FILE: configs/Lienol-24.10.config
-  DIY_SCRIPT: custom/Lienol-24.10.sh
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: 'openwrt-25.12'
+  CONFIG_FILE: configs/immortalwrt.config
+  DIY_SCRIPT: custom/immortalwrt.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: Lienol-Openwrt
+  FIRMWARE_TAG: Imm-Openwrt
   TZ: Asia/Shanghai
 
 jobs:
