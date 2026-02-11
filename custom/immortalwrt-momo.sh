@@ -46,7 +46,7 @@ sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7
 
 # 核心库
 rm -rf feeds/packages/net/{xray-core,sing-box}
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 
 # openclash
 rm -rf feeds/luci/applications/luci-app-openclash
