@@ -1,4 +1,4 @@
-name: ImmortalWrt-momo
+name: ImmortalWrt-mo
 
 on:
   workflow_dispatch:
