@@ -59,9 +59,6 @@ sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
-rm -rf feeds/packages/net/{xray-core,sing-box}
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
-
 #添加额外软件包
 rm -rf feeds/packages/net/{xray-core,sing-box}
 #git clone --depth=1 -b openwrt-23.05 https://github.com/openwrt/openwrt openwrt-openwrt 
