@@ -76,8 +76,8 @@ rm -rf feeds/luci/applications/luci-app-openclash
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
-#git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
+#git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 #git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 #git clone https://github.com/Jaykwok2999/luci-app-tailscale  package/luci-app-tailscale
 #git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
