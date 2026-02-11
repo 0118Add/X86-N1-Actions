@@ -1,4 +1,4 @@
-name: ImmortalWrt-ni
+name: ImmortalWrt-nik
 
 on:
   workflow_dispatch:
