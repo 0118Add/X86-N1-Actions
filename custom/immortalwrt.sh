@@ -62,11 +62,11 @@ sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
-rm -rf feeds/packages/net/{xray-core,sing-box}
+rm -rf feeds/packages/net/{dae,xray-core,sing-box}
 #git clone --depth=1 -b openwrt-23.05 https://github.com/openwrt/openwrt openwrt-openwrt 
 #cp -rf openwrt-openwrt/package/libs/mbedtls package/libs/mbedtls
 #rm -rf feeds/luci/applications/luci-app-dockerman
-#rm -rf feeds/luci/applications/luci-app-daed
+rm -rf feeds/luci/applications/luci-app-dae
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
 #rm -rf feeds/luci/applications/luci-app-wechatpush
@@ -79,7 +79,7 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 #git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 #git clone https://github.com/Jaykwok2999/luci-app-tailscale  package/luci-app-tailscale
-#git clone https://github.com/QiuSimons/luci-app-daed-next package/luci-app-daed-next
+git clone https://github.com/QiuSimons/luci-app-dae package/dae
 git clone --depth=1 -b dev https://github.com/vernesong/openclash package/openclash
 
 # homeproxy
