@@ -74,6 +74,7 @@ rm -rf feeds/luci/applications/luci-app-mjpg-streamer
 #git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
+#git_sparse_clone master https://github.com/QiuSimons/OpenWrt-Add luci-app-partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
@@ -212,12 +213,6 @@ rm -rf feeds/packages/net/onionshare-cli
 sed -i '18d' feeds/luci/collections/luci-nginx/Makefile
 sed -i '17d' feeds/luci/collections/luci/Makefile
 sed -i '16s/ \\$//' feeds/luci/collections/luci/Makefile
-
-# ADD PKG 部分
-#rm -rf feeds/packages/utils/coremark
-#git_sparse_clone master https://github.com/QiuSimons/OpenWrt-Add luci-app-partexp
-#sed -i 's/+@KERNEL_DEBUG_INFO_BTF/+vmlinux-btf/' package/openwrt-einat-ebpf/Makefile
-#git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
 
 # rust
 wget https://github.com/rust-lang/rust/commit/e8d97f0.patch -O feeds/packages/lang/rust/patches/e8d97f0.patch
