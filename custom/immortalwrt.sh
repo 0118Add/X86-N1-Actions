@@ -215,9 +215,9 @@ sed -i '16s/ \\$//' feeds/luci/collections/luci/Makefile
 
 # ADD PKG 部分
 #rm -rf feeds/packages/utils/coremark
-#git_sparse_clone master https://github.com/QiuSimons/OpenWrt-Add openwrt-einat-ebpf
-#sed -i 's/+@KERNEL_DEBUG_INFO_BTF/+vmlinux-btf/' package/openwrt-einat-ebpf/Makefile
-#git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
+git_sparse_clone master https://github.com/QiuSimons/OpenWrt-Add openwrt-einat-ebpf
+sed -i 's/+@KERNEL_DEBUG_INFO_BTF/+vmlinux-btf/' package/openwrt-einat-ebpf/Makefile
+git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
 
 # rust
 wget https://github.com/rust-lang/rust/commit/e8d97f0.patch -O feeds/packages/lang/rust/patches/e8d97f0.patch
