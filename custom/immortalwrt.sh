@@ -220,7 +220,8 @@ git clone --depth=1 -b packages-24.10 https://github.com/sbwml/feeds_packages_la
 # ADD PKG 部分
 #rm -rf feeds/packages/utils/coremark
 sed -i 's/+@KERNEL_DEBUG_INFO_BTF/+vmlinux-btf/' package/openwrt-einat-ebpf/Makefile
-git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
+#git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
+git_sparse_clone master https://github.com/8688Add/openwrt_pkgs vmlinux-btf
 
 # rust
 wget https://github.com/rust-lang/rust/commit/e8d97f0.patch -O feeds/packages/lang/rust/patches/e8d97f0.patch
