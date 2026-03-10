@@ -1,4 +1,4 @@
-name: Imm-Openwrt-x86
+name: Imm-openwrt-x86
 
 on:
   workflow_dispatch:
