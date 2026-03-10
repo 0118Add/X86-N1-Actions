@@ -74,6 +74,7 @@ rm -rf feeds/luci/applications/luci-app-mjpg-streamer
 #git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
+git clone https://github.com/sbwml/package_kernel_vmlinux-btf package/vmlinux-btf
 git_sparse_clone main https://github.com/sbwml/openwrt_pkgs luci-app-rtp2httpd rtp2httpd
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
