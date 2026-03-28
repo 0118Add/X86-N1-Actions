@@ -1,4 +1,4 @@
-name: X86_64 Lienol 25.12
+name: X86_64 Lienol passwall
 
 on:
   workflow_dispatch:
@@ -7,14 +7,14 @@ on:
 
 env:
   REPO_URL: https://github.com/Lienol/openwrt
-  REPO_BRANCH: '25.12'
-  CONFIG_FILE: configs/Lienol-25.12.config
-  DIY_SCRIPT: custom/Lienol-25.12.sh
+  REPO_BRANCH: '24.10'
+  CONFIG_FILE: configs/Lienol-passwall.config
+  DIY_SCRIPT: custom/Lienol-passwall.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: Lienol-25.12
+  FIRMWARE_TAG: Lienol-passwall
   TZ: Asia/Shanghai
 
 jobs:
