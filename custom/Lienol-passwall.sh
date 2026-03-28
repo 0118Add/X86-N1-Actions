@@ -145,11 +145,9 @@ git clone --depth 1 -b dev https://github.com/immortalwrt/homeproxy package/luci
 sed -i "s/ImmortalWrt/OpenWrt/g" package/luci-app-homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
-# mihomo
-#git clone https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
+# mihomo momo
+git clone https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
-#sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/po/zh_Hans/mihomo.po
-#sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/root/usr/share/luci/menu.d/luci-app-mihomo.json
 
 # turboacc
 #git clone https://github.com/chenmozhijin/turboacc package/new/luci-app-turboacc
