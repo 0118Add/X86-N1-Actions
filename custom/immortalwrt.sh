@@ -35,14 +35,14 @@ sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/confi
 # 修改IP地址
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
+# 修改x86内核版本
+#sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefile
+
 # 修改连接数
 sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 
 # 修正连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
-
-# 替换内核
-#sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=6.6/g' target/linux/x86/Makefile
 
 # 内核替换成 kernel 5.xxx
 #sed -i 's/LINUX_KERNEL_HASH-5.15.114 = e981ea5d219f77735bf5a3f7e84a8af578df8ac3e1c4ff1b0649e2b0795277d2/LINUX_KERNEL_HASH-5.15.115 = 1b076860779235e90519e867c1ec78c7a34d1125d8fdba787ff495c7c14f1214/g' ./include/kernel-5.15
@@ -62,7 +62,7 @@ sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 #添加额外软件包
-rm -rf feeds/packages/net/{dae,xray-core,sing-box}
+rm -rf feeds/packages/net/{dae,xray-core}
 #git clone --depth=1 -b openwrt-23.05 https://github.com/openwrt/openwrt openwrt-openwrt 
 #cp -rf openwrt-openwrt/package/libs/mbedtls package/libs/mbedtls
 #rm -rf feeds/luci/applications/luci-app-dockerman
@@ -95,6 +95,10 @@ git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 # golang 1.26
 rm -rf feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
+
+# 预编译 node
+rm -rf feeds/packages/lang/node/node
+git clone --depth=1 -b packages-24.10 https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node/node
 
 # luci-app-filemanager
 rm -rf feeds/luci/applications/luci-app-filemanager
