@@ -96,7 +96,7 @@ rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 rm -rf feeds/luci/applications/luci-app-zerotier
 
 #git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
-#git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
+git clone https://github.com/gdy666/luci-app-lucky package/luci-app-lucky
 merge_package https://github.com/kiddin9/kwrt-packages kwrt-packages/luci-app-passwall
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
@@ -124,6 +124,7 @@ sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-arg
 sed -i 's/Design 主题设置/Design设置/g' feeds/luci/applications/luci-app-design-config/po/zh-cn/design-config.po
 #sed -i 's/一键分区扩容/分区扩容/g' package/luci-app-partexp/po/zh-cn/partexp.po
 #sed -i 's/ShadowSocksR Plus+/SSR Plus+/g' package/custom/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i 's/Lucky/Lucky大吉/g' package/luci-app-lucky/luasrc/controller/lucky.lua
 #sed -i 's/Argon 主题设置/主题设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
 #sed -i 's/Frp 内网穿透/内网穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
 #sed -i 's/Docker CE 容器/Docker 容器/g' feeds/luci/applications/luci-app-docker/po/zh-cn/docker.po
