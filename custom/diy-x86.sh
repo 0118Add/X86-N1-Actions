@@ -83,7 +83,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 #git clone --depth=1 -b packages-24.10 https://github.com/sbwml/feeds_packages_lang_node-prebuilt feeds/packages/lang/node
 
 # 移除重复软件包
-rm -rf feeds/packages/net/{xray-core,sing-box}
+rm -rf feeds/packages/net/{lucky,v2ray-geodata,xray-core,sing-box}
 #rm -rf feeds/packages/net/{dae,daed}
 rm -rf feeds/luci/applications/luci-app-openclash
 #rm -rf feeds/luci/applications/luci-app-dockerman
@@ -97,8 +97,8 @@ rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 rm -rf feeds/luci/applications/luci-app-zerotier
 
 #git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
-git clone https://github.com/gdy666/luci-app-lucky package/luci-app-lucky
-merge_package https://github.com/kiddin9/kwrt-packages kwrt-packages/luci-app-passwall
+git clone https://github.com/gdy666/luci-app-lucky package/lucky
+merge_package https://github.com/kiddin9/op-packages op-packages/luci-app-passwall
 #git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 #git clone https://github.com/siropboy/luci-app-bypass package/luci-app-bypass
