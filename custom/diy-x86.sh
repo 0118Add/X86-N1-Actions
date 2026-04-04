@@ -46,13 +46,6 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 # 修改x86内核版本
 #sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=6.18/g' ./target/linux/x86/Makefile
 
-# 修改内核版本
-KERNEL_PATCHVER=$(cat target/linux/x86/Makefile|grep KERNEL_PATCHVER | sed 's/^.\{17\}//g')
-KERNEL_TESTING_PATCHVER=$(cat target/linux/x86/Makefile|grep KERNEL_TESTING_PATCHVER | sed 's/^.\{25\}//g')
-if [[ $KERNEL_TESTING_PATCHVER > $KERNEL_PATCHVER ]]; then
-  sed -i "s/$KERNEL_PATCHVER/$KERNEL_TESTING_PATCHVER/g" target/linux/x86/Makefile
-fi
-
 # 内核替换 kernel xxx
 #sed -i 's/LINUX_KERNEL_HASH-6.6.23 = 200fd119cb9ef06bcedcdb52be00ba443163eab154295c5831fed9a12211a8b9/LINUX_KERNEL_HASH-6.6.22 = 23e3e7b56407250f5411bdab95763d0bc4e3a19dfa431d951df7eacabd61a2f4/g' ./include/kernel-6.6
 #sed -i 's/LINUX_VERSION-6.6 = .23/LINUX_VERSION-6.6 = .22/g' ./include/kernel-6.6
