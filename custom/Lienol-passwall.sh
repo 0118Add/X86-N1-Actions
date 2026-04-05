@@ -269,7 +269,7 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 
 # autocore
 #git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autocore
-git_sparse_clone main https://github.com/0118Add/s9xxx-actions autocore
+git clone https://github.com/sbwml/autocore-arm -b openwrt-25.12 package/autocore
 
 # Default settings
 rm -rf package/default-settings
