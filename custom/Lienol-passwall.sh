@@ -155,6 +155,12 @@ curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turbo
 sed -i 's/Turbo ACC 网络加速/网络加速/g' package/turboacc/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 克隆immortalwrt-luci packages仓库
+#rm -rf package/default-settings
+#git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/immortalwrt immortalwrt
+#cp -rf immortalwrt/package/emortal/autocore package/emortal/autocore
+#ln -sf ../../../package/emortal/autocore ./package/emortal/autocore
+#cp -rf immortalwrt/package/emortal/default-settings package/emortal/default-settings
+#ln -sf ../../../package/emortal/default-settings ./package/emortal/default-settings
 git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/luci.git immortalwrt-luci
 cp -rf immortalwrt-luci/applications/luci-app-diskman feeds/luci/applications/luci-app-diskman
 ln -sf ../../../feeds/luci/applications/luci-app-diskman ./package/feeds/luci/luci-app-diskman
