@@ -273,7 +273,7 @@ git_sparse_clone main https://github.com/0118Add/X86-Actions autocore-arm
 
 # Default settings
 rm -rf package/default-settings
-git clone https://github.com/sbwml/default-settings package/default-settings
+git clone https://github.com/8688Add/default-settings package/default-settings
 
 # comment out the following line to restore the full description
 sed -i '/# timezone/i grep -q '\''/tmp/sysinfo/model'\'' /etc/rc.local || sudo sed -i '\''/exit 0/i [ "$(cat /sys\\/class\\/dmi\\/id\\/sys_vendor 2>\\/dev\\/null)" = "Default string" ] \&\& echo "x86_64" > \\/tmp\\/sysinfo\\/model'\'' /etc/rc.local\n' package/default-settings/default/zzz-default-settings
