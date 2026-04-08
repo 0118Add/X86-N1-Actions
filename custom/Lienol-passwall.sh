@@ -270,7 +270,7 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 # autocore
 rm -rf package/default-settings
 #git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autocore
-git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/immortalwrt/package/emortal autocore default-settings
+git_sparse_clone openwrt-24.10 https://github.com/immortalwrt/immortalwrt autocore default-settings
 
 # Default settings
 #rm -rf package/default-settings
