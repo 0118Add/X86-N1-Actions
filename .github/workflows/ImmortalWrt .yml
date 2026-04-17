@@ -138,13 +138,13 @@ jobs:
         cd $OPENWRT_PATH
         echo -e "========== 开始编译，使用 $(nproc) 线程 =========="
         # 分级编译策略 + 正确状态判断
-        make -j$(nproc); then
+        make -j$(nproc)
         echo "✅ 编译成功 (多线程)"
         echo "status=success" >> $GITHUB_OUTPUT
-        make -j1; then
+        make -j1
         echo "✅ 编译成功 (单线程)"
         echo "status=success" >> $GITHUB_OUTPUT
-        make -j1 V=s; then
+        make -j1 V=s
         echo "✅ 编译成功 (单线程+详细日志)"
         echo "status=success" >> $GITHUB_OUTPUT
         echo "❌ 编译失败！"
