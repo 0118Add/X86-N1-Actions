@@ -138,18 +138,17 @@ jobs:
         cd $OPENWRT_PATH
         echo -e "========== 开始编译，使用 $(nproc) 线程 =========="
         # 分级编译策略 + 正确状态判断
-        if make -j$(nproc); then
-          echo "✅ 编译成功 (多线程)"
-          echo "status=success" >> $GITHUB_OUTPUT
-        elif make -j1; then
-          echo "✅ 编译成功 (单线程)"
-          echo "status=success" >> $GITHUB_OUTPUT
-        elif make -j1 V=s; then
-          echo "✅ 编译成功 (单线程+详细日志)"
-          echo "status=success" >> $GITHUB_OUTPUT
-        else
-          echo "❌ 编译失败！"
-          echo "status=failed" >> $GITHUB_OUTPUT
+        make -j$(nproc); then
+        echo "✅ 编译成功 (多线程)"
+        echo "status=success" >> $GITHUB_OUTPUT
+        make -j1; then
+        echo "✅ 编译成功 (单线程)"
+        echo "status=success" >> $GITHUB_OUTPUT
+        make -j1 V=s; then
+        echo "✅ 编译成功 (单线程+详细日志)"
+        echo "status=success" >> $GITHUB_OUTPUT
+        echo "❌ 编译失败！"
+        echo "status=failed" >> $GITHUB_OUTPUT
         echo "DATE=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "FILE_DATE=$(date +"%Y.%m.%d")" >> $GITHUB_ENV
 
