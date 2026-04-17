@@ -81,7 +81,7 @@ git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 #git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 #git clone https://github.com/Jaykwok2999/luci-app-tailscale  package/luci-app-tailscale
-#git clone https://github.com/QiuSimons/luci-app-dae package/dae
+#git clone --depth=1 -b kix https://github.com/QiuSimons/luci-app-dae package/dae
 git clone --depth=1 -b dev https://github.com/vernesong/openclash package/openclash
 
 # homeproxy
@@ -89,8 +89,9 @@ git clone --depth=1 -b dev https://github.com/vernesong/openclash package/opencl
 sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/zh_Hans/homeproxy.po
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
-# mihomo
+# mihomo momo
 #git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
+#git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
 
 # golang 1.26
 rm -rf feeds/packages/lang/golang
