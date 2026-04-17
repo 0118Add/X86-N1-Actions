@@ -141,12 +141,12 @@ jobs:
         make -j$(nproc)
         echo "✅ 编译成功 (多线程)"
         echo "status=success" >> $GITHUB_OUTPUT
-        make -j1
-        echo "✅ 编译成功 (单线程)"
-        echo "status=success" >> $GITHUB_OUTPUT
-        make -j1 V=s
-        echo "✅ 编译成功 (单线程+详细日志)"
-        echo "status=success" >> $GITHUB_OUTPUT
+        #make -j1
+        #echo "✅ 编译成功 (单线程)"
+        #echo "status=success" >> $GITHUB_OUTPUT
+        #make -j1 V=s
+        #echo "✅ 编译成功 (单线程+详细日志)"
+        #echo "status=success" >> $GITHUB_OUTPUT
         echo "❌ 编译失败！"
         echo "status=failed" >> $GITHUB_OUTPUT
         echo "DATE=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
