@@ -136,7 +136,7 @@ jobs:
       id: compile
       run: |
         cd $OPENWRT_PATH
-        echo -e "========== 开始编译，使用 $(nproc) 线程 =========="
+        echo -e " 开始编译，使用 $(nproc) 线程 "
         # 分级编译策略 + 正确状态判断
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo ✅ 编译成功 (多线程) || ✅ 编译成功 (单线程) || ✅ 编译成功 (单线程+详细日志)
