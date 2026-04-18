@@ -113,7 +113,8 @@ rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multip
 #git clone https://github.com/0118Add/luci-app-vssr package/luci-app-vssr
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 #git clone -b main --single-branch https://github.com/xiaorouji/openwrt-passwall package/passwall-luci
-git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
+#git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
+#git_sparse_clone main https://github.com/Openwrt-Passwall/openwrt-passwall-packages sing-box
 #git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages coremark
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
@@ -147,7 +148,7 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" package/luci-app-homeproxy/htdocs/l
 
 # mihomo
 #git clone https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
-git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
+#git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 #sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/po/zh_Hans/mihomo.po
 #sed -i 's/MihomoTProxy/Mihomo/g' package/openwrt-mihomo/luci-app-mihomo/root/usr/share/luci/menu.d/luci-app-mihomo.json
 
@@ -175,8 +176,8 @@ ln -sf ../../../feeds/luci/applications/luci-app-zerotier ./package/feeds/luci/l
 git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/packages.git immortalwrt-packages
 cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
 ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
-cp -rf immortalwrt-packages/net/zerotier feeds/packages/net/zerotier
-ln -sf ../../../feeds/packages/net/zerotier ./package/feeds/packages/zerotier
+cp -rf immortalwrt-packages/net/sing-box feeds/packages/net/sing-box
+ln -sf ../../../feeds/packages/net/sing-box ./package/feeds/packages/sing-box
 
 # 修改系统文件
 #curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
@@ -270,7 +271,7 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # autocore
-git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autocore
+git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
 
 # Default settings
 rm -rf package/default-settings
