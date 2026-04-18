@@ -178,6 +178,8 @@ cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
 ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
 cp -rf immortalwrt-packages/net/sing-box feeds/packages/net/sing-box
 ln -sf ../../../feeds/packages/net/sing-box ./package/feeds/packages/sing-box
+cp -rf immortalwrt-packages/net/zerotier feeds/packages/net/zerotier
+ln -sf ../../../feeds/packages/net/zerotier ./package/feeds/packages/zerotier
 
 # 修改系统文件
 #curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
