@@ -93,6 +93,12 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 #git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 #git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
 
+# autocore default-settings
+rm -rf package/emortal/autocore
+rm -rf package/emortal/default-settings
+merge_package main https://github.com/0118Add/Openwrt-CI package/Openwrt-CI autocore
+git clone https://github.com/sbwml/default-settings package/default-settings
+
 # golang 1.26
 rm -rf feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
