@@ -96,7 +96,7 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 # autocore default-settings
 rm -rf package/emortal/autocore
 rm -rf package/emortal/default-settings
-merge_package main https://github.com/0118Add/Openwrt-CI package/Openwrt-CI autocore
+git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
 git clone https://github.com/sbwml/default-settings package/default-settings
 
 # golang 1.26
