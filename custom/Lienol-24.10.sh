@@ -275,7 +275,8 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # autocore
-git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
+git clone --depth=1 -b openwrt-24.10 https://github.com/8688Add/autocore-arm package/autocore
+#git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
 
 # Default settings
 rm -rf package/default-settings
