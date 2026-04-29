@@ -1,20 +1,20 @@
-name: ImmortalWrt-nik
+name: ImmortalWrt-6.18
 
 on:
   workflow_dispatch:
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-25.12
+  REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: configs/immortalwrt-nikki.config
+  CONFIG_FILE: configs/immortalwrt-6.18.config
   DIY_P1_SH: diy-part1.sh
-  DIY_SCRIPT: custom/immortalwrt-nikki.sh
+  DIY_SCRIPT: custom/immortalwrt-6.18.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: immortalwrt-nikki
+  FIRMWARE_TAG: immortalwrt-6.18
   TZ: Asia/Shanghai
 
 jobs:
