@@ -44,8 +44,14 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 # 设置root用户密码为password
 sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7:::/g' package/base-files/files/etc/shadow
 
+# autocore default-settings
+rm -rf package/emortal/autocore
+rm -rf package/emortal/default-settings
+git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
+git clone https://github.com/sbwml/default-settings package/default-settings
+
 # 核心库
-rm -rf feeds/packages/net/{xray-core,sing-box}
+rm -rf feeds/packages/net/{dae,xray-core}
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 
 # openclash
@@ -63,6 +69,10 @@ git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 
 # momo
 git clone -b main --depth 1 https://github.com/nikkinikki-org/OpenWrt-momo package/OpenWrt-momo
+
+# dae
+rm -rf feeds/luci/applications/luci-app-dae
+git clone --depth=1 -b kix https://github.com/QiuSimons/luci-app-dae package/dae
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
@@ -110,8 +120,8 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 #sed -i 's/Dockerman JS/Docker/g' feeds/luci/applications/luci-app-dockerman/root/usr/share/luci/menu.d/luci-app-dockerman.json
 
 # 自定义默认配置
-sed -i '/exit 0$/d' package/emortal/default-settings/files/99-default-settings
-cat ${GITHUB_WORKSPACE}/general/default-settings >> package/emortal/default-settings/files/99-default-settings
+#sed -i '/exit 0$/d' package/emortal/default-settings/files/99-default-settings
+#cat ${GITHUB_WORKSPACE}/general/default-settings >> package/emortal/default-settings/files/99-default-settings
 curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/patch/25.12/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/lede/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
