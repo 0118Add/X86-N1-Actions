@@ -1,4 +1,4 @@
-name: ImmortalWrt-mo
+name: ImmortalWrt-6.12
 
 on:
   workflow_dispatch:
@@ -7,14 +7,14 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-25.12
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: configs/immortalwrt-momo.config
+  CONFIG_FILE: configs/immortalwrt-6.12.config
   DIY_P1_SH: diy-part1.sh
-  DIY_SCRIPT: custom/immortalwrt-momo.sh
+  DIY_SCRIPT: custom/immortalwrt-6.12.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: immortalwrt-momo
+  FIRMWARE_TAG: immortalwrt-6.12
   TZ: Asia/Shanghai
 
 jobs:
