@@ -73,6 +73,7 @@ git clone -b main --depth 1 https://github.com/nikkinikki-org/OpenWrt-momo packa
 # dae
 rm -rf feeds/luci/applications/luci-app-dae
 git clone --depth=1 -b kix https://github.com/QiuSimons/luci-app-dae package/dae
+git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
