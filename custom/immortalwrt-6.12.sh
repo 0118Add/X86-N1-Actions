@@ -72,8 +72,8 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 
 # dae
 rm -rf feeds/luci/applications/luci-app-dae
-git clone --depth=1 -b kix https://github.com/QiuSimons/luci-app-dae package/dae
-git clone https://github.com/QiuSimons/vmlinux-btf package/vmlinux-btf
+git_sparse_clone kix https://github.com/QiuSimons/luci-app-dae luci-app-dae
+git_sparse_clone master https://github.com/8688Add/openwrt_pkgs dae
 
 # partexp
 git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
