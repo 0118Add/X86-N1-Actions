@@ -61,6 +61,12 @@ sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
+# autocore default-settings
+rm -rf package/emortal/autocore
+rm -rf package/emortal/default-settings
+git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
+git clone https://github.com/sbwml/default-settings package/default-settings
+
 #添加额外软件包
 rm -rf feeds/packages/net/{dae,xray-core}
 #git clone --depth=1 -b openwrt-23.05 https://github.com/openwrt/openwrt openwrt-openwrt 
@@ -93,11 +99,12 @@ sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-ho
 #git clone https://github.com/nikkinikki-org/OpenWrt-nikki  package/OpenWrt-nikki
 #git clone https://github.com/nikkinikki-org/OpenWrt-momo  package/OpenWrt-momo
 
-# autocore default-settings
-rm -rf package/emortal/autocore
-rm -rf package/emortal/default-settings
-git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
-git clone https://github.com/sbwml/default-settings package/default-settings
+# dae
+rm -rf feeds/luci/applications/luci-app-dae
+git_sparse_clone kix https://github.com/QiuSimons/luci-app-dae luci-app-dae
+git_sparse_clone master https://github.com/8688Add/openwrt_pkgs dae
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2026.04.30/g' package/dae/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4f85d8f78958bea01a90da6feb315bcf766c4804/g' package/dae/Makefile
 
 # golang 1.26
 rm -rf feeds/packages/lang/golang
