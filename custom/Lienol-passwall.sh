@@ -114,7 +114,7 @@ rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multip
 #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
 git_sparse_clone main https://github.com/kiddin9/op-packages luci-app-passwall
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall
-git_sparse_clone dev https://github.com/fw876/helloworld luci-app-ssr-plus
+git_sparse_clone dev https://github.com/fw876/helloworld luci-app-ssr-plus dns2tcp lua-neturl mosdns
 #git clone https://github.com/sbwml/openwrt_helloworld package/openwrt_helloworld
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages coremark
 #git clone https://github.com/xiaorouji/openwrt-passwall2 package/passwall2
