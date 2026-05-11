@@ -80,6 +80,14 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 # 修正连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
+# autocore
+git clone --depth=1 -b openwrt-24.10 https://github.com/8688Add/autocore-arm package/autocore
+#git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
+
+# Default settings
+rm -rf package/default-settings
+git clone https://github.com/sbwml/default-settings package/default-settings
+
 # golang 1.26
 rm -rf feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
@@ -93,17 +101,18 @@ rm -rf feeds/other/lean/autocore
 rm -rf package/public/autocore
 rm -rf package/public/autosamba
 #rm -rf package/kernel/r8152
-rm -rf feeds/packages/net/{sing-box,xray-core,zerotier}
-rm -rf feeds/other/luci-app-diskman
-rm -rf feeds/other/luci-app-dockerman
-rm -rf feeds/other/lean/luci-app-autoreboot
-rm -rf feeds/other/lean/luci-app-turboacc
-rm -rf feeds/other/lean/luci-app-zerotier
+rm -rf feeds/packages/net/{sing-box,v2ray-geodata,xray-core,zerotier}
+rm -rf feeds/lienol/other/luci-app-diskman
+rm -rf feeds/lienol/other/luci-app-dockerman
+rm -rf feeds/lienol/other/lean/luci-app-autoreboot
+rm -rf feeds/lienol/other/lean/luci-app-turboacc
+rm -rf feeds/lienol/other/lean/luci-app-zerotier
 rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-filemanager
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-ttyd
+rm -rf feeds/luci/applications/luci-app-ramfree
 rm -rf feeds/lienol/luci-app-ramfree
 rm -rf target/linux/generic/hack-6.12/952-add-net-conntrack-events-support-multiple-registrant.patch
 rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multiple-registrant.patch
@@ -273,14 +282,6 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/*.lua
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
-
-# autocore
-git clone --depth=1 -b openwrt-24.10 https://github.com/8688Add/autocore-arm package/autocore
-#git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
-
-# Default settings
-rm -rf package/default-settings
-git clone https://github.com/sbwml/default-settings package/default-settings
 
 # 自定义默认配置
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
