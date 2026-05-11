@@ -287,7 +287,7 @@ sed -i '/# timezone/i sed -i "s/\\(DISTRIB_DESCRIPTION=\\).*/\\1'\''OpenWrt $(se
 #curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/os-release > package/base-files/files/etc/os-release
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/scripts/os-release > package/base-files/files/etc/os-release
 
-rm -rf feeds/packages/zabbix
+rm -rf feeds/packages/admin/zabbix
 rm -rf feeds/packages/net/onionshare-cli
 
 ./scripts/feeds update -i
