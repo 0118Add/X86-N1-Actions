@@ -94,17 +94,17 @@ rm -rf package/public/autocore
 rm -rf package/public/autosamba
 #rm -rf package/kernel/r8152
 rm -rf feeds/packages/net/{sing-box,xray-core,zerotier}
-rm -rf feeds/other/luci-app-diskman
-rm -rf feeds/other/luci-app-dockerman
-rm -rf feeds/other/lean/luci-app-autoreboot
-rm -rf feeds/other/lean/luci-app-turboacc
-rm -rf feeds/other/lean/luci-app-zerotier
+rm -rf feeds/lienol/other/luci-app-diskman
+rm -rf feeds/lienol/other/luci-app-dockerman
+rm -rf feeds/lienol/other/lean/luci-app-autoreboot
+rm -rf feeds/lienol/other/lean/luci-app-turboacc
+rm -rf feeds/lienol/other/lean/luci-app-zerotier
 rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-filemanager
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-ttyd
-rm -rf feeds/lienol/luci-app-ramfree
+rm -rf feeds/luci/applications/luci-app-ramfree
 rm -rf target/linux/generic/hack-6.12/952-add-net-conntrack-events-support-multiple-registrant.patch
 rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multiple-registrant.patch
 
@@ -287,6 +287,7 @@ sed -i '/# timezone/i sed -i "s/\\(DISTRIB_DESCRIPTION=\\).*/\\1'\''OpenWrt $(se
 #curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/os-release > package/base-files/files/etc/os-release
 curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/scripts/os-release > package/base-files/files/etc/os-release
 
+rm -rf feeds/packages/zabbix
 rm -rf feeds/packages/net/onionshare-cli
 
 ./scripts/feeds update -i
