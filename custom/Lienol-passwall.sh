@@ -80,6 +80,13 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 # 修正连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
+# autocore
+git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autocore
+
+# Default settings
+rm -rf package/default-settings
+git clone https://github.com/sbwml/default-settings package/default-settings
+
 # golang 1.26
 rm -rf feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
@@ -268,13 +275,6 @@ sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/*.lua
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
 #sed -i 's/services/vpn/g' package/luci-app-openclash/luci-app-openclash/luasrc/view/openclash/*.htm
-
-# autocore
-git clone https://github.com/8688Add/autocore-arm -b openwrt-24.10 package/autocore
-
-# Default settings
-rm -rf package/default-settings
-git clone https://github.com/sbwml/default-settings package/default-settings
 
 # 自定义默认配置
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/x86/diy/x86_lede/10_system.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
