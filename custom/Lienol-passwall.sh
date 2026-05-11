@@ -93,7 +93,7 @@ rm -rf feeds/other/lean/autocore
 rm -rf package/public/autocore
 rm -rf package/public/autosamba
 #rm -rf package/kernel/r8152
-rm -rf feeds/packages/net/{sing-box,xray-core,zerotier}
+rm -rf feeds/packages/net/{sing-box,v2ray-geodata,xray-core,zerotier}
 rm -rf feeds/lienol/other/luci-app-diskman
 rm -rf feeds/lienol/other/luci-app-dockerman
 rm -rf feeds/lienol/other/lean/luci-app-autoreboot
