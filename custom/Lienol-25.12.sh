@@ -20,7 +20,7 @@ function git_sparse_clone() {
 }
 
 # 修改主机名字（不能纯数字或者使用中文）
-#sed -i "s/hostname='.*'/hostname='X86'/g" package/base-files/files/bin/config_generate
+sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
 #sed -i "s/OpenWrt /OPWRT/g" package/lean/default-settings/files/zzz-default-settings
 
 # 加入作者信息
@@ -42,7 +42,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 替换内核
-#sed -i 's/KERNEL_PATCHVER:=6.6/KERNEL_PATCHVER:=6.12/g' target/linux/x86/Makefile
+sed -i 's/KERNEL_PATCHVER:=6.12/KERNEL_PATCHVER:=6.18/g' target/linux/x86/Makefile
 
 # 内核替换 kernel xxx
 #sed -i 's/LINUX_KERNEL_HASH-6.12.62 = 13e2c685ac8fab5dd992dd105732554dae514aef350c2a8c7418e7b74eb62c13/LINUX_KERNEL_HASH-6.12.55 = 328f8f4608a653063a5fd82d29b17163faab2825fa419fa85b961740a342fb9f/g' ./include/kernel-6.12
@@ -81,8 +81,7 @@ sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
 # autocore
-git clone --depth=1 -b openwrt-25.12 https://github.com/8688Add/autocore-arm package/autocore
-#git_sparse_clone main https://github.com/0118Add/Openwrt-CI autocore
+git clone --depth=1 -b openwrt-25.12 https://github.com/sbwml/autocore-arm package/autocore
 
 # Default settings
 rm -rf package/default-settings
@@ -110,9 +109,11 @@ rm -rf feeds/lienol/other/lean/luci-app-zerotier
 rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-filemanager
+rm -rf feeds/luci/applications/luci-app-mjpg-streamer
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-ttyd
 rm -rf feeds/luci/applications/luci-app-ramfree
+rm -rf feeds/lienol/luci-app-mtwifi
 rm -rf feeds/lienol/luci-app-ramfree
 rm -rf target/linux/generic/hack-6.12/952-add-net-conntrack-events-support-multiple-registrant.patch
 rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multiple-registrant.patch
@@ -134,12 +135,12 @@ rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multip
 #git clone https://github.com/8688Add/luci-theme-argon-dark-mod.git package/luci-theme-argon-dark-mod
 #git clone https://github.com/justice2001/luci-app-multi-frpc package/luci-app-multi-frpc
 #git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
-#git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
+git clone -b dev --depth 1 https://github.com/vernesong/OpenClash package/OpenClash
 #git clone https://github.com/EasyTier/luci-app-easytier package/luci-app-easytier
 #git clone https://github.com/asvow/luci-app-tailscale  package/luci-app-tailscale
 #git clone https://github.com/8688Add/luci-app-zerotier package/luci-app-zerotier
-#git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
-#git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
+git clone https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
+git clone https://github.com/sirpdboy/luci-app-partexp package/luci-app-partexp
 #git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
 #git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone -b nekobox --depth 1 https://github.com/Thaolga/openwrt-nekobox package/nekobox
@@ -167,33 +168,34 @@ rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multip
 #sed -i 's/Turbo ACC 网络加速/网络加速/g' package/turboacc/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 克隆immortalwrt-luci packages仓库
-#git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/luci.git immortalwrt-luci
-#cp -rf immortalwrt-luci/applications/luci-app-diskman feeds/luci/applications/luci-app-diskman
-#ln -sf ../../../feeds/luci/applications/luci-app-diskman ./package/feeds/luci/luci-app-diskman
+git clone --depth=1 -b openwrt-25.12 https://github.com/immortalwrt/luci.git immortalwrt-luci
+cp -rf immortalwrt-luci/applications/luci-app-diskman feeds/luci/applications/luci-app-diskman
+ln -sf ../../../feeds/luci/applications/luci-app-diskman ./package/feeds/luci/luci-app-diskman
 #cp -rf immortalwrt-luci/applications/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 #ln -sf ../../../feeds/luci/applications/luci-app-dockerman ./package/feeds/luci/luci-app-dockerman
-#cp -rf immortalwrt-luci/applications/luci-app-msd_lite feeds/luci/applications/luci-app-msd_lite
-#ln -sf ../../../feeds/luci/applications/luci-app-msd_lite ./package/feeds/luci/luci-app-msd_lite
-#cp -rf immortalwrt-luci/applications/luci-app-ramfree feeds/luci/applications/luci-app-ramfree
-#ln -sf ../../../feeds/luci/applications/luci-app-ramfree ./package/feeds/luci/luci-app-ramfree
-#cp -rf immortalwrt-luci/applications/luci-app-ttyd feeds/luci/applications/luci-app-ttyd
-#ln -sf ../../../feeds/luci/applications/luci-app-ttyd ./package/feeds/luci/luci-app-ttyd
-#cp -rf immortalwrt-luci/applications/luci-app-unblockneteasemusic feeds/luci/applications/luci-app-unblockneteasemusic
-#ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/feeds/luci/luci-app-unblockneteasemusic
+cp -rf immortalwrt-luci/applications/luci-app-msd_lite feeds/luci/applications/luci-app-msd_lite
+ln -sf ../../../feeds/luci/applications/luci-app-msd_lite ./package/feeds/luci/luci-app-msd_lite
+cp -rf immortalwrt-luci/applications/luci-app-ramfree feeds/luci/applications/luci-app-ramfree
+ln -sf ../../../feeds/luci/applications/luci-app-ramfree ./package/feeds/luci/luci-app-ramfree
+cp -rf immortalwrt-luci/applications/luci-app-ttyd feeds/luci/applications/luci-app-ttyd
+ln -sf ../../../feeds/luci/applications/luci-app-ttyd ./package/feeds/luci/luci-app-ttyd
+cp -rf immortalwrt-luci/applications/luci-app-unblockneteasemusic feeds/luci/applications/luci-app-unblockneteasemusic
+ln -sf ../../../feeds/luci/applications/luci-app-unblockneteasemusic ./package/feeds/luci/luci-app-unblockneteasemusic
 #cp -rf immortalwrt-luci/applications/luci-app-zerotier feeds/luci/applications/luci-app-zerotier
 #ln -sf ../../../feeds/luci/applications/luci-app-zerotier ./package/feeds/luci/luci-app-zerotier
-#git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/packages.git immortalwrt-packages
-#cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
-#ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
-#cp -rf immortalwrt-packages/net/sing-box feeds/packages/net/sing-box
-#ln -sf ../../../feeds/packages/net/sing-box ./package/feeds/packages/sing-box
-#cp -rf immortalwrt-packages/net/xray-core feeds/packages/net/xray-core
-#ln -sf ../../../feeds/packages/net/xray-core ./package/feeds/packages/xray-core
+git clone --depth=1 -b openwrt-25.12 https://github.com/immortalwrt/packages.git immortalwrt-packages
+cp -rf immortalwrt-packages/net/msd_lite feeds/packages/net/msd_lite
+ln -sf ../../../feeds/packages/net/msd_lite ./package/feeds/packages/msd_lite
+cp -rf immortalwrt-packages/net/sing-box feeds/packages/net/sing-box
+ln -sf ../../../feeds/packages/net/sing-box ./package/feeds/packages/sing-box
+cp -rf immortalwrt-packages/net/xray-core feeds/packages/net/xray-core
+ln -sf ../../../feeds/packages/net/xray-core ./package/feeds/packages/xray-core
 #cp -rf immortalwrt-packages/net/zerotier feeds/packages/net/zerotier
 #ln -sf ../../../feeds/packages/net/zerotier ./package/feeds/packages/zerotier
 
-# 修改系统文件
-#curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/25_storage.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/25_storage.js
+# Dockerman
+git clone https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
+sed -i 's/"admin/"admin\/services/g' feeds/luci/applications/luci-app-dockerman/root/usr/share/luci/menu.d/luci-app-dockerman.json
 
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
 #sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
@@ -208,7 +210,7 @@ rm -rf target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multip
 #sed -i 's/Frp 内网穿透/内网穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
 #sed -i 's/Frpc内网穿透/内网穿透/g' package/luci-app-multi-frpc/po/zh-cn/frp.po
 #sed -i 's/NekoClash/Clash/g' package/nekoclash/luci-app-nekoclash/luasrc/controller/neko.lua
-#sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
+sed -i 's/解除网易云音乐播放限制/音乐解锁/g' feeds/luci/applications/luci-app-unblockneteasemusic/root/usr/share/luci/menu.d/luci-app-unblockneteasemusic.json
 #sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' package/aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/po/zh-cn/aliyundrive-webdav.po
 #sed -i 's/V2ray 服务器/V2ray服务/g' feeds/luci/applications/luci-app-v2ray-server/po/zh-cn/v2ray_server.po
 #sed -i 's/SoftEther VPN 服务器/SoftEther/g' feeds/luci/applications/luci-app-softethervpn/po/zh-cn/softethervpn.po
@@ -289,9 +291,9 @@ curl -fsSL https://raw.githubusercontent.com/0118Add/X86-Actions/main/general/25
 #curl -fsSL https://raw.githubusercontent.com/0118Add/Openwrt-CI/main/immortalwrt/29_ports.js > ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/29_ports.js
 
 # comment out the following line to restore the full description
-#sed -i '/# timezone/i grep -q '\''/tmp/sysinfo/model'\'' /etc/rc.local || sudo sed -i '\''/exit 0/i [ "$(cat /sys\\/class\\/dmi\\/id\\/sys_vendor 2>\\/dev\\/null)" = "Default string" ] \&\& echo "x86_64" > \\/tmp\\/sysinfo\\/model'\'' /etc/rc.local\n' package/default-settings/default/zzz-default-settings
-#sed -i '/# timezone/i sed -i "s/\\(DISTRIB_DESCRIPTION=\\).*/\\1'\''OpenWrt $(sed -n "s/DISTRIB_DESCRIPTION='\''OpenWrt \\([^ ]*\\) .*/\\1/p" /etc/openwrt_release)'\'',/" /etc/openwrt_release\nsource /etc/openwrt_release \&\& sed -i -e "s/distversion\\s=\\s\\".*\\"/distversion = \\"$DISTRIB_ID $DISTRIB_RELEASE ($DISTRIB_REVISION)\\"/g" -e '\''s/distname    = .*$/distname    = ""/g'\'' /usr/lib/lua/luci/version.lua\nsed -i "s/luciname    = \\".*\\"/luciname    = \\"LuCI openwrt-24.10\\"/g" /usr/lib/lua/luci/version.lua\nsed -i "s/luciversion = \\".*\\"/luciversion = \\"\\"/g" /usr/lib/lua/luci/version.lua\necho "export const revision = '\''\'\'', branch = '\''LuCI openwrt-24.10'\'';" > /usr/share/ucode/luci/version.uc\n/etc/init.d/rpcd restart\n' package/default-settings/default/zzz-default-settings
-#sed -i '/# timezone/i sed -i "s/\\(DISTRIB_DESCRIPTION=\\).*/\\1'\''OpenWrt $(sed -n "s/DISTRIB_DESCRIPTION='\''OpenWrt \\([^ ]*\\) .*/\\1/p" /etc/openwrt_release)'\'',/" /etc/openwrt_release\nsource /etc/openwrt_release \&\& sed -i -e "s/distversion\\s=\\s\\".*\\"/distversion = \\"$DISTRIB_ID $DISTRIB_RELEASE ($DISTRIB_REVISION)\\"/g" -e '\''s/distname    = .*$/distname    = ""/g'\'' /usr/lib/lua/luci/version.lua\nsed -i "s/luciname    = \\".*\\"/luciname    = \\"LuCI openwrt-24.10\\"/g" /usr/lib/lua/luci/version.lua\nsed -i "s/luciversion = \\".*\\"/luciversion = \\"v'$(date +%Y%m%d)'\\"/g" /usr/lib/lua/luci/version.lua\necho "export const revision = '\''v'$(date +%Y%m%d)'\'\'', branch = '\''LuCI openwrt-24.10'\'';" > /usr/share/ucode/luci/version.uc\n/etc/init.d/rpcd restart\n' package/default-settings/default/zzz-default-settings
+sed -i '/# timezone/i grep -q '\''/tmp/sysinfo/model'\'' /etc/rc.local || sudo sed -i '\''/exit 0/i [ "$(cat /sys\\/class\\/dmi\\/id\\/sys_vendor 2>\\/dev\\/null)" = "Default string" ] \&\& echo "x86_64" > \\/tmp\\/sysinfo\\/model'\'' /etc/rc.local\n' package/default-settings/default/zzz-default-settings
+sed -i '/# timezone/i sed -i "s/\\(DISTRIB_DESCRIPTION=\\).*/\\1'\''OpenWrt $(sed -n "s/DISTRIB_DESCRIPTION='\''OpenWrt \\([^ ]*\\) .*/\\1/p" /etc/openwrt_release)'\'',/" /etc/openwrt_release\nsource /etc/openwrt_release \&\& sed -i -e "s/distversion\\s=\\s\\".*\\"/distversion = \\"$DISTRIB_ID $DISTRIB_RELEASE ($DISTRIB_REVISION)\\"/g" -e '\''s/distname    = .*$/distname    = ""/g'\'' /usr/lib/lua/luci/version.lua\nsed -i "s/luciname    = \\".*\\"/luciname    = \\"LuCI openwrt-25.12\\"/g" /usr/lib/lua/luci/version.lua\nsed -i "s/luciversion = \\".*\\"/luciversion = \\"\\"/g" /usr/lib/lua/luci/version.lua\necho "export const revision = '\''\'\'', branch = '\''LuCI openwrt-25.12'\'';" > /usr/share/ucode/luci/version.uc\n/etc/init.d/rpcd restart\n' package/default-settings/default/zzz-default-settings
+sed -i '/# timezone/i sed -i "s/\\(DISTRIB_DESCRIPTION=\\).*/\\1'\''OpenWrt $(sed -n "s/DISTRIB_DESCRIPTION='\''OpenWrt \\([^ ]*\\) .*/\\1/p" /etc/openwrt_release)'\'',/" /etc/openwrt_release\nsource /etc/openwrt_release \&\& sed -i -e "s/distversion\\s=\\s\\".*\\"/distversion = \\"$DISTRIB_ID $DISTRIB_RELEASE ($DISTRIB_REVISION)\\"/g" -e '\''s/distname    = .*$/distname    = ""/g'\'' /usr/lib/lua/luci/version.lua\nsed -i "s/luciname    = \\".*\\"/luciname    = \\"LuCI openwrt-25.12\\"/g" /usr/lib/lua/luci/version.lua\nsed -i "s/luciversion = \\".*\\"/luciversion = \\"v'$(date +%Y%m%d)'\\"/g" /usr/lib/lua/luci/version.lua\necho "export const revision = '\''v'$(date +%Y%m%d)'\'\'', branch = '\''LuCI openwrt-25.12'\'';" > /usr/share/ucode/luci/version.uc\n/etc/init.d/rpcd restart\n' package/default-settings/default/zzz-default-settings
 #curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/general/os-release > package/base-files/files/etc/os-release
 #curl -fsSL https://raw.githubusercontent.com/0118Add/X86-N1-Actions/main/scripts/os-release > package/base-files/files/etc/os-release
 
