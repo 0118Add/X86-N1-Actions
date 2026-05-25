@@ -1,4 +1,4 @@
-name: X86_64 Lienol 23.05
+name: X86_64 Lienol 25.12
 
 on:
   workflow_dispatch:
