@@ -102,12 +102,12 @@ jobs:
         mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
         prefix: ${{ env.OPENWRT_PATH }}
 
-    - name: Load custom feeds
-      run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
-        chmod +x $DIY_P1_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH    
+    #- name: Load custom feeds
+       #run: |
+         #[ -e $FEEDS_CONF ] && mv $FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
+         #chmod +x $DIY_P1_SH
+         #cd openwrt
+         #$GITHUB_WORKSPACE/$DIY_P1_SH    
     
     - name: Install Feeds
       run: |
