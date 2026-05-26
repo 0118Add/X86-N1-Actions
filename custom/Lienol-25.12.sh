@@ -102,7 +102,7 @@ rm -rf package/public/autosamba
 rm -rf package/network/utils/fullconenat-nft
 rm -rf feeds/packages/net/{sing-box,v2ray-geodata,xray-core,zerotier}
 rm -rf feeds/lienol/other/luci-app-diskman
-rm -rf feeds/lienol/other/luci-app-dockerman
+#rm -rf feeds/lienol/other/luci-app-dockerman
 rm -rf feeds/lienol/other/lean/luci-app-autoreboot
 rm -rf feeds/lienol/other/lean/luci-app-turboacc
 rm -rf feeds/lienol/other/lean/luci-app-zerotier
@@ -198,8 +198,17 @@ sed -i "s/ImmortalWrt/OpenWrt/g" feeds/luci/applications/luci-app-homeproxy/po/z
 sed -i "s/ImmortalWrt proxy/OpenWrt proxy/g" feeds/luci/applications/luci-app-homeproxy/htdocs/luci-static/resources/view/homeproxy/{client.js,server.js}
 
 # Dockerman
-git clone https://github.com/sbwml/luci-app-dockerman package/luci-app-dockerman
-sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/root/usr/share/luci/menu.d/luci-app-dockerman.json
+#git clone https://github.com/sbwml/luci-app-dockerman package/luci-app-dockerman
+#sed -i 's/"admin/"admin\/services/g' package/luci-app-dockerman/root/usr/share/luci/menu.d/luci-app-dockerman.json
+
+# Realtek Ethernet driver - R8168 & R8125 & R8126 & R8152 & R8101 & r8127
+rm -rf package/kernel/{r8168,r8101,r8125,r8126,r8127}
+git clone https://github.com/sbwml/package_kernel_r8168 package/kernel/r8168
+git clone https://github.com/sbwml/package_kernel_r8152 package/kernel/r8152
+git clone https://github.com/sbwml/package_kernel_r8101 package/kernel/r8101
+git clone https://github.com/sbwml/package_kernel_r8125 package/kernel/r8125
+git clone https://github.com/sbwml/package_kernel_r8126 package/kernel/r8126
+git clone https://github.com/sbwml/package_kernel_r8127 package/kernel/r8127
 
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
 #sed -i 's/Argon 主题设置/Argon设置/g' feeds/luci/applications/luci-app-argon-config/po/zh-cn/argon-config.po
